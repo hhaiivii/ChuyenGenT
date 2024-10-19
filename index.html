@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Chèn mã CSS trực tiếp tại đây -->
     <style>
         body { 
             background: linear-gradient(135deg, #FF5F6D, #FFC371);
@@ -103,6 +102,28 @@
             margin: 5px 0;
             padding: 10px;
             border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comment-meta {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .comment-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #ff5f6d;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
@@ -151,7 +172,6 @@
             <p>This is another post where I share my opinions.</p>
         </article>
 
-        <!-- Phần bình luận -->
         <section id="comments-section">
             <h3>Leave a Comment:</h3>
             <form id="comment-form">
@@ -164,7 +184,6 @@
         </section>
     </main>
 
-    <!-- Nút chuyển đổi theme -->
     <button id="theme-toggle">Switch Theme</button>
     <script>
         const toggleButton = document.getElementById('theme-toggle');
@@ -179,10 +198,25 @@
             event.preventDefault();
             const name = document.getElementById('name').value;
             const comment = document.getElementById('comment').value;
+            const date = new Date().toLocaleString();
 
             const li = document.createElement('li');
-            li.textContent = `${name}: ${comment}`;
+            li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
+                            <div class="comment-actions">
+                                <button class="like-button">❤️ Like</button>
+                                <button class="delete-button">🗑️ Delete</button>
+                            </div>`;
             commentsList.appendChild(li);
+
+            const likeButton = li.querySelector('.like-button');
+            likeButton.addEventListener('click', function() {
+                alert(`${name}'s comment liked!`);
+            });
+
+            const deleteButton = li.querySelector('.delete-button');
+            deleteButton.addEventListener('click', function() {
+                commentsList.removeChild(li);
+            });
 
             form.reset();
         });
@@ -193,4 +227,3 @@
     </footer>
 </body>
 </html>
-
