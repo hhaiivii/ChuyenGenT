@@ -1,248 +1,137 @@
-<!DOCTYPE html> 
-<html lang="vi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuyện Gen T - Hành Trình 4.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Link đến styles.css -->
-    <style>
-        /* Các kiểu khác nếu cần */
-        body {
-            background: linear-gradient(135deg, #4b6cb7, #182848);
-            font-family: 'Poppins', sans-serif;
-            color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #f1f1f1;
-        }
-
-        header {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            margin: 0;
-            color: #ff6f91;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        nav a {
-            padding: 10px;
-            color: #f1f1f1;
-            text-decoration: none;
-            font-size: 18px;
-            margin-left: 20px;
-            transition: color 0.3s, transform 0.3s;
-        }
-        nav a:hover {
-            color: #ff6f91;
-            transform: scale(1.1);
-        }
-        button#theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #ff6f91;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        button#theme-toggle:hover {
-            background-color: #ff67a0;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        article {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        #comments-section {
-            margin-top: 30px;
-            padding: 15px;
-            border-top: 1px solid #ccc;
-        }
-        #comments-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        #comments-list li {
-            margin: 10px 0;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .comment-meta {
-            font-size: 12px;
-            color: #777;
-            margin-bottom: 5px;
-        }
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #ff6f91;
-            cursor: pointer;
-            margin-left: 10px;
-            font-size: 14px;
-        }
-        .reply-form {
-            margin-top: 10px;
-            display: none;
-            flex-direction: column;
-        }
-        .reply-list {
-            margin-top: 10px;
-            padding-left: 20px;
-            list-style-type: none;
-        }
-        button {
-            background-color: #3e8e41;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #2e7031;
-        }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Kết nối đến styles.css -->
 </head>
 <body>
     <header>
-        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
+        <h1>Welcome to Chuyện Gen T - Hành Trình 4.0</h1>
         <nav>
-            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
-            <a href="about.html">Giới thiệu</a>
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="about.html">About</a>
             <a href="#"><i class="fas fa-blog"></i> Blog</a>
         </nav>
     </header>
-    <main>
+
+    <main id="posts">
         <article>
-            <h2>Bài viết đầu tiên</h2>
-            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
+            <h2>First Blog Post</h2>
+            <p>This is my first blog post! Welcome to the blog.</p>
         </article>
         <article>
-            <h2>Bài viết khác</h2>
-            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
+            <h2>Another Blog Post</h2>
+            <p>This is another post where I share my opinions.</p>
         </article>
+
         <section id="comments-section">
-            <h3>Để lại bình luận:</h3>
+            <h3>Leave a Comment:</h3>
             <form id="comment-form">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
-                <button type="submit">Gửi</button>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="comment" placeholder="Your Comment" required></textarea>
+                <button type="submit">Submit</button>
             </form>
-            <h4>Bình luận:</h4>
+            <h4>Comments:</h4>
             <ul id="comments-list"></ul>
         </section>
     </main>
-    <button id="theme-toggle">Chuyển đổi chế độ</button>
+
+    <button id="theme-toggle">Switch Theme</button>
     <script>
         const toggleButton = document.getElementById('theme-toggle');
         toggleButton.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
         });
+
         const form = document.getElementById('comment-form');
         const commentsList = document.getElementById('comments-list');
+
+        // Load comments from Local Storage
         window.onload = function() {
             const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
             savedComments.forEach(displayComment);
         };
+
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value || 'Ẩn danh';
+            const name = document.getElementById('name').value || 'Anonymous'; // Ẩn danh nếu không có tên
             const comment = document.getElementById('comment').value;
             const date = new Date().toLocaleString();
+
             const commentData = { name, comment, date };
             displayComment(commentData);
             saveComment(commentData);
+
             form.reset();
         });
+
         function displayComment({ name, comment, date }) {
             const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}</strong>: ${comment} <span class="comment-meta">(${date})</span>
+            li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
                             <div class="comment-actions">
-                                <button class="reply-button">💬 Trả lời</button>
-                                <button class="like-button">❤️ Thích</button>
-                                <button class="delete-button">🗑️ Xóa</button>
+                                <button class="reply-button">💬 Reply</button>
+                                <button class="like-button">❤️ Like</button>
+                                <button class="delete-button">🗑️ Delete</button>
                             </div>
                             <ul class="reply-list"></ul>`;
             commentsList.appendChild(li);
-            li.querySelector('.like-button').addEventListener('click', () => alert(`Bình luận của ${name} đã được thích!`));
-            li.querySelector('.delete-button').addEventListener('click', () => {
-                commentsList.removeChild(li);
-                removeComment(name, comment);
+
+            // Thông báo khi có bình luận mới
+            alert('New comment added!');
+
+            const likeButton = li.querySelector('.like-button');
+            likeButton.addEventListener('click', function() {
+                alert(`${name}'s comment liked!`);
             });
+
+            const deleteButton = li.querySelector('.delete-button');
+            deleteButton.addEventListener('click', function() {
+                commentsList.removeChild(li);
+                removeComment(name, comment); // Xóa bình luận khỏi Local Storage
+            });
+
             const replyButton = li.querySelector('.reply-button');
-            replyButton.addEventListener('click', () => {
-                const replyForm = li.querySelector('.reply-form') || createReplyForm();
-                replyForm.style.display = replyForm.style.display === 'none' ? 'flex' : 'none';
+            replyButton.addEventListener('click', function() {
+                const replyForm = document.createElement('div');
+                replyForm.classList.add('reply-form');
+                replyForm.innerHTML = `
+                    <input type="text" placeholder="Your Name" required>
+                    <textarea placeholder="Your Reply" required></textarea>
+                    <button class="submit-reply">Submit Reply</button>
+                `;
                 li.appendChild(replyForm);
+
+                const submitReplyButton = replyForm.querySelector('.submit-reply');
+                submitReplyButton.addEventListener('click', function() {
+                    const replyName = replyForm.querySelector('input').value || 'Anonymous'; // Ẩn danh nếu không có tên
+                    const replyText = replyForm.querySelector('textarea').value;
+                    const replyDate = new Date().toLocaleString();
+
+                    const replyLi = document.createElement('li');
+                    replyLi.innerHTML = `${replyName}: ${replyText} <span class="comment-meta">(${replyDate})</span>`;
+                    const replyList = li.querySelector('.reply-list');
+                    replyList.appendChild(replyLi);
+                    replyForm.reset();
+                });
             });
         }
+
         function saveComment(commentData) {
             const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
             savedComments.push(commentData);
             localStorage.setItem('comments', JSON.stringify(savedComments));
         }
+
         function removeComment(name, comment) {
             let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
             savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment);
             localStorage.setItem('comments', JSON.stringify(savedComments));
         }
-        function createReplyForm() {
-            const replyForm = document.createElement('div');
-            replyForm.classList.add('reply-form');
-            const replyInput = document.createElement('textarea');
-            replyInput.placeholder = 'Trả lời bình luận...';
-            const replyButton = document.createElement('button');
-            replyButton.textContent = 'Gửi trả lời';
-            replyButton.addEventListener('click', () => {
-                const reply = replyInput.value;
-                if (reply) {
-                    const replyList = replyForm.parentNode.querySelector('.reply-list');
-                    const replyItem = document.createElement('li');
-                    replyItem.textContent = reply;
-                    replyList.appendChild(replyItem);
-                    replyInput.value = '';
-                }
-            });
-            replyForm.appendChild(replyInput);
-            replyForm.appendChild(replyButton);
-            return replyForm;
-        }
     </script>
 </body>
 </html>
+
