@@ -1,46 +1,41 @@
-#about {
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.85); /* Darker background for better contrast */
-    border-radius: 15px; /* Slightly larger border radius for a softer look */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6); /* Deeper shadow for more depth */
-    max-width: 800px; /* Limit width for better readability */
-    animation: fadeIn 0.5s ease-in-out; /* Animation effect for appearance */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Chuyện Gen T - Hành Trình 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>About Chuyện Gen T - Hành Trình 4.0</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
-/* Add fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    <main>
+        <section id="about-content">
+            <h2>Giới thiệu</h2>
+            <p>Chuyện Gen T - Hành Trình 4.0 là một blog tập trung vào việc khám phá các khía cạnh của thế hệ trẻ trong thời đại công nghệ số. Chúng em hy vọng sẽ mang đến cho bạn đọc những góc nhìn mới mẻ, những câu chuyện thú vị, và những thông tin hữu ích về thế giới xung quanh.</p>
 
-#about h2 {
-    color: #ff6f91; /* Vibrant pink for the heading */
-    text-align: center;
-    margin-bottom: 20px; /* Increased spacing below the title */
-    font-size: 2rem; /* Larger font size for the heading */
-    text-transform: uppercase; /* Uppercase letters for emphasis */
-    letter-spacing: 1px; /* Increased letter spacing for readability */
-}
+            <h2>Mục tiêu</h2>
+            <p>Chúng em mong muốn tạo ra một không gian chia sẻ nơi các bạn trẻ có thể kết nối, giao lưu, và học hỏi lẫn nhau. Bên cạnh đó, blog cũng hướng đến việc nâng cao nhận thức về các vấn đề xã hội, văn hóa và xu hướng mới của thế hệ trẻ hiện nay.</p>
 
-.about-content {
-    background: rgba(255, 255, 255, 0.15); /* Light background for content box */
-    padding: 20px; /* Inner padding for better text spacing */
-    border-radius: 10px; /* Round corners for content box */
-    border: 2px solid #ff6f91; /* Thicker pink border for style */
-    backdrop-filter: blur(10px); /* Blur effect for a softer background */
-}
-
-#about p {
-    font-size: 16px; /* Font size */
-    line-height: 1.8; /* Increased line height for better readability */
-    color: #f1f1f1; /* Lighter text for better contrast on dark background */
-    text-align: justify; /* Justify text for a neat appearance */
-    margin-bottom: 15px; /* Increased spacing between paragraphs */
-}
+            <h2>Liên hệ</h2>
+            <p>Để biết thêm thông tin, hoặc nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với chúng em qua địa chỉ email: contact@chuyengenT.com.</p>
+        </section>
+    </main>
+    
+    <button id="theme-toggle">Switch Theme</button>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
