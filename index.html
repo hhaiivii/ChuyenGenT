@@ -1,49 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog của tôi</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Include styles.css content here */
+    </style>
 </head>
 <body>
     <header>
+        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
         <nav>
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-            </ul>
+            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+            <a href="#"><i class="fas fa-blog"></i> Blog</a>
+            <a href="about.html">Giới thiệu</a>
         </nav>
-        <h1>Chào mừng đến với Blog của tôi</h1>
     </header>
-    
-    <main>
-        <section id="home">
-            <h2>Trang chủ</h2>
-            <p>Đây là phần giới thiệu chung về blog của tôi.</p>
+
+    <main id="posts">
+        <article>
+            <h2>Bài viết đầu tiên</h2>
+            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
+        </article>
+        <article>
+            <h2>Bài viết khác</h2>
+            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
+        </article>
+
+        <section id="comments-section">
+            <h3>Để lại bình luận:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Nội dung bình luận" required></textarea>
+                <button type="submit" class="submit-button">Gửi bình luận</button>
+            </form>
+            <h4>Bình luận:</h4>
+            <ul id="comments-list"></ul>
         </section>
-        
-        <section id="blog">
-            <h2>Blog</h2>
-            <article>
-                <h3>Bài viết 1</h3>
-                <p>Nội dung bài viết 1.</p>
-            </article>
-            <article>
-                <h3>Bài viết 2</h3>
-                <p>Nội dung bài viết 2.</p>
-            </article>
-        </section>
-        
-        <section id="about" class="white-box">
-            <h2>Giới thiệu</h2>
-            <p>Thông tin về bản thân tôi và mục đích của blog.</p>
+
+        <section id="about-section" class="about-box">
+            <h2>Giới Thiệu về Chuyện Gen T</h2>
+            <p>Blog của chúng tôi là nơi chia sẻ những câu chuyện và trải nghiệm của thế hệ Gen Z trong thời đại 4.0.</p>
+            
+            <h3>Mục Tiêu của Blog</h3>
+            <p>Tạo ra một không gian để các bạn trẻ giao lưu và chia sẻ ý kiến về công nghệ, văn hóa và xã hội.</p>
+            
+            <h3>Các Chủ Đề Nổi Bật</h3>
+            <ul>
+                <li>Công nghệ và giáo dục</li>
+                <li>Văn hóa Gen Z</li>
+                <li>Các vấn đề xã hội hiện tại</li>
+                <li>Trải nghiệm cá nhân</li>
+            </ul>
+            
+            <h3>Tham Gia Cùng Chúng Tôi</h3>
+            <p>Hãy để lại bình luận hoặc gửi ý tưởng của bạn qua email!</p>
         </section>
     </main>
 
     <footer>
-        <p>Bản quyền © 2024</p>
+        <p>&copy; 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
+        <div>
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
     </footer>
+
+    <button id="theme-toggle">Chuyển đổi chế độ tối</button>
+    <script>
+        // JavaScript code here
+    </script>
 </body>
 </html>
