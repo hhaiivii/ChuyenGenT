@@ -103,8 +103,7 @@
             padding: 10px;
             border-bottom: 1px solid #ddd;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; /* Thay đổi để hiển thị theo cột */
         }
 
         .comment-meta {
@@ -124,6 +123,18 @@
             cursor: pointer;
             margin-left: 10px;
             font-size: 14px;
+        }
+
+        .reply-form {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .reply-list {
+            margin-top: 10px;
+            padding-left: 20px;
+            list-style-type: none;
         }
 
         @media (max-width: 768px) {
@@ -203,9 +214,11 @@
             const li = document.createElement('li');
             li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
                             <div class="comment-actions">
+                                <button class="reply-button">💬 Reply</button>
                                 <button class="like-button">❤️ Like</button>
                                 <button class="delete-button">🗑️ Delete</button>
-                            </div>`;
+                            </div>
+                            <ul class="reply-list"></ul>`; // Thêm danh sách trả lời
             commentsList.appendChild(li);
 
             const likeButton = li.querySelector('.like-button');
@@ -216,6 +229,33 @@
             const deleteButton = li.querySelector('.delete-button');
             deleteButton.addEventListener('click', function() {
                 commentsList.removeChild(li);
+            });
+
+            const replyButton = li.querySelector('.reply-button');
+            replyButton.addEventListener('click', function() {
+                const replyForm = document.createElement('div');
+                replyForm.classList.add('reply-form');
+                replyForm.innerHTML = `
+                    <input type="text" placeholder="Your Name" required>
+                    <textarea placeholder="Your Reply" required></textarea>
+                    <button class="submit-reply">Submit Reply</button>
+                `;
+                li.appendChild(replyForm);
+
+                const submitReplyButton = replyForm.querySelector('.submit-reply');
+                submitReplyButton.addEventListener('click', function() {
+                    const replyName = replyForm.querySelector('input').value;
+                    const replyText = replyForm.querySelector('textarea').value;
+                    const replyDate = new Date().toLocaleString();
+
+                    const replyLi = document.createElement('li');
+                    replyLi.innerHTML = `${replyName}: ${replyText} <span class="comment-meta">(${replyDate})</span>`;
+                    const replyList = li.querySelector('.reply-list');
+                    replyList.appendChild(replyLi);
+
+                    replyForm.reset();
+                    replyForm.remove(); // Xóa form trả lời sau khi gửi
+                });
             });
 
             form.reset();
