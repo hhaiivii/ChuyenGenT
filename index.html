@@ -15,15 +15,20 @@
             color: #333;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
         body.dark-mode {
             background-color: #1a1a1a;
             color: #f1f1f1;
         }
 
-        .light-mode {
-            background-color: #f4f4f4;
-            color: #333;
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         button#theme-toggle {
@@ -71,6 +76,35 @@
             transform: translateY(-3px);
         }
 
+        main {
+            padding: 20px;
+        }
+
+        article {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ccc;
+        }
+
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #comments-list li {
+            margin: 5px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
         @media (max-width: 768px) {
             nav a {
                 font-size: 16px;
@@ -83,7 +117,6 @@
 
         @media (max-width: 480px) {
             nav {
-                display: flex;
                 flex-direction: column;
             }
 
@@ -117,6 +150,18 @@
             <h2>Another Blog Post</h2>
             <p>This is another post where I share my opinions.</p>
         </article>
+
+        <!-- Phần bình luận -->
+        <section id="comments-section">
+            <h3>Leave a Comment:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="comment" placeholder="Your Comment" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <h4>Comments:</h4>
+            <ul id="comments-list"></ul>
+        </section>
     </main>
 
     <!-- Nút chuyển đổi theme -->
@@ -126,22 +171,21 @@
         toggleButton.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
         });
-    </script>
 
-    <!-- Phần bình luận -->
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = window.location.href;  // URL hiện tại của trang
-            this.page.identifier = window.location.pathname;  // ID duy nhất của trang (đường dẫn)
-        };
+        const form = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
 
-        (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://yourdisqusshortname.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            const li = document.createElement('li');
+            li.textContent = `${name}: ${comment}`;
+            commentsList.appendChild(li);
+
+            form.reset();
+        });
     </script>
 
     <footer>
