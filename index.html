@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -113,53 +113,34 @@
             color: #777;
         }
 
-        .comment-actions {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
+        .about-box {
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #FF6F61; 
+            border-radius: 8px;
+            background-color: white; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
         }
 
-        .comment-actions button {
-            background: none;
-            border: none;
+        .about-box h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: #FF6F61; 
+        }
+
+        .social-share {
+            margin-top: 20px;
+        }
+
+        .social-share a {
+            margin: 0 10px;
             color: #FF6F61;
-            cursor: pointer;
-            margin-left: 10px;
-            font-size: 14px;
+            text-decoration: none;
+            font-size: 24px;
         }
 
-        .reply-form {
-            margin-top: 10px;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        .reply-list {
-            margin-top: 10px;
-            padding-left: 20px;
-            list-style-type: none;
-        }
-
-        input, textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        button.submit-button {
-            background-color: #FF6F61;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        button.submit-button:hover {
-            background-color: #FFC371;
+        .social-share a:hover {
+            color: #FFC371;
         }
 
         @media (max-width: 768px) {
@@ -214,13 +195,11 @@
             <ul id="comments-list"></ul>
         </section>
 
-        <section id="about-section">
+        <section class="about-box">
             <h2>Giới Thiệu về Chuyện Gen T</h2>
             <p>Blog của chúng tôi là nơi chia sẻ những câu chuyện và trải nghiệm của thế hệ Gen Z trong thời đại 4.0.</p>
-            
             <h3>Mục Tiêu của Blog</h3>
             <p>Tạo ra một không gian để các bạn trẻ giao lưu và chia sẻ ý kiến về công nghệ, văn hóa và xã hội.</p>
-            
             <h3>Các Chủ Đề Nổi Bật</h3>
             <ul>
                 <li>Công nghệ và giáo dục</li>
@@ -228,9 +207,15 @@
                 <li>Các vấn đề xã hội hiện tại</li>
                 <li>Trải nghiệm cá nhân</li>
             </ul>
-            
             <h3>Tham Gia Cùng Chúng Tôi</h3>
             <p>Hãy để lại bình luận hoặc gửi ý tưởng của bạn qua email!</p>
+        </section>
+
+        <section class="social-share">
+            <h3>Chia sẻ bài viết:</h3>
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
         </section>
     </main>
 
@@ -264,9 +249,9 @@
         });
 
         function displayComment({ name, comment, date }) {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}</strong> <span class="comment-meta">${date}</span><p>${comment}</p>`;
-            commentsList.appendChild(li);
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<strong>${name}</strong> (${date}): <p>${comment}</p>`;
+            commentsList.appendChild(listItem);
         }
 
         function saveComment(commentData) {
