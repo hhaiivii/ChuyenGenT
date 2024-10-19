@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background: linear-gradient(135deg, #FF6F61, #FF8E72);
+            background: linear-gradient(135deg, #4b6cb7, #182848);
             font-family: 'Poppins', sans-serif;
-            color: #4B3D3D;
+            color: #f1f1f1;
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
@@ -22,9 +22,9 @@
         }
 
         header {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -32,7 +32,7 @@
         }
         h1 {
             margin: 0;
-            color: #FF4C3B;
+            color: #ff6f91;
         }
         nav {
             display: flex;
@@ -41,29 +41,29 @@
         }
         nav a {
             padding: 10px;
-            color: #4B3D3D;
+            color: #f1f1f1;
             text-decoration: none;
             font-size: 18px;
             margin-left: 20px;
             transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
-            color: #FF4C3B;
+            color: #ff6f91;
             transform: scale(1.1);
         }
         main {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         article {
             margin-bottom: 20px;
             padding: 15px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         #comments-section {
             margin-top: 30px;
@@ -77,9 +77,9 @@
         #comments-list li {
             margin: 10px 0;
             padding: 15px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         .comment-meta {
             font-size: 12px;
@@ -87,19 +87,17 @@
             margin-bottom: 5px;
         }
         button {
-            background-color: #FF4C3B;
+            background-color: #ff6f91;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
             margin-top: 10px;
-            font-size: 16px;
         }
         button:hover {
-            background-color: #FF6F61;
-            transform: scale(1.05);
+            background-color: #ff67a0;
         }
         @media (max-width: 768px) {
             nav {
@@ -195,8 +193,8 @@
             const replyForm = document.createElement('div');
             replyForm.className = 'reply-form';
             replyForm.innerHTML = `<input type="text" placeholder="Tên của bạn" required>
-                                    <textarea placeholder="Trả lời của bạn" required></textarea>
-                                    <button class="send-reply">Gửi</button>`;
+                                   <textarea placeholder="Trả lời của bạn" required></textarea>
+                                   <button class="send-reply">Gửi</button>`;
             replyForm.querySelector('.send-reply').addEventListener('click', () => {
                 const name = replyForm.querySelector('input').value || 'Ẩn danh';
                 const comment = replyForm.querySelector('textarea').value;
@@ -213,4 +211,5 @@
     </script>
 </body>
 </html>
+
 
