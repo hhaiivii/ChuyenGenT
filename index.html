@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Chuyện Gen T - Hành Trình 4.0</h1>
+        <nav>
+            <a href="#posts">Blog Posts</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+    <main id="posts">
+        <article>
+            <h2>First Blog Post</h2>
+            <p>This is my first blog post! Welcome to the blog.</p>
+        </article>
+        <article>
+            <h2>Another Blog Post</h2>
+            <p>This is another post where I share my opinions.</p>
+        </article>
+        <form id="comment-form">
+            <h3>Leave a Comment:</h3>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="comment" placeholder="Your Comment" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="comments-section">
+            <h3>Comments:</h3>
+            <ul id="comments-list"></ul>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
+    </footer>
+    <script>
+        const form = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            const li = document.createElement('li');
+            li.textContent = `${name}: ${comment}`;
+            commentsList.appendChild(li);
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
