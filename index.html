@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #FF5F6D, #FFC371);
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Chuyện Gen T - Hành Trình 4.0</h1>
-       <nav>
+        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
+        <nav>
             <a href="index.html">Bài viết</a>
             <a href="about.html">Giới thiệu</a>
         </nav>
@@ -19,27 +26,46 @@
 
     <main id="posts">
         <article>
-            <h2>First Blog Post</h2>
-            <p>This is my first blog post! Welcome to the blog.</p>
+            <h2>Bài viết đầu tiên</h2>
+            <p>Đây là bài viết đầu tiên của mình! Chào mừng bạn đến với blog.</p>
         </article>
         <article>
-            <h2>Another Blog Post</h2>
-            <p>This is another post where I share my opinions.</p>
+            <h2>Bài viết khác</h2>
+            <p>Đây là bài viết khác nơi mình chia sẻ những quan điểm của mình.</p>
         </article>
 
         <section id="comments-section">
-            <h3>Leave a Comment:</h3>
+            <h3>Để lại bình luận:</h3>
             <form id="comment-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <textarea id="comment" placeholder="Your Comment" required></textarea>
-                <button type="submit">Submit</button>
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
+                <button type="submit">Gửi</button>
             </form>
-            <h4>Comments:</h4>
+            <h4>Bình luận:</h4>
             <ul id="comments-list"></ul>
         </section>
     </main>
 
-    <button id="theme-toggle">Switch Theme</button>
+    <section id="about"> <!-- Phần Giới thiệu -->
+        <h2>Giới thiệu về Chuyện Gen T - Hành Trình 4.0</h2>
+        <p>Chuyện Gen T - Hành Trình 4.0 là một blog dành riêng cho thế hệ Gen T, nơi chúng ta cùng nhau khám phá và chia sẻ những câu chuyện, ý kiến và trải nghiệm về cuộc sống trong thời đại 4.0.</p>
+        
+        <h3>Mục tiêu của blog</h3>
+        <p>Mục tiêu của blog này là tạo ra một không gian mở để các bạn học sinh và độc giả có thể giao lưu, chia sẻ quan điểm của mình về các vấn đề liên quan đến công nghệ, văn hóa, và những thay đổi trong xã hội. Chúng tôi hy vọng rằng mỗi bài viết sẽ là một cuộc đối thoại thú vị và bổ ích.</p>
+        
+        <h3>Các chủ đề nổi bật</h3>
+        <ul>
+            <li>Công nghệ và sự thay đổi trong giáo dục</li>
+            <li>Văn hóa Gen T và những giá trị của nó</li>
+            <li>Các vấn đề xã hội mà thế hệ trẻ đang phải đối mặt</li>
+            <li>Trải nghiệm cá nhân và bài học cuộc sống</li>
+        </ul>
+        
+        <h3>Tham gia cùng chúng tôi</h3>
+        <p>Chúng tôi rất mong muốn nhận được ý kiến và đóng góp từ bạn. Nếu bạn có một câu chuyện hay, một ý tưởng thú vị, hãy để lại bình luận dưới mỗi bài viết hoặc gửi cho chúng tôi qua email.</p>
+    </section>
+
+    <button id="theme-toggle">Chuyển đổi chủ đề</button>
     <script>
         const toggleButton = document.getElementById('theme-toggle');
         toggleButton.addEventListener('click', function() {
@@ -57,7 +83,7 @@
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value || 'Anonymous'; // Ẩn danh nếu không có tên
+            const name = document.getElementById('name').value || 'Ẩn danh'; // Ẩn danh nếu không có tên
             const comment = document.getElementById('comment').value;
             const date = new Date().toLocaleString();
 
@@ -72,15 +98,15 @@
             const li = document.createElement('li');
             li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
                             <div class="comment-actions">
-                                <button class="reply-button">💬 Reply</button>
-                                <button class="like-button">❤️ Like</button>
-                                <button class="delete-button">🗑️ Delete</button>
+                                <button class="reply-button">💬 Phản hồi</button>
+                                <button class="like-button">❤️ Thích</button>
+                                <button class="delete-button">🗑️ Xóa</button>
                             </div>
                             <ul class="reply-list"></ul>`;
             commentsList.appendChild(li);
 
             // Thông báo khi có bình luận mới
-            alert('New comment added!');
+            alert('Bình luận mới đã được thêm!');
 
             const likeButton = li.querySelector('.like-button');
             likeButton.addEventListener('click', function() {
@@ -98,15 +124,15 @@
                 const replyForm = document.createElement('div');
                 replyForm.classList.add('reply-form');
                 replyForm.innerHTML = `
-                    <input type="text" placeholder="Your Name" required>
-                    <textarea placeholder="Your Reply" required></textarea>
-                    <button class="submit-reply">Submit Reply</button>
+                    <input type="text" placeholder="Tên của bạn" required>
+                    <textarea placeholder="Phản hồi của bạn" required></textarea>
+                    <button class="submit-reply">Gửi phản hồi</button>
                 `;
                 li.appendChild(replyForm);
 
                 const submitReplyButton = replyForm.querySelector('.submit-reply');
                 submitReplyButton.addEventListener('click', function() {
-                    const replyName = replyForm.querySelector('input').value || 'Anonymous'; // Ẩn danh nếu không có tên
+                    const replyName = replyForm.querySelector('input').value || 'Ẩn danh'; // Ẩn danh nếu không có tên
                     const replyText = replyForm.querySelector('textarea').value;
                     const replyDate = new Date().toLocaleString();
 
@@ -133,4 +159,3 @@
     </script>
 </body>
 </html>
-
