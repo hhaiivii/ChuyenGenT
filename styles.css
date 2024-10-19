@@ -154,19 +154,10 @@ button.submit-button:hover {
 @media (max-width: 768px) {
     nav a {
         font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-    }
-    nav a {
-        margin: 5px 0;
-        padding: 8px;
-    }
-    button {
-        font-size: 0.9rem;
         padding: 8px 16px;
+    }
+
+    header h1 {
+        font-size: 2rem;
     }
 }
