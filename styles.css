@@ -1,8 +1,7 @@
-/* General Styles */
 body {
-    background: linear-gradient(135deg, #ff6f91, #ffffff); /* Gradient từ hồng đến trắng tạo cảm giác mời gọi */
+    background: linear-gradient(135deg, #FF5F6D, #FFC371);
     font-family: 'Poppins', sans-serif;
-    color: #f1f1f1;
+    color: #333;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
@@ -13,93 +12,72 @@ body.dark-mode {
     color: #f1f1f1;
 }
 
-/* Header Styles */
-header {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    text-align: center;
-}
-
-h1 {
-    margin: 0;
-    color: #ff6f91; /* Hồng sáng cho tiêu đề */
-}
-
-/* Navigation Styles */
 nav {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff5f6d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button#theme-toggle:hover {
+    background-color: #ffc371;
 }
 
 nav a {
     padding: 10px;
-    color: #f1f1f1;
+    color: #333;
     text-decoration: none;
     font-size: 18px;
-    margin-left: 20px;
     transition: color 0.3s, transform 0.3s;
 }
 
 nav a:hover {
-    color: #ff6f91; /* Thay đổi màu liên kết khi di chuột */
+    color: #ff5f6d;
     transform: scale(1.1);
 }
 
-/* Main Content Styles */
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Nền tối cho khu vực nội dung */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+button {
+    background-color: #ff5f6d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Article Styles */
+button:hover {
+    background-color: #ffc371;
+    transform: translateY(-3px);
+}
+
+main {
+    padding: 20px;
+}
+
 article {
     margin-bottom: 20px;
     padding: 15px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* About Section Styles */
-#about {
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8); /* Nền tối hơn để tạo độ tương phản */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    max-width: 800px; /* Giới hạn chiều rộng để dễ đọc hơn */
-}
-
-#about h2 {
-    color: #ff6f91; /* Hồng tươi cho tiêu đề */
-    text-align: center;
-    margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
-}
-
-.about-content {
-    background: rgba(255, 255, 255, 0.1); /* Nền sáng cho hộp nội dung */
-    padding: 20px; /* Khoảng cách bên trong để tạo khoảng cách cho văn bản */
-    border-radius: 8px; /* Góc hơi tròn cho hộp nội dung */
-    border: 1px solid #ff6f91; /* Đường viền hồng cho phong cách */
-}
-
-#about p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #000; /* Màu đen để dễ đọc hơn */
-    text-align: justify;
-    margin-bottom: 10px; /* Khoảng cách giữa các đoạn văn */
-}
-
-/* Comments Section Styles */
 #comments-section {
     margin-top: 30px;
     padding: 15px;
@@ -112,40 +90,50 @@ article {
 }
 
 #comments-list li {
-    margin: 10px 0;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1); /* Nền sáng cho các mục bình luận */
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 5px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column; /* Thay đổi để hiển thị theo cột */
 }
 
-/* Comment Meta Information */
 .comment-meta {
     font-size: 12px;
-    color: #777; /* Màu tối hơn cho thông tin meta */
-    margin-bottom: 5px;
+    color: #777;
 }
 
-/* Button Styles */
-button {
-    background-color: #ff6f91; /* Nền nút hồng */
-    color: white; /* Văn bản màu trắng */
+.comment-actions {
+    display: flex;
+    align-items: center;
+}
+
+.comment-actions button {
+    background: none;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    color: #ff5f6d;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.reply-form {
     margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
 }
 
-button:hover {
-    background-color: #ff67a0; /* Hồng nhạt hơn khi di chuột */
+.reply-list {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: none;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Xếp chồng các mục điều hướng trên màn hình nhỏ hơn */
+    nav a {
+        font-size: 16px;
     }
-}
+
+    h1 {
+        font
+
 
