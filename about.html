@@ -3,63 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyện Gen T - Hành Trình 4.0</title>
-    <meta name="description" content="Chuyện Gen T - Hành Trình 4.0: Blog chia sẻ những câu chuyện, kinh nghiệm và quan điểm của thế hệ học sinh trường T (THPT TÙNG THIỆN) trong Thời đại công nghệ số.">
+    <title>Giới thiệu - Chuyện Gen T - Hành Trình 4.0</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #FF5F6D, #FFC371);
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
-<body style="background: linear-gradient(135deg, #FF5F6D, #FFC371); color: #333;">
+<body>
     <header>
-        <h1>Chào mừng đến với Chuyện Gen T - Hành Trình 4.0</h1>
+        <h1>Giới thiệu về Blog này</h1>
         <nav>
             <a href="index.html">Bài viết</a>
             <a href="about.html">Giới thiệu</a>
         </nav>
     </header>
-    <main id="posts"> <!-- Blog posts section -->
-        <article>
-            <h2>Bài viết đầu tiên</h2>
-            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
-        </article>
-        <article>
-            <h2>Bài viết khác</h2>
-            <p>Đây là một bài viết khác nơi tôi chia sẻ quan điểm của mình.</p>
-        </article>
-
-        <!-- Comment section -->
-        <section id="comments-section">
-            <h3>Để lại bình luận:</h3>
-            <form id="comment-form">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
-                <button type="submit">Gửi</button>
-            </form>
-            <h4>Bình luận:</h4>
-            <ul id="comments-list"></ul>
-        </section>
+    <main>
+        <h2>Giới thiệu về Chuyện Gen T - Hành Trình 4.0</h2>
+        <p>Chuyện Gen T - Hành Trình 4.0 là một blog dành riêng cho thế hệ Gen T, nơi chúng ta cùng nhau khám phá và chia sẻ những câu chuyện, ý kiến và trải nghiệm về cuộc sống trong thời đại 4.0.</p>
+        
+        <h3>Mục tiêu của blog</h3>
+        <p>Mục tiêu của blog này là tạo ra một không gian mở để các bạn học sinh và độc giả có thể giao lưu, chia sẻ quan điểm của mình về các vấn đề liên quan đến công nghệ, văn hóa, và những thay đổi trong xã hội. Chúng tôi hy vọng rằng mỗi bài viết sẽ là một cuộc đối thoại thú vị và bổ ích.</p>
+        
+        <h3>Các chủ đề nổi bật</h3>
+        <ul>
+            <li>Công nghệ và sự thay đổi trong giáo dục</li>
+            <li>Văn hóa Gen T và những giá trị của nó</li>
+            <li>Các vấn đề xã hội mà thế hệ trẻ đang phải đối mặt</li>
+            <li>Trải nghiệm cá nhân và bài học cuộc sống</li>
+        </ul>
+        
+        <h3>Tham gia cùng chúng tôi</h3>
+        <p>Chúng tôi rất mong muốn nhận được ý kiến và đóng góp từ bạn. Nếu bạn có một câu chuyện hay, một ý tưởng thú vị, hãy để lại bình luận dưới mỗi bài viết hoặc gửi cho chúng tôi qua email.</p>
     </main>
-    <section id="about"> <!-- About section -->
-        <h2>Giới thiệu về Blog này</h2>
-        <p>Blog này được tạo ra để chia sẻ những câu chuyện, kinh nghiệm và quan điểm của thế hệ học sinh trường T (THPT TÙNG THIỆN) trong thời đại công nghệ số. Chúng tôi hy vọng sẽ mang đến cho bạn những nội dung thú vị và bổ ích!</p>
-    </section>
     <footer>
         <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
     </footer>
-
-    <script>
-        const form = document.getElementById('comment-form');
-        const commentsList = document.getElementById('comments-list');
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value || 'Ẩn danh'; // Ẩn danh nếu không có tên
-            const comment = document.getElementById('comment').value;
-
-            const li = document.createElement('li');
-            li.textContent = `${name}: ${comment}`;
-            commentsList.appendChild(li);
-
-            form.reset();
-        });
-    </script>
 </body>
 </html>
