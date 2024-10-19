@@ -205,12 +205,26 @@
         const form = document.getElementById('comment-form');
         const commentsList = document.getElementById('comments-list');
 
+        // Load comments from Local Storage
+        window.onload = function() {
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.forEach(displayComment);
+        };
+
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
+            const name = document.getElementById('name').value || 'Anonymous'; // Ẩn danh nếu không có tên
             const comment = document.getElementById('comment').value;
             const date = new Date().toLocaleString();
 
+            const commentData = { name, comment, date };
+            displayComment(commentData);
+            saveComment(commentData);
+
+            form.reset();
+        });
+
+        function displayComment({ name, comment, date }) {
             const li = document.createElement('li');
             li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
                             <div class="comment-actions">
@@ -218,8 +232,11 @@
                                 <button class="like-button">❤️ Like</button>
                                 <button class="delete-button">🗑️ Delete</button>
                             </div>
-                            <ul class="reply-list"></ul>`; // Thêm danh sách trả lời
+                            <ul class="reply-list"></ul>`;
             commentsList.appendChild(li);
+
+            // Thông báo khi có bình luận mới
+            alert('New comment added!');
 
             const likeButton = li.querySelector('.like-button');
             likeButton.addEventListener('click', function() {
@@ -229,6 +246,7 @@
             const deleteButton = li.querySelector('.delete-button');
             deleteButton.addEventListener('click', function() {
                 commentsList.removeChild(li);
+                removeComment(name, comment); // Xóa bình luận khỏi Local Storage
             });
 
             const replyButton = li.querySelector('.reply-button');
@@ -244,7 +262,7 @@
 
                 const submitReplyButton = replyForm.querySelector('.submit-reply');
                 submitReplyButton.addEventListener('click', function() {
-                    const replyName = replyForm.querySelector('input').value;
+                    const replyName = replyForm.querySelector('input').value || 'Anonymous'; // Ẩn danh nếu không có tên
                     const replyText = replyForm.querySelector('textarea').value;
                     const replyDate = new Date().toLocaleString();
 
@@ -252,18 +270,22 @@
                     replyLi.innerHTML = `${replyName}: ${replyText} <span class="comment-meta">(${replyDate})</span>`;
                     const replyList = li.querySelector('.reply-list');
                     replyList.appendChild(replyLi);
-
                     replyForm.reset();
-                    replyForm.remove(); // Xóa form trả lời sau khi gửi
                 });
             });
+        }
 
-            form.reset();
-        });
+        function saveComment(commentData) {
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.push(commentData);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+        }
+
+        function removeComment(name, comment) {
+            let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+        }
     </script>
-
-    <footer>
-        <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
-    </footer>
 </body>
 </html>
