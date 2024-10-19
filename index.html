@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,9 @@
     <title>Chuyện Gen T - Hành Trình 4.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link đến styles.css -->
     <style>
+        /* Các kiểu khác nếu cần */
         body {
             background: linear-gradient(135deg, #4b6cb7, #182848);
             font-family: 'Poppins', sans-serif;
@@ -222,24 +224,25 @@
         }
         function createReplyForm() {
             const replyForm = document.createElement('div');
-            replyForm.className = 'reply-form';
-            replyForm.innerHTML = `<input type="text" placeholder="Tên của bạn" required>
-                                    <textarea placeholder="Trả lời của bạn" required></textarea>
-                                    <button class="send-reply">Gửi</button>`;
-            replyForm.querySelector('.send-reply').addEventListener('click', () => {
-                const name = replyForm.querySelector('input').value || 'Ẩn danh';
-                const comment = replyForm.querySelector('textarea').value;
-                const reply = { name, comment };
-                const replyList = replyForm.nextElementSibling;
-                const replyItem = document.createElement('li');
-                replyItem.innerHTML = `<strong>${reply.name}</strong>: ${reply.comment}`;
-                replyList.appendChild(replyItem);
-                replyForm.style.display = 'none';
-                replyForm.reset();
+            replyForm.classList.add('reply-form');
+            const replyInput = document.createElement('textarea');
+            replyInput.placeholder = 'Trả lời bình luận...';
+            const replyButton = document.createElement('button');
+            replyButton.textContent = 'Gửi trả lời';
+            replyButton.addEventListener('click', () => {
+                const reply = replyInput.value;
+                if (reply) {
+                    const replyList = replyForm.parentNode.querySelector('.reply-list');
+                    const replyItem = document.createElement('li');
+                    replyItem.textContent = reply;
+                    replyList.appendChild(replyItem);
+                    replyInput.value = '';
+                }
             });
+            replyForm.appendChild(replyInput);
+            replyForm.appendChild(replyButton);
             return replyForm;
         }
     </script>
 </body>
 </html>
-
