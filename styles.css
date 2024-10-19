@@ -1,116 +1,190 @@
-body {
-    background: linear-gradient(135deg, #FF5F6D, #FFC371);
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f1f1f1;
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #FF5F6D, #FFC371); /* Gradient hồng */
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background 0.5s ease, color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
+        body.blue-gradient {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed); /* Gradient xanh dương */
+        }
+        body.purple-gradient {
+            background: linear-gradient(135deg, #4b6cb7, #182848); /* Gradient tím đen */
+        }
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-end;
+        }
+        nav a {
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #ff5f6d;
+            transform: scale(1.1);
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            background: url('your-background-image.jpg') no-repeat center center / cover; /* Nền ảnh */
+        }
+        article {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        article:hover {
+            transform: scale(1.05);
+        }
+        h1, h2 {
+            color: #4b6cb7; /* Màu tiêu đề */
+        }
+        button {
+            background-color: #ff5f6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #ffc371;
+            transform: translateY(-3px);
+        }
+        #search {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav a {
+                padding: 8px;
+                margin-left: 0;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
+        <nav>
+            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="#"><i class="fas fa-blog"></i> Blog</a>
+        </nav>
+    </header>
+    <main>
+        <input type="text" id="search" placeholder="Tìm kiếm bài viết...">
+        <article data-aos="fade-up">
+            <h2>Bài viết đầu tiên</h2>
+            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
+        </article>
+        <article data-aos="fade-up">
+            <h2>Bài viết khác</h2>
+            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
+        </article>
+    </main>
+    <button id="theme-toggle">Chuyển đổi chủ đề</button>
+    <button id="social-share">
+        <i class="fab fa-facebook-f"></i> Chia sẻ
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+    </button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
 
-.light-mode {
-    background-color: #f4f4f4;
-    color: #333;
-}
+        const toggleButton = document.getElementById('theme-toggle');
+        const socialButton = document.getElementById('social-share');
 
-button#theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #ff5f6d;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s;
-}
+        const hour = new Date().getHours();
+        if (hour >= 18 || hour < 6) {
+            document.body.classList.add('dark-mode');
+        }
 
-button#theme-toggle:hover {
-    background-color: #ffc371;
-}
-<button id="theme-toggle">Switch Theme</button>
-<script>
-  const toggleButton = document.getElementById('theme-toggle');
-  toggleButton.addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
-  });
-</script>
-nav a {
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s, transform 0.3s;
-}
+        toggleButton.addEventListener('click', function() {
+            if (document.body.classList.contains('blue-gradient')) {
+                document.body.classList.remove('blue-gradient');
+                document.body.classList.add('purple-gradient');
+            } else if (document.body.classList.contains('purple-gradient')) {
+                document.body.classList.remove('purple-gradient');
+                document.body.classList.add('dark-mode');
+            } else if (document.body.classList.contains('dark-mode')) {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.remove('blue-gradient');
+                document.body.style.background = "linear-gradient(135deg, #FF5F6D, #FFC371)"; // quay về màu hồng
+            } else {
+                document.body.classList.add('blue-gradient');
+            }
+        });
 
-nav a:hover {
-    color: #ff5f6d;
-    transform: scale(1.1);
-}
-button {
-    background-color: #ff5f6d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-    background-color: #ffc371;
-    transform: translateY(-3px);
-}
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-body {
-    font-family: 'Poppins', sans-serif;
-}
-@media (max-width: 768px) {
-    nav a {
-        font-size: 16px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav a {
-        padding: 8px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<nav>
-    <a href="#"><i class="fas fa-home"></i> Home</a>
-    <a href="#"><i class="fas fa-info"></i> About</a>
-    <a href="#"><i class="fas fa-blog"></i> Blog</a>
-</nav>
-<div id="disqus_thread"></div>
-<script>
-var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-
-(function() {  // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://yourdisqusshortname.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-})();
-</script>
+        socialButton.addEventListener('click', function() {
+            const url = window.location.href; // Đường dẫn trang hiện tại
+            const text = "Hãy xem bài viết này!";
+            const platforms = {
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`,
+                twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
+                linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
+            };
+            const shareUrl = platforms.facebook; // Chọn nền tảng chia sẻ
+            window.open(shareUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
