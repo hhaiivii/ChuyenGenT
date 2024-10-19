@@ -1,4 +1,4 @@
-body {
+body { 
     background: linear-gradient(135deg, #FF5F6D, #FFC371);
     font-family: 'Poppins', sans-serif;
     color: #333;
@@ -6,7 +6,6 @@ body {
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
 }
-
 body.dark-mode {
     background-color: #1a1a1a;
     color: #f1f1f1;
@@ -17,7 +16,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9); /* Điều chỉnh độ trong suốt */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -75,7 +74,7 @@ article {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95); /* Điều chỉnh độ trong suốt */
 }
 
 #comments-section {
@@ -94,7 +93,7 @@ article {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     display: flex;
-    flex-direction: column; /* Thay đổi để hiển thị theo cột */
+    flex-direction: column;
 }
 
 .comment-meta {
@@ -128,12 +127,10 @@ article {
     list-style-type: none;
 }
 
-@media (max-width: 768px) {
-    nav a {
-        font-size: 16px;
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
     }
-
-    h1 {
-        font
+}
 
 
