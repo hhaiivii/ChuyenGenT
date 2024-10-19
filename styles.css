@@ -6,39 +6,23 @@ body {
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
 }
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f1f1f1;
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.9); /* Điều chỉnh độ trong suốt */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-button#theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #ff5f6d;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s;
-}
-
-button#theme-toggle:hover {
-    background-color: #ffc371;
+    margin-top: 10px;
 }
 
 nav a {
-    padding: 10px;
+    padding: 10px 15px;
     color: #333;
     text-decoration: none;
     font-size: 18px;
@@ -67,6 +51,9 @@ button:hover {
 
 main {
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 20px;
 }
 
 article {
@@ -74,13 +61,10 @@ article {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.95); /* Điều chỉnh độ trong suốt */
 }
 
 #comments-section {
     margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid #ccc;
 }
 
 #comments-list {
@@ -92,45 +76,9 @@ article {
     margin: 5px 0;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-.comment-meta {
-    font-size: 12px;
-    color: #777;
+footer {
+    margin-top: 20px;
 }
-
-.comment-actions {
-    display: flex;
-    align-items: center;
-}
-
-.comment-actions button {
-    background: none;
-    border: none;
-    color: #ff5f6d;
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 14px;
-}
-
-.reply-form {
-    margin-top: 10px;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-}
-
-.reply-list {
-    margin-top: 10px;
-    padding-left: 20px;
-    list-style-type: none;
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-    }
-}
-
-
