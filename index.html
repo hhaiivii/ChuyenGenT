@@ -13,7 +13,7 @@
             color: #333;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
         body.dark-mode {
             background-color: #1a1a1a;
@@ -21,13 +21,15 @@
         }
         body.blue-theme {
             background: linear-gradient(135deg, #3a7bd5, #3a6073);
+            color: #fff;
         }
         body.black-purple-theme {
             background: linear-gradient(135deg, #2b1c43, #7b4397);
+            color: #fff;
         }
 
         header {
-            background-color: #4CAF50; /* Thay đổi thành màu xanh lá */
+            background-color: #4CAF50;
             color: #fff;
             padding: 1rem;
             text-align: center;
@@ -40,7 +42,7 @@
             justify-content: space-around;
             align-items: center;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 0.9); /* Đảm bảo nền sáng hơn */
+            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         nav a {
@@ -51,7 +53,7 @@
             transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
-            color: #FF6F61; /* Thay đổi màu khi hover */
+            color: #FF6F61;
             transform: scale(1.1);
         }
         button#theme-toggle, button#theme-switch {
@@ -60,7 +62,7 @@
             right: 20px;
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: #FF6F61; /* Thay đổi thành màu hồng cam */
+            background-color: #FF6F61;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -68,7 +70,7 @@
             transition: background-color 0.3s;
         }
         button#theme-toggle:hover, button#theme-switch:hover {
-            background-color: #FF8A65; /* Thay đổi màu hover */
+            background-color: #FF8A65;
         }
         main {
             max-width: 800px;
@@ -103,7 +105,7 @@
             transition: color 0.3s;
         }
         #social-share a:hover {
-            color: #FF6F61; /* Thay đổi màu hover cho các icon */
+            color: #FF6F61;
         }
         @media (max-width: 768px) {
             nav {
@@ -166,5 +168,3 @@
     </script>
 </body>
 </html>
-
-
