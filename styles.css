@@ -1,0 +1,116 @@
+body {
+    background: linear-gradient(135deg, #FF5F6D, #FFC371);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+button#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff5f6d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button#theme-toggle:hover {
+    background-color: #ffc371;
+}
+<button id="theme-toggle">Switch Theme</button>
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  toggleButton.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+  });
+</script>
+nav a {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #ff5f6d;
+    transform: scale(1.1);
+}
+button {
+    background-color: #ff5f6d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffc371;
+    transform: translateY(-3px);
+}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+@media (max-width: 768px) {
+    nav a {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<nav>
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-info"></i> About</a>
+    <a href="#"><i class="fas fa-blog"></i> Blog</a>
+</nav>
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() {  // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yourdisqusshortname.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
