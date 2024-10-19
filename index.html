@@ -4,18 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuyện Gen T - Hành Trình 4.0</title>
-    <meta name="description" content="Chuyện Gen T - Hành Trình 4.0: Blog chia sẻ những câu chuyện, kinh nghiệm và quan điểm của thế hệ học sinh trường T (THPT TÙNG THIỆN) trong Thời đại công nghệ số.">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Chèn mã CSS trực tiếp tại đây -->
+    <style>
+        body { 
+            background: linear-gradient(135deg, #FF5F6D, #FFC371);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
+
+        .light-mode {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        button#theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff5f6d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button#theme-toggle:hover {
+            background-color: #ffc371;
+        }
+
+        nav a {
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff5f6d;
+            transform: scale(1.1);
+        }
+
+        button {
+            background-color: #ff5f6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffc371;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 8px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Welcome to Chuyện Gen T - Hành Trình 4.0</h1>
         <nav>
-            <a href="index.html">Blog Posts</a>
-            <a href="about.html">About</a> <!-- Giữ liên kết đến trang About -->
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-info"></i> About</a>
+            <a href="#"><i class="fas fa-blog"></i> Blog</a>
         </nav>
     </header>
-    <main id="posts"> <!-- Blog posts section -->
+
+    <main id="posts">
         <article>
             <h2>First Blog Post</h2>
             <p>This is my first blog post! Welcome to the blog.</p>
@@ -24,42 +117,36 @@
             <h2>Another Blog Post</h2>
             <p>This is another post where I share my opinions.</p>
         </article>
-
-        <!-- Comment section -->
-        <section id="comments-section">
-            <h3>Leave a Comment:</h3>
-            <form id="comment-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <textarea id="comment" placeholder="Your Comment" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <h4>Comments:</h4>
-            <ul id="comments-list"></ul>
-        </section>
     </main>
-    <section id="about"> <!-- About section -->
-        <h2>About This Blog</h2>
-        <p>This is where you can write about the purpose of your blog.</p>
-    </section>
+
+    <!-- Nút chuyển đổi theme -->
+    <button id="theme-toggle">Switch Theme</button>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+
+    <!-- Phần bình luận -->
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;  // URL hiện tại của trang
+            this.page.identifier = window.location.pathname;  // ID duy nhất của trang (đường dẫn)
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://yourdisqusshortname.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
     <footer>
         <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
     </footer>
-
-    <script>
-        const form = document.getElementById('comment-form');
-        const commentsList = document.getElementById('comments-list');
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const comment = document.getElementById('comment').value;
-
-            const li = document.createElement('li');
-            li.textContent = `${name}: ${comment}`;
-            commentsList.appendChild(li);
-
-            form.reset();
-        });
-    </script>
 </body>
 </html>
+
