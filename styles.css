@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background: linear-gradient(135deg, #4b6cb7, #182848);
+    background: linear-gradient(135deg, #ff6f91, #ffffff); /* Gradient from pink to white for an inviting feel */
     font-family: 'Poppins', sans-serif;
     color: #f1f1f1;
     margin: 0;
@@ -26,7 +26,7 @@ header {
 
 h1 {
     margin: 0;
-    color: #ff6f91;
+    color: #ff6f91; /* Bright pink for the header */
 }
 
 /* Navigation Styles */
@@ -46,7 +46,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ff6f91;
+    color: #ff6f91; /* Change link color on hover */
     transform: scale(1.1);
 }
 
@@ -55,7 +55,7 @@ main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7); /* Dark background for content area */
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
@@ -66,6 +66,37 @@ article {
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section Styles */
+#about {
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Darker background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 800px; /* Limit width for better readability */
+}
+
+#about h2 {
+    color: #ff6f91; /* Vibrant pink for the heading */
+    text-align: center;
+    margin-bottom: 15px; /* Spacing below the title */
+}
+
+.about-content {
+    background: rgba(255, 255, 255, 0.1); /* Light background for content box */
+    padding: 20px; /* Inner padding for better text spacing */
+    border-radius: 8px; /* Slightly round corners for content box */
+    border: 1px solid #ff6f91; /* Pink border for style */
+}
+
+#about p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000; /* Black text for better readability */
+    text-align: justify;
+    margin-bottom: 10px; /* Spacing between paragraphs */
 }
 
 /* Comments Section Styles */
@@ -83,7 +114,7 @@ article {
 #comments-list li {
     margin: 10px 0;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for comment items */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -91,14 +122,14 @@ article {
 /* Comment Meta Information */
 .comment-meta {
     font-size: 12px;
-    color: #777;
+    color: #777; /* Darker color for meta information */
     margin-bottom: 5px;
 }
 
 /* Button Styles */
 button {
-    background-color: #ff6f91;
-    color: white;
+    background-color: #ff6f91; /* Pink button background */
+    color: white; /* White text */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -108,12 +139,12 @@ button {
 }
 
 button:hover {
-    background-color: #ff67a0;
+    background-color: #ff67a0; /* Lighter pink on hover */
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
+        flex-direction: column; /* Stack navigation items on smaller screens */
     }
 }
