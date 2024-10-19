@@ -1,29 +1,46 @@
-about {
+#about {
     margin: 20px auto;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8); /* Darker background for contrast */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.85); /* Darker background for better contrast */
+    border-radius: 15px; /* Slightly larger border radius for a softer look */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6); /* Deeper shadow for more depth */
     max-width: 800px; /* Limit width for better readability */
+    animation: fadeIn 0.5s ease-in-out; /* Animation effect for appearance */
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #about h2 {
     color: #ff6f91; /* Vibrant pink for the heading */
     text-align: center;
-    margin-bottom: 15px; /* Spacing below the title */
+    margin-bottom: 20px; /* Increased spacing below the title */
+    font-size: 2rem; /* Larger font size for the heading */
+    text-transform: uppercase; /* Uppercase letters for emphasis */
+    letter-spacing: 1px; /* Increased letter spacing for readability */
 }
 
 .about-content {
-    background: rgba(255, 255, 255, 0.1); /* Light background for content box */
+    background: rgba(255, 255, 255, 0.15); /* Light background for content box */
     padding: 20px; /* Inner padding for better text spacing */
-    border-radius: 8px; /* Slightly round corners for content box */
-    border: 1px solid #ff6f91; /* Pink border for style */
+    border-radius: 10px; /* Round corners for content box */
+    border: 2px solid #ff6f91; /* Thicker pink border for style */
+    backdrop-filter: blur(10px); /* Blur effect for a softer background */
 }
 
 #about p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #000; /* Black text for better readability */
-    text-align: justify;
-    margin-bottom: 10px; /* Spacing between paragraphs */
+    font-size: 16px; /* Font size */
+    line-height: 1.8; /* Increased line height for better readability */
+    color: #f1f1f1; /* Lighter text for better contrast on dark background */
+    text-align: justify; /* Justify text for a neat appearance */
+    margin-bottom: 15px; /* Increased spacing between paragraphs */
 }
