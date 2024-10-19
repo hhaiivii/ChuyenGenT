@@ -6,14 +6,15 @@
     <title>Chuyện Gen T - Hành Trình 4.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
-        body {
+        body { 
             background: linear-gradient(135deg, #FF5F6D, #FFC371);
             font-family: 'Poppins', sans-serif;
             color: #333;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.5s, color 0.5s;
         }
         body.dark-mode {
             background-color: #1a1a1a;
@@ -21,36 +22,19 @@
         }
 
         header {
-            background-color: #3e8e41;
-            color: #fff;
-            padding: 1rem;
             text-align: center;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            position: relative;
         }
-        h1 {
-            margin: 0;
-        }
+
         nav {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
             padding: 10px;
             background-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        button#theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #ff5f6d;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        button#theme-toggle:hover {
-            background-color: #ffc371;
         }
 
         nav a {
@@ -60,54 +44,55 @@
             font-size: 18px;
             transition: color 0.3s, transform 0.3s;
         }
+
         nav a:hover {
             color: #ff5f6d;
             transform: scale(1.1);
         }
 
-        .comment-container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+        button {
+            cursor: pointer;
+            padding: 10px 15px;
+            border: none;
             border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ff5f6d;
+            color: white;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .comment {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-            position: relative;
+        button:hover {
+            background-color: #ffc371;
+            transform: scale(1.05);
         }
-        .comment:last-child {
-            border-bottom: none;
-        }
-        .reply-list {
-            margin-left: 20px;
-            padding-top: 10px;
-        }
-        .reply {
-            border-left: 2px solid #3e8e41;
-            padding-left: 10px;
-        }
-        .comment h4 {
-            margin: 0;
-            color: #3e8e41;
-        }
-        .comment p {
-            margin: 5px 0;
-        }
-        button {
-            background-color: #3e8e41;
+
+        button.theme-switch {
+            background-color: transparent;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
+            border: 2px solid white;
+            padding: 10px;
             transition: background-color 0.3s;
         }
-        button:hover {
-            background-color: #2e7031;
+
+        button.theme-switch:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        article {
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
         }
 
         #comments-section {
@@ -126,7 +111,7 @@
             padding: 10px;
             border-bottom: 1px solid #ddd;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; 
         }
 
         .comment-meta {
@@ -160,11 +145,27 @@
             list-style-type: none;
         }
 
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6347; 
+        }
+
         @media (max-width: 768px) {
             nav a {
                 font-size: 16px;
             }
-
             h1 {
                 font-size: 24px;
             }
@@ -174,11 +175,9 @@
             nav {
                 flex-direction: column;
             }
-
             nav a {
                 padding: 8px;
             }
-
             button {
                 font-size: 14px;
                 padding: 8px 16px;
@@ -188,126 +187,103 @@
 </head>
 <body>
     <header>
-        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
-        <nav>
-            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
-            <a href="about.html">Giới thiệu</a>
-            <a href="#"><i class="fas fa-blog"></i> Blog</a>
-        </nav>
+        <h1>Chào Mừng Đến Với Chuyện Gen T - Hành Trình 4.0</h1>
+        <button class="theme-switch" onclick="toggleTheme()">Chuyển Đổi Chủ Đề</button>
     </header>
+
+    <nav>
+        <a href="#"><i class="fas fa-home"></i> Trang Chủ</a>
+        <a href="about.html">Giới Thiệu</a>
+        <a href="#"><i class="fas fa-blog"></i> Blog</a>
+    </nav>
 
     <main id="posts">
         <article>
-            <h2>Bài viết đầu tiên</h2>
-            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
+            <h2>Bài Viết Đầu Tiên</h2>
+            <img src="https://via.placeholder.com/600x300" alt="Hình ảnh bài viết">
+            <p>Đây là bài viết đầu tiên của tôi! Chào mừng bạn đến với blog.</p>
         </article>
         <article>
-            <h2>Bài viết khác</h2>
+            <h2>Bài Viết Khác</h2>
+            <img src="https://via.placeholder.com/600x300" alt="Hình ảnh bài viết">
             <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
         </article>
 
         <section id="comments-section">
-            <h3>Để lại bình luận:</h3>
+            <h3>Để Lại Bình Luận:</h3>
             <form id="comment-form">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
+                <input type="text" id="name" placeholder="Tên Của Bạn" required>
+                <textarea id="comment" placeholder="Bình Luận Của Bạn" required></textarea>
                 <button type="submit">Gửi</button>
             </form>
-            <h4>Bình luận:</h4>
+            <h4>Bình Luận:</h4>
             <ul id="comments-list"></ul>
         </section>
     </main>
 
-    <button id="theme-toggle">Chuyển đổi chế độ</button>
+    <footer>
+        <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
+    </footer>
+
+    <button id="theme-toggle" style="display: none;">Switch Theme</button> <!-- Hidden for style -->
     <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        toggleButton.addEventListener('click', function() {
+        function toggleTheme() {
             document.body.classList.toggle('dark-mode');
-        });
+        }
 
         const form = document.getElementById('comment-form');
         const commentsList = document.getElementById('comments-list');
 
-        // Tải bình luận từ Local Storage
-        window.onload = function() {
-            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments.forEach(displayComment);
-        };
-
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value || 'Ẩn danh';
+            const name = document.getElementById('name').value;
             const comment = document.getElementById('comment').value;
             const date = new Date().toLocaleString();
 
-            const commentData = { name, comment, date };
-            displayComment(commentData);
-            saveComment(commentData);
-
-            form.reset();
-        });
-
-        function displayComment({ name, comment, date }) {
             const li = document.createElement('li');
             li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
                             <div class="comment-actions">
-                                <button class="reply-button">💬 Trả lời</button>
+                                <button class="reply-button">💬 Trả Lời</button>
                                 <button class="like-button">❤️ Thích</button>
                                 <button class="delete-button">🗑️ Xóa</button>
                             </div>
                             <ul class="reply-list"></ul>`;
             commentsList.appendChild(li);
 
-            // Thông báo khi có bình luận mới
-            alert('Bình luận mới đã được thêm!');
-
             const likeButton = li.querySelector('.like-button');
             likeButton.addEventListener('click', function() {
-                alert(`Bình luận của ${name} đã được thích!`);
+                alert(`${name}'s comment liked!`);
             });
 
             const deleteButton = li.querySelector('.delete-button');
             deleteButton.addEventListener('click', function() {
                 commentsList.removeChild(li);
-                removeComment(name, comment); // Xóa bình luận khỏi Local Storage
             });
 
             const replyButton = li.querySelector('.reply-button');
             replyButton.addEventListener('click', function() {
                 const replyForm = document.createElement('div');
                 replyForm.classList.add('reply-form');
-                replyForm.innerHTML = `<input type="text" placeholder="Tên của bạn" required>
-                                       <textarea placeholder="Trả lời của bạn" required></textarea>
-                                       <button class="send-reply">Gửi</button>`;
-                li.querySelector('.reply-list').appendChild(replyForm);
+                replyForm.innerHTML = 
+                    `<input type="text" placeholder="Tên Của Bạn" required>
+                    <textarea placeholder="Trả Lời Của Bạn" required></textarea>
+                    <button class="submit-reply">Gửi Trả Lời</button>`;
+                li.appendChild(replyForm);
 
-                const sendReplyButton = replyForm.querySelector('.send-reply');
-                sendReplyButton.addEventListener('click', function() {
-                    const replyName = replyForm.querySelector('input').value || 'Ẩn danh';
+                const submitReplyButton = replyForm.querySelector('.submit-reply');
+                submitReplyButton.addEventListener('click', function() {
+                    const replyName = replyForm.querySelector('input').value;
                     const replyComment = replyForm.querySelector('textarea').value;
-                    const replyDate = new Date().toLocaleString();
-
                     const replyLi = document.createElement('li');
-                    replyLi.classList.add('reply');
-                    replyLi.innerHTML = `${replyName}: ${replyComment} <span class="comment-meta">(${replyDate})</span>`;
-                    li.querySelector('.reply-list').appendChild(replyLi);
-
-                    replyForm.reset();
+                    replyLi.innerHTML = `${replyName}: ${replyComment} <span class="comment-meta">(${date})</span>`;
+                    replyForm.parentNode.querySelector('.reply-list').appendChild(replyLi);
+                    replyForm.remove();
                 });
             });
-        }
 
-        function saveComment(comment) {
-            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments.push(comment);
-            localStorage.setItem('comments', JSON.stringify(savedComments));
-        }
-
-        function removeComment(name, comment) {
-            let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment);
-            localStorage.setItem('comments', JSON.stringify(savedComments));
-        }
+            form.reset();
+        });
     </script>
 </body>
 </html>
+
