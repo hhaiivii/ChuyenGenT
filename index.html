@@ -6,6 +6,7 @@
     <title>Chuyện Gen T - Hành Trình 4.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             background: linear-gradient(135deg, #FF6F91, #FF67A0);
@@ -21,59 +22,48 @@
         }
 
         header {
-            background-color: #FF6F91;
-            color: #fff;
-            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             text-align: center;
         }
         h1 {
             margin: 0;
+            color: #4b6cb7;
         }
         nav {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            justify-content: center;
+            margin-top: 10px;
         }
         nav a {
             padding: 10px;
             color: #333;
             text-decoration: none;
             font-size: 18px;
+            margin-left: 20px;
             transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
             color: #ff6f91;
             transform: scale(1.1);
         }
-        button#theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #FF6F91;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        button#theme-toggle:hover {
-            background-color: #FF67A0;
-        }
         main {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         article {
-            background-color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
             padding: 15px;
             border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         #comments-section {
             margin-top: 30px;
@@ -96,24 +86,6 @@
             color: #777;
             margin-bottom: 5px;
         }
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #FF6F91;
-            cursor: pointer;
-            margin-left: 10px;
-            font-size: 14px;
-        }
-        .reply-form {
-            margin-top: 10px;
-            display: none;
-            flex-direction: column;
-        }
-        .reply-list {
-            margin-top: 10px;
-            padding-left: 20px;
-            list-style-type: none;
-        }
         button {
             background-color: #FF6F91;
             color: white;
@@ -122,6 +94,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #FF67A0;
@@ -238,3 +211,4 @@
     </script>
 </body>
 </html>
+
