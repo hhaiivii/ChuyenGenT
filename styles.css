@@ -132,17 +132,17 @@ article:hover {
 }
 
 /* Introduction box styles */
-.introduction-box {
+.about-box {
     padding: 20px;
     margin: 20px 0;
     border: 2px solid #FF6F61; /* Border color */
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white; /* Màu nền trắng cho hộp giới thiệu */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng để làm nổi bật */
 }
 
 /* Styles for the title in introduction box */
-.introduction-box h2 {
+.about-box h2 {
     margin: 0;
     font-size: 2rem;
     color: #FF6F61; /* Title color */
