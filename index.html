@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuyện Gen T - Hành Trình 4.0</title>
-    <meta name="description" content="Chuyện Gen T - Hành Trình 4.0: Blog chia sẻ những câu chuyện, kinh nghiệm và quan điểm của thế hệ Gen Z trong cuộc sống hiện đại.">
+    <meta name="description" content="Chuyện Gen T - Hành Trình 4.0: Blog chia sẻ những câu chuyện, kinh nghiệm và quan điểm của thế hệ học sinh trường T (THPT TÙNG THIỆN) trong Thời đại công nghệ số.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <h1>Welcome to Chuyện Gen T - Hành Trình 4.0</h1>
         <nav>
             <a href="index.html">Blog Posts</a>
-            <a href="about.html">About</a>
+            <a href="about.html">About</a> <!-- Giữ liên kết đến trang About -->
         </nav>
     </header>
     <main id="posts"> <!-- Blog posts section -->
@@ -24,6 +24,18 @@
             <h2>Another Blog Post</h2>
             <p>This is another post where I share my opinions.</p>
         </article>
+
+        <!-- Comment section -->
+        <section id="comments-section">
+            <h3>Leave a Comment:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="comment" placeholder="Your Comment" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <h4>Comments:</h4>
+            <ul id="comments-list"></ul>
+        </section>
     </main>
     <section id="about"> <!-- About section -->
         <h2>About This Blog</h2>
@@ -32,5 +44,22 @@
     <footer>
         <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
     </footer>
+
+    <script>
+        const form = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            const li = document.createElement('li');
+            li.textContent = `${name}: ${comment}`;
+            commentsList.appendChild(li);
+
+            form.reset();
+        });
+    </script>
 </body>
 </html>
