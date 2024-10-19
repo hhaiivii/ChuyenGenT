@@ -1,153 +1,56 @@
-/* styles.css */
-
-/* Tổng quan */
 body {
-    background: linear-gradient(135deg, #FF6F61, #FFC371);
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f1f1f1;
-}
-
-/* Header */
-header {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-nav a {
-    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
     text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s, transform 0.3s;
-    border-radius: 5px;
-    margin: 0 10px;
+    color: #ff7e5f;
+    font-weight: bold;
 }
 
-nav a:hover {
-    color: #FF6F61;
-    transform: scale(1.1);
-    background: rgba(255, 111, 97, 0.2);
+h1 {
+    color: #333;
 }
 
-/* Nút chuyển đổi chế độ tối */
-button#theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #FF6F61;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s;
-}
-
-button#theme-toggle:hover {
-    background-color: #FFC371;
-}
-
-/* Nội dung chính */
 main {
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
-.about-content {
-    padding: 20px;
-    border: 2px solid #FF6F61; 
-    border-radius: 8px;
-    background-color: white; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-/* Chia sẻ trên mạng xã hội */
-.social-share {
-    display: flex;
-    justify-content: center;
+section {
     margin: 20px 0;
 }
 
-.social-share a {
-    margin: 0 10px;
-    color: #FF6F61;
-    text-decoration: none;
-    font-size: 24px;
-}
-
-.social-share a:hover {
-    color: #FFC371;
-}
-
-/* Các phong cách cho bài viết */
-article {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.white-box {
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-article h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #FF6F61;
-}
-
-article p {
-    margin-bottom: 15px;
-}
-
-/* Phong cách cho footer */
 footer {
     text-align: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    nav a {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-    }
-    nav a {
-        margin: 5px 0;
-        padding: 8px;
-    }
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+    padding: 10px;
+    background-color: #ff7e5f;
+    color: white;
 }
