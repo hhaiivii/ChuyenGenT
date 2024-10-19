@@ -24,7 +24,7 @@
         header {
             text-align: center;
             padding: 15px;
-            background-color: #007bff;
+            background: linear-gradient(135deg, #FF6F91, #FF6F91);
             color: white;
             position: relative;
         }
@@ -55,13 +55,13 @@
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
-            background-color: #ff5f6d;
+            background: linear-gradient(135deg, #FF6F91, #FF6F91);
             color: white;
             transition: background-color 0.3s, transform 0.3s;
         }
 
         button:hover {
-            background-color: #ffc371;
+            background: linear-gradient(135deg, #FFC371, #FF6F91);
             transform: scale(1.05);
         }
 
@@ -79,11 +79,14 @@
 
         main {
             padding: 20px;
+            background: linear-gradient(135deg, #FFEDD5, #FFABAB);
+            border-radius: 5px;
+            margin: 20px;
         }
 
         article {
             margin: 20px 0;
-            background-color: white;
+            background: linear-gradient(135deg, #FFEDD5, #FFABAB);
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 15px;
@@ -148,7 +151,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #007bff;
+            background: linear-gradient(135deg, #FF6F91, #FF6F91);
             color: white;
         }
 
@@ -201,12 +204,12 @@
         <article>
             <h2>Bài Viết Đầu Tiên</h2>
             <img src="https://via.placeholder.com/600x300" alt="Hình ảnh bài viết">
-            <p>Đây là bài viết đầu tiên của tôi! Chào mừng bạn đến với blog.</p>
+            <p>Đây là bài viết đầu tiên của tôi! Chào mừng bạn đến với blog, nơi tôi chia sẻ những suy nghĩ và trải nghiệm của mình.</p>
         </article>
         <article>
             <h2>Bài Viết Khác</h2>
             <img src="https://via.placeholder.com/600x300" alt="Hình ảnh bài viết">
-            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
+            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình về những chủ đề thú vị trong cuộc sống.</p>
         </article>
 
         <section id="comments-section">
@@ -223,9 +226,13 @@
 
     <footer>
         <p>© 2024 Chuyện Gen T - Hành Trình 4.0</p>
+        <p>
+            <a href="#">Liên Hệ</a> |
+            <a href="#">Chính Sách Bảo Mật</a> |
+            <a href="#">Điều Khoản Sử Dụng</a>
+        </p>
     </footer>
 
-    <button id="theme-toggle" style="display: none;">Switch Theme</button> <!-- Hidden for style -->
     <script>
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
@@ -264,14 +271,13 @@
             replyButton.addEventListener('click', function() {
                 const replyForm = document.createElement('div');
                 replyForm.classList.add('reply-form');
-                replyForm.innerHTML = 
-                    `<input type="text" placeholder="Tên Của Bạn" required>
-                    <textarea placeholder="Trả Lời Của Bạn" required></textarea>
-                    <button class="submit-reply">Gửi Trả Lời</button>`;
-                li.appendChild(replyForm);
-
-                const submitReplyButton = replyForm.querySelector('.submit-reply');
-                submitReplyButton.addEventListener('click', function() {
+                replyForm.innerHTML = `<input type="text" placeholder="Tên Của Bạn" required>
+                                       <textarea placeholder="Bình Luận Của Bạn" required></textarea>
+                                       <button class="submit-reply">Gửi</button>`;
+                li.querySelector('.reply-list').appendChild(replyForm);
+                
+                const submitReply = replyForm.querySelector('.submit-reply');
+                submitReply.addEventListener('click', function() {
                     const replyName = replyForm.querySelector('input').value;
                     const replyComment = replyForm.querySelector('textarea').value;
                     const replyLi = document.createElement('li');
@@ -286,4 +292,3 @@
     </script>
 </body>
 </html>
-
