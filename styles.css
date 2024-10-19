@@ -1,84 +1,297 @@
-body { 
-    background: linear-gradient(135deg, #FF5F6D, #FFC371);
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body { 
+            background: linear-gradient(135deg, #FF5F6D, #FFC371);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
 
-header, footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+        header {
+            padding: 10px;
+            text-align: center;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-nav a {
-    padding: 10px 15px;
-    color: #333;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s, transform 0.3s;
-}
+        nav a {
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+        }
 
-nav a:hover {
-    color: #ff5f6d;
-    transform: scale(1.1);
-}
+        nav a:hover {
+            color: #ff5f6d;
+            transform: scale(1.1);
+        }
 
-button {
-    background-color: #ff5f6d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
+        button#theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff5f6d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+        }
 
-button:hover {
-    background-color: #ffc371;
-    transform: translateY(-3px);
-}
+        button#theme-toggle:hover {
+            background-color: #ffc371;
+        }
 
-main {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    margin: 20px;
-}
+        main {
+            padding: 20px;
+        }
 
-article {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        article {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
 
-#comments-section {
-    margin-top: 30px;
-}
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ccc;
+        }
 
-#comments-list {
-    list-style-type: none;
-    padding: 0;
-}
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
 
-#comments-list li {
-    margin: 5px 0;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    background-color: rgba(255, 255, 255, 0.9);
-}
+        #comments-list li {
+            margin: 5px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-direction: column; /* Hiển thị theo cột */
+        }
 
-footer {
-    margin-top: 20px;
-}
+        .comment-meta {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .comment-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #ff5f6d;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .reply-form {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .reply-list {
+            margin-top: 10px;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 8px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
+        <nav>
+            <a href="#"><i class="fas fa-home"></i> Trang Chủ</a>
+            <a href="#about">Giới Thiệu</a>
+            <a href="#"><i class="fas fa-blog"></i> Blog</a>
+        </nav>
+    </header>
+
+    <main id="posts">
+        <article>
+            <h2>Bài Viết Đầu Tiên</h2>
+            <p>Chào mừng bạn đến với blog của chúng tôi! Đây là bài viết đầu tiên của chúng tôi.</p>
+        </article>
+        <article>
+            <h2>Bài Viết Khác</h2>
+            <p>Trong bài viết này, chúng tôi chia sẻ một số ý kiến thú vị.</p>
+        </article>
+
+        <section id="comments-section">
+            <h3>Để lại bình luận:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
+                <button type="submit">Gửi</button>
+            </form>
+            <h4>Bình luận:</h4>
+            <ul id="comments-list"></ul>
+        </section>
+
+        <!-- Phần Giới Thiệu -->
+        <section id="about">
+            <h2>Giới Thiệu về Chuyện Gen T</h2>
+            <p>Blog của chúng tôi là nơi chia sẻ những câu chuyện và trải nghiệm của thế hệ Gen Z trong thời đại 4.0.</p>
+            
+            <h3>Mục Tiêu của Blog</h3>
+            <p>Tạo ra một không gian để các bạn trẻ giao lưu và chia sẻ ý kiến về công nghệ, văn hóa và xã hội.</p>
+            
+            <h3>Các Chủ Đề Nổi Bật</h3>
+            <ul>
+                <li>Công nghệ và giáo dục</li>
+                <li>Văn hóa Gen Z</li>
+                <li>Các vấn đề xã hội hiện tại</li>
+                <li>Trải nghiệm cá nhân</li>
+            </ul>
+            
+            <h3>Tham Gia Cùng Chúng Tôi</h3>
+            <p>Hãy để lại bình luận hoặc gửi ý tưởng của bạn qua email!</p>
+        </section>
+    </main>
+
+    <button id="theme-toggle">Chuyển Đổi Chủ Đề</button>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        const form = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
+
+        // Load comments from Local Storage
+        window.onload = function() {
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.forEach(displayComment);
+        };
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value || 'Anonymous'; // Ẩn danh nếu không có tên
+            const comment = document.getElementById('comment').value;
+            const date = new Date().toLocaleString();
+
+            const commentData = { name, comment, date };
+            displayComment(commentData);
+            saveComment(commentData);
+
+            form.reset();
+        });
+
+        function displayComment({ name, comment, date }) {
+            const li = document.createElement('li');
+            li.innerHTML = `${name}: ${comment} <span class="comment-meta">(${date})</span>
+                            <div class="comment-actions">
+                                <button class="reply-button">💬 Trả lời</button>
+                                <button class="like-button">❤️ Thích</button>
+                                <button class="delete-button">🗑️ Xóa</button>
+                            </div>
+                            <ul class="reply-list"></ul>`;
+            commentsList.appendChild(li);
+
+            // Thông báo khi có bình luận mới
+            alert('Bình luận mới đã được thêm!');
+
+            const likeButton = li.querySelector('.like-button');
+            likeButton.addEventListener('click', function() {
+                alert(`${name} đã thích bình luận!`);
+            });
+
+            const deleteButton = li.querySelector('.delete-button');
+            deleteButton.addEventListener('click', function() {
+                commentsList.removeChild(li);
+                removeComment(name, comment); // Xóa bình luận khỏi Local Storage
+            });
+
+            const replyButton = li.querySelector('.reply-button');
+            replyButton.addEventListener('click', function() {
+                const replyForm = document.createElement('div');
+                replyForm.classList.add('reply-form');
+                replyForm.innerHTML = `
+                    <input type="text" placeholder="Tên của bạn">
+                    <textarea placeholder="Trả lời của bạn"></textarea>
+                    <button>Gửi</button>
+                `;
+                replyForm.querySelector('button').addEventListener('click', function() {
+                    const replyName = replyForm.querySelector('input').value || 'Anonymous';
+                    const replyComment = replyForm.querySelector('textarea').value;
+                    const replyDate = new Date().toLocaleString();
+                    const replyLi = document.createElement('li');
+                    replyLi.innerHTML = `${replyName}: ${replyComment} <span class="comment-meta">(${replyDate})</span>`;
+                    li.querySelector('.reply-list').appendChild(replyLi);
+                    replyForm.remove();
+                });
+                li.appendChild(replyForm);
+            });
+        }
+
+        function saveComment(comment) {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        function removeComment(name, comment) {
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments = comments.filter(c => c.name !== name || c.comment !== comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+    </script>
+</body>
+</html>
