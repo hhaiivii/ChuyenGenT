@@ -1,215 +1,140 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyện Gen T - Hành Trình 4.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #4b6cb7, #182848);
-            font-family: 'Poppins', sans-serif;
-            color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #f1f1f1;
-        }
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #ff6f91, #ff9a8b, #ffffff); /* Pink to orange gradient */
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Dark text for better readability */
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
 
-        header {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-            color: #ff6f91;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        nav a {
-            padding: 10px;
-            color: #f1f1f1;
-            text-decoration: none;
-            font-size: 18px;
-            margin-left: 20px;
-            transition: color 0.3s, transform 0.3s;
-        }
-        nav a:hover {
-            color: #ff6f91;
-            transform: scale(1.1);
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        article {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        #comments-section {
-            margin-top: 30px;
-            padding: 15px;
-            border-top: 1px solid #ccc;
-        }
-        #comments-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        #comments-list li {
-            margin: 10px 0;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .comment-meta {
-            font-size: 12px;
-            color: #777;
-            margin-bottom: 5px;
-        }
-        button {
-            background-color: #ff6f91;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #ff67a0;
-        }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
-        <nav>
-            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
-            <a href="about.html">Giới thiệu</a>
-            <a href="#"><i class="fas fa-blog"></i> Blog</a>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <h2>Bài viết đầu tiên</h2>
-            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
-        </article>
-        <article>
-            <h2>Bài viết khác</h2>
-            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
-        </article>
-        <section id="comments-section">
-            <h3>Để lại bình luận:</h3>
-            <form id="comment-form">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
-                <button type="submit">Gửi</button>
-            </form>
-            <h4>Bình luận:</h4>
-            <ul id="comments-list"></ul>
-        </section>
-    </main>
-    <button id="theme-toggle">Chuyển đổi chế độ</button>
-    <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        toggleButton.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-        });
-        const form = document.getElementById('comment-form');
-        const commentsList = document.getElementById('comments-list');
-        window.onload = function() {
-            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments.forEach(displayComment);
-        };
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value || 'Ẩn danh';
-            const comment = document.getElementById('comment').value;
-            const date = new Date().toLocaleString();
-            const commentData = { name, comment, date };
-            displayComment(commentData);
-            saveComment(commentData);
-            form.reset();
-        });
-        function displayComment({ name, comment, date }) {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}</strong>: ${comment} <span class="comment-meta">(${date})</span>
-                            <div class="comment-actions">
-                                <button class="reply-button">💬 Trả lời</button>
-                                <button class="like-button">❤️ Thích</button>
-                                <button class="delete-button">🗑️ Xóa</button>
-                            </div>
-                            <ul class="reply-list"></ul>`;
-            commentsList.appendChild(li);
-            li.querySelector('.like-button').addEventListener('click', () => alert(`Bình luận của ${name} đã được thích!`));
-            li.querySelector('.delete-button').addEventListener('click', () => {
-                commentsList.removeChild(li);
-                removeComment(name, comment);
-            });
-            const replyButton = li.querySelector('.reply-button');
-            replyButton.addEventListener('click', () => {
-                const replyForm = li.querySelector('.reply-form') || createReplyForm();
-                replyForm.style.display = replyForm.style.display === 'none' ? 'flex' : 'none';
-                li.appendChild(replyForm);
-            });
-        }
-        function saveComment(commentData) {
-            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments.push(commentData);
-            localStorage.setItem('comments', JSON.stringify(savedComments));
-        }
-        function removeComment(name, comment) {
-            let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment);
-            localStorage.setItem('comments', JSON.stringify(savedComments));
-        }
-        function createReplyForm() {
-            const replyForm = document.createElement('div');
-            replyForm.className = 'reply-form';
-            replyForm.innerHTML = `<input type="text" placeholder="Tên của bạn" required>
-                                   <textarea placeholder="Trả lời của bạn" required></textarea>
-                                   <button class="send-reply">Gửi</button>`;
-            replyForm.querySelector('.send-reply').addEventListener('click', () => {
-                const name = replyForm.querySelector('input').value || 'Ẩn danh';
-                const comment = replyForm.querySelector('textarea').value;
-                const reply = { name, comment };
-                const replyList = replyForm.nextElementSibling;
-                const replyItem = document.createElement('li');
-                replyItem.innerHTML = `<strong>${reply.name}</strong>: ${reply.comment}`;
-                replyList.appendChild(replyItem);
-                replyForm.style.display = 'none';
-                replyForm.reset();
-            });
-            return replyForm;
-        }
-    </script>
-</body>
-</html>
+/* Header Styles */
+header {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+h1 {
+    margin: 0;
+    color: #ff6f91;
+}
 
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+nav a {
+    padding: 10px;
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 20px;
+    transition: color 0.3s, transform 0.3s;
+}
+nav a:hover {
+    color: #ff6f91;
+    transform: scale(1.1);
+}
+
+/* Main Content Styles */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Article Styles */
+article {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Comments Section Styles */
+#comments-section {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+#comments-list {
+    list-style-type: none;
+    padding: 0;
+}
+#comments-list li {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.comment-meta {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+/* Button Styles */
+button {
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #ff67a0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+}
+
+/* About Section Styles */
+#about {
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 800px; /* Limit width for better readability */
+}
+
+#about h2 {
+    color: #ff6f91;
+    text-align: center;
+    margin-bottom: 15px; /* Spacing below the title */
+}
+
+.about-content {
+    padding: 20px; /* Inner padding for better text spacing */
+    border-radius: 8px; /* Slightly round corners for content box */
+}
+
+#about p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #f1f1f1;
+    text-align: justify;
+    margin-bottom: 10px; /* Spacing between paragraphs */
+}
 
