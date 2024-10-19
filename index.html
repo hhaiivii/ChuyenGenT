@@ -8,28 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #a0c4ff, #b9fbc0);
+            background: linear-gradient(135deg, #FF5F6D, #FFC371);
             font-family: 'Poppins', sans-serif;
             color: #333;
             margin: 0;
             padding: 0;
-            transition: background 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
         body.dark-mode {
             background-color: #1a1a1a;
             color: #f1f1f1;
         }
-        body.blue-theme {
-            background: linear-gradient(135deg, #3a7bd5, #3a6073);
-            color: #fff;
-        }
-        body.black-purple-theme {
-            background: linear-gradient(135deg, #2b1c43, #7b4397);
-            color: #fff;
-        }
 
         header {
-            background-color: #4CAF50;
+            background-color: #3e8e41;
             color: #fff;
             padding: 1rem;
             text-align: center;
@@ -42,7 +34,7 @@
             justify-content: space-around;
             align-items: center;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         nav a {
@@ -53,24 +45,23 @@
             transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
-            color: #FF6F61;
+            color: #ff5f6d;
             transform: scale(1.1);
         }
-        button#theme-toggle, button#theme-switch {
+        button#theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            margin-top: 10px;
             padding: 10px 20px;
-            background-color: #FF6F61;
+            background-color: #ff5f6d;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             color: white;
             transition: background-color 0.3s;
         }
-        button#theme-toggle:hover, button#theme-switch:hover {
-            background-color: #FF8A65;
+        button#theme-toggle:hover {
+            background-color: #ffc371;
         }
         main {
             max-width: 800px;
@@ -84,28 +75,56 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-        .about-section {
-            text-align: center;
-            background-color: #f5f5f5;
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 20px;
-            color: #333;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ccc;
         }
-        #social-share {
-            text-align: center;
-            margin-top: 20px;
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
         }
-        #social-share a {
-            margin: 0 10px;
-            font-size: 24px;
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s;
+        #comments-list li {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        #social-share a:hover {
-            color: #FF6F61;
+        .comment-meta {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #ff5f6d;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        .reply-form {
+            margin-top: 10px;
+            display: none;
+            flex-direction: column;
+        }
+        .reply-list {
+            margin-top: 10px;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+        button {
+            background-color: #3e8e41;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2e7031;
         }
         @media (max-width: 768px) {
             nav {
@@ -124,10 +143,6 @@
         </nav>
     </header>
     <main>
-        <div class="about-section">
-            <h2>Về Chúng Tôi</h2>
-            <p>Chào mừng bạn đến với Chuyện Gen T - Nơi chúng ta khám phá hành trình của tuổi trẻ trong thế giới 4.0.</p>
-        </div>
         <article>
             <h2>Bài viết đầu tiên</h2>
             <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
@@ -136,35 +151,90 @@
             <h2>Bài viết khác</h2>
             <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
         </article>
-        <section id="social-share">
-            <h3>Chia sẻ:</h3>
-            <a href="#" title="Chia sẻ trên Facebook"><i class="fab fa-facebook-square"></i></a>
-            <a href="#" title="Chia sẻ trên Twitter"><i class="fab fa-twitter-square"></i></a>
-            <a href="#" title="Chia sẻ trên Instagram"><i class="fab fa-instagram"></i></a>
+        <section id="comments-section">
+            <h3>Để lại bình luận:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
+                <button type="submit">Gửi</button>
+            </form>
+            <h4>Bình luận:</h4>
+            <ul id="comments-list"></ul>
         </section>
     </main>
-    <button id="theme-toggle">Chuyển đổi chế độ tối</button>
-    <button id="theme-switch">Chuyển đổi chủ đề</button>
+    <button id="theme-toggle">Chuyển đổi chế độ</button>
     <script>
         const toggleButton = document.getElementById('theme-toggle');
-        const switchButton = document.getElementById('theme-switch');
-        let currentTheme = '';
-
         toggleButton.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
         });
-
-        switchButton.addEventListener('click', function() {
-            if (currentTheme === 'blue-theme') {
-                document.body.classList.remove('blue-theme');
-                document.body.classList.add('black-purple-theme');
-                currentTheme = 'black-purple-theme';
-            } else {
-                document.body.classList.remove('black-purple-theme');
-                document.body.classList.add('blue-theme');
-                currentTheme = 'blue-theme';
-            }
+        const form = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
+        window.onload = function() {
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.forEach(displayComment);
+        };
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value || 'Ẩn danh';
+            const comment = document.getElementById('comment').value;
+            const date = new Date().toLocaleString();
+            const commentData = { name, comment, date };
+            displayComment(commentData);
+            saveComment(commentData);
+            form.reset();
         });
+        function displayComment({ name, comment, date }) {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${name}</strong>: ${comment} <span class="comment-meta">(${date})</span>
+                            <div class="comment-actions">
+                                <button class="reply-button">💬 Trả lời</button>
+                                <button class="like-button">❤️ Thích</button>
+                                <button class="delete-button">🗑️ Xóa</button>
+                            </div>
+                            <ul class="reply-list"></ul>`;
+            commentsList.appendChild(li);
+            li.querySelector('.like-button').addEventListener('click', () => alert(`Bình luận của ${name} đã được thích!`));
+            li.querySelector('.delete-button').addEventListener('click', () => {
+                commentsList.removeChild(li);
+                removeComment(name, comment);
+            });
+            const replyButton = li.querySelector('.reply-button');
+            replyButton.addEventListener('click', () => {
+                const replyForm = li.querySelector('.reply-form') || createReplyForm();
+                replyForm.style.display = replyForm.style.display === 'none' ? 'flex' : 'none';
+                li.appendChild(replyForm);
+            });
+        }
+        function saveComment(commentData) {
+            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments.push(commentData);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+        }
+        function removeComment(name, comment) {
+            let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+        }
+        function createReplyForm() {
+            const replyForm = document.createElement('div');
+            replyForm.className = 'reply-form';
+            replyForm.innerHTML = `<input type="text" placeholder="Tên của bạn" required>
+                                    <textarea placeholder="Trả lời của bạn" required></textarea>
+                                    <button class="send-reply">Gửi</button>`;
+            replyForm.querySelector('.send-reply').addEventListener('click', () => {
+                const name = replyForm.querySelector('input').value || 'Ẩn danh';
+                const comment = replyForm.querySelector('textarea').value;
+                const reply = { name, comment };
+                const replyList = replyForm.nextElementSibling;
+                const replyItem = document.createElement('li');
+                replyItem.innerHTML = `<strong>${reply.name}</strong>: ${reply.comment}`;
+                replyList.appendChild(replyItem);
+                replyForm.style.display = 'none';
+                replyForm.reset();
+            });
+            return replyForm;
+        }
     </script>
 </body>
 </html>
