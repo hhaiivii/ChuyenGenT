@@ -339,3 +339,73 @@ a.button:hover {
     background: var(--secondary-color);
     transform: scale(1.05);
 }
+/* Bình luận phần */
+#comments-section {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#comments-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#comments-list li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s;
+}
+
+#comments-list li:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.comment-meta {
+    font-size: 12px;
+    color: #777;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    color: var(--main-color);
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+}
+
+button.submit-button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button.submit-button:hover {
+    background-color: var(--secondary-color);
+}
