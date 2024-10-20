@@ -345,3 +345,18 @@ a.button:hover {
     background-color: var(--secondary-color);
     transform: scale(1.05);
 }
+iframe {
+    border-radius: 8px; /* Bo góc cho iframe */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho iframe */
+}
+
+a {
+    color: var(--main-color); /* Sử dụng màu chính */
+    text-decoration: underline; /* Gạch chân liên kết */
+}
+
+a:hover {
+    color: var(--hover-color); /* Màu khi di chuột */
+    text-decoration: none; /* Bỏ gạch chân khi hover */
+}
+
