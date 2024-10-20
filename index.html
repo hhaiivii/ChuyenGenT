@@ -1,14 +1,17 @@
+
+
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <title>Giới thiệu - Chuyện Gen T</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        body { 
+        body {
             background: linear-gradient(135deg, #FF6F61, #FFC371);
             font-family: 'Poppins', sans-serif;
             color: #333;
@@ -50,31 +53,15 @@
             color: #333;
             text-decoration: none;
             font-size: 18px;
+            margin: 0 10px;
             transition: color 0.3s, transform 0.3s;
             border-radius: 5px;
-            margin: 0 10px;
         }
 
         nav a:hover {
             color: #FF6F61;
             transform: scale(1.1);
             background: rgba(255, 111, 97, 0.2);
-        }
-
-        a.back-button {
-            display: inline-block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            color: white;
-            background: #FF6F61;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        a.back-button:hover {
-            background: #FFC371;
-            transform: scale(1.05);
         }
 
         button#theme-toggle {
@@ -150,18 +137,6 @@
             font-size: 14px;
         }
 
-        .reply-form {
-            margin-top: 10px;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        .reply-list {
-            margin-top: 10px;
-            padding-left: 20px;
-            list-style-type: none;
-        }
-
         input, textarea {
             width: calc(100% - 20px);
             padding: 10px;
@@ -207,8 +182,8 @@
 </head>
 <body>
     <header>
-        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
-        <a href="index.html" class="back-button">Quay lại Trang chủ</a> <!-- Nút quay lại -->
+        <h1>Giới thiệu - Chuyện Gen T</h1>
+        <button id="theme-toggle">Chuyển đổi chế độ tối</button>
         <nav>
             <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
             <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
@@ -216,26 +191,12 @@
         </nav>
     </header>
 
-    <main id="posts">
+    <main>
         <article>
-            <h2>Bài viết đầu tiên</h2>
-            <p>Đây là bài viết đầu tiên của tôi! Chào mừng đến với blog.</p>
+            <h2>Chào mừng các bạn đến với Gen T!</h2>
+            <p>Chúng tớ muốn tạo ra một không gian kết nối và xây dựng cộng đồng riêng cho trường THPT Tùng Thiện. Trang web này sẽ là nơi để các bạn thể hiện bản thân, chia sẻ ý tưởng, và khám phá những điều mới mẻ trong một môi trường lành mạnh.</p>
+            <p>Mong rằng các bạn sẽ tìm thấy niềm vui và sự sáng tạo tại đây!</p>
         </article>
-        <article>
-            <h2>Bài viết khác</h2>
-            <p>Đây là một bài viết khác nơi tôi chia sẻ ý kiến của mình.</p>
-        </article>
-
-        <section id="comments-section">
-            <h3>Để lại bình luận:</h3>
-            <form id="comment-form">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Nội dung bình luận" required></textarea>
-                <button type="submit" class="submit-button">Gửi bình luận</button>
-            </form>
-            <h4>Bình luận:</h4>
-            <ul id="comments-list"></ul>
-        </section>
 
         <section id="about-section">
             <h2>Giới Thiệu về Chuyện Gen T</h2>
@@ -255,9 +216,19 @@
             <h3>Tham Gia Cùng Chúng Tôi</h3>
             <p>Hãy để lại bình luận hoặc gửi ý tưởng của bạn qua email!</p>
         </section>
+
+        <section id="comments-section">
+            <h3>Để lại bình luận:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Nội dung bình luận" required></textarea>
+                <button type="submit" class="submit-button">Gửi bình luận</button>
+            </form>
+            <h4>Bình luận:</h4>
+            <ul id="comments-list"></ul>
+        </section>
     </main>
 
-    <button id="theme-toggle">Chuyển đổi chế độ tối</button>
     <script>
         const toggleButton = document.getElementById('theme-toggle');
         toggleButton.addEventListener('click', function() {
@@ -288,13 +259,31 @@
 
         function displayComment({ name, comment, date }) {
             const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}</strong> <span class="comment-meta">${date}</span><p>${comment}</p>`;
+            li.innerHTML = `
+                <strong>${name}</strong>
+                <p>${comment}</p>
+                <span class="comment-meta">${date}</span>
+                <div class="comment-actions">
+                    <button class="delete-comment">Xóa</button>
+                </div>
+            `;
             commentsList.appendChild(li);
+
+            li.querySelector('.delete-comment').addEventListener('click', function() {
+                commentsList.removeChild(li);
+                removeComment(name, comment, date);
+            });
         }
 
         function saveComment(commentData) {
             const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
             savedComments.push(commentData);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+        }
+
+        function removeComment(name, comment, date) {
+            let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+            savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment || c.date !== date);
             localStorage.setItem('comments', JSON.stringify(savedComments));
         }
     </script>
