@@ -98,7 +98,7 @@
         }
 
         .hero h2:hover {
-            color: #FF6F61; /* Hoặc một màu khác nếu bạn muốn */
+            color: #FF6F61;
         }
 
         .blog-posts {
@@ -122,6 +122,16 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
+        .post-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .post-card img:hover {
+            transform: scale(1.1);
+        }
+
         #comments-section {
             margin-top: 30px;
             padding: 15px;
@@ -138,7 +148,7 @@
 
         #comments-section h3:hover,
         #comments-section h4:hover {
-            color: #FF6F61; /* Màu hiệu ứng cho tiêu đề bình luận */
+            color: #FF6F61;
         }
 
         #comments-list {
@@ -185,6 +195,12 @@
             margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #FF6F61;
+            outline: none;
         }
 
         button.submit-button {
@@ -203,12 +219,12 @@
 
         /* Hiệu ứng đổi màu cho phần nội dung giới thiệu */
         #intro-text {
-            color: black; /* Màu ban đầu */
-            transition: color 0.5s ease-in-out; /* Hiệu ứng chuyển màu */
+            color: black;
+            transition: color 0.5s ease-in-out;
         }
 
         #intro-text:hover {
-            color: #FFC371; /* Màu sáng hơn khi di chuột */
+            color: #FFC371;
         }
 
         @media (max-width: 768px) {
@@ -245,110 +261,63 @@
 
     <main>
         <div class="hero">
-            <h2>Chào mừng các bạn đến với Gen T!</h2>
+            <h2 id="intro-text">Chào mừng các bạn đến với Gen T!</h2>
             <p>Khám phá thế giới qua lăng kính của các bạn học sinh trường T ( THPT Tùng Thiện).</p>
         </div>
         
         <div class="blog-posts">
             <article class="post-card">
-                <img src="<a href="https://ibb.co/R7hx6rJ"><img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b653c7aa.jpg" a
-                <p> để bừa</p>
+                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b653c7aa.jpg" alt="Bài viết 1">
+                <p>Để bừa</p>
                 <button class="like-button">❤️</button>
             </article>
             <article class="post-card">
-                <img src="<a href="https://ibb.co/RbnkxkQ"><img src="https://i.ibb.co/RbnkxkQ/z5943895744990-9a93b075c3c3dcf523e959034d1aec9b.jpg" 
-                <p> lớp 12a12 tôi yêu</p>
+                <img src="https://i.ibb.co/RbnkxkQ/z5943895744990-9a93b075c3c3dcf523e959034d1aec9b.jpg" alt="Bài viết 2">
+                <p>Để bừa</p>
                 <button class="like-button">❤️</button>
             </article>
-            <!-- Các bài viết khác có thể thêm vào đây -->
         </div>
 
-        <section id="comments-section">
-            <h3>Để lại bình luận:</h3>
+        <div id="comments-section">
+            <h3>Bình luận</h3>
             <form id="comment-form">
                 <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Nội dung bình luận" required></textarea>
+                <textarea id="comment" placeholder="Nhập bình luận của bạn" required></textarea>
                 <button type="submit" class="submit-button">Gửi bình luận</button>
             </form>
-            <h4>Bình luận:</h4>
             <ul id="comments-list"></ul>
-        </section>
-
-        <!-- Phần giới thiệu với hiệu ứng chuyển màu -->
-        <section id="intro">
-            <h2 id="intro-text">Gen T? Là sao vậy ta?</h2>
-            <p id="intro-text">Chào mừng đến với Gen T Blog – không gian khám phá hành trình 4.0 dành riêng cho học sinh Trường Tùng Thiện! "Gen T" là cái tên đặc biệt chúng mình tự đặt cho thế hệ học sinh trường THPT Tùng Thiện, vừa ngắn gọn, vừa đậm chất riêng. Nghe đến Gen T, ai cũng biết ngay đây là cộng đồng học sinh sáng tạo, năng động và không ngừng tìm kiếm cơ hội.
-
-Hãy cùng “vượt sóng” công nghệ và “chill” với những trải nghiệm độc đáo. Bạn chính là mảnh ghép mà chúng tớ cần. Mọi ý tưởng đều được chào đón—cuộc phiêu lưu số đang chờ bạn! Cùng nhau, chúng ta sẽ xây dựng một cộng đồng sáng tạo, nhiệt huyết và sẵn sàng đón nhận những thử thách mới. Bắt đầu hành trình nào, Gen T!</p>
-        </section>
+        </div>
     </main>
 
     <script>
-        // Load theme from Local Storage
-        window.onload = function() {
-            const darkMode = localStorage.getItem('dark-mode') === 'true';
-            if (darkMode) {
-                document.body.classList.add('dark-mode');
-            }
-
-            // Load comments from Local Storage
-            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments.forEach(displayComment);
-        };
-
-        const toggleButton = document.getElementById('theme-toggle');
-        toggleButton.addEventListener('click', function() {
+        // Chuyển đổi chế độ tối
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            // Save theme preference to Local Storage
-            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
         });
 
-        const form = document.getElementById('comment-form');
+        // Xử lý bình luận
+        const commentForm = document.getElementById('comment-form');
         const commentsList = document.getElementById('comments-list');
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value || 'Ẩn danh';
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
             const comment = document.getElementById('comment').value;
-            const date = new Date().toLocaleString();
 
-            const commentData = { name, comment, date };
-            displayComment(commentData);
-            saveComment(commentData);
+            const commentItem = document.createElement('li');
+            commentItem.innerHTML = `<strong>${name}</strong>: ${comment}<span class="comment-meta"> [Chưa xóa]</span><div class="comment-actions"><button class="delete-button">Xóa</button></div>`;
+            commentsList.appendChild(commentItem);
+            
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
 
-            form.reset();
-        });
-
-        function displayComment({ name, comment, date }) {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <strong>${name}</strong>
-                <p>${comment}</p>
-                <span class="comment-meta">${date}</span>
-                <div class="comment-actions">
-                    <button class="delete-comment">Xóa</button>
-                </div>
-            `;
-            commentsList.appendChild(li);
-
-            li.querySelector('.delete-comment').addEventListener('click', function() {
-                commentsList.removeChild(li);
-                removeComment(name, comment, date);
+            // Xóa bình luận
+            const deleteButton = commentItem.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+                commentsList.removeChild(commentItem);
             });
-        }
-
-        function saveComment(commentData) {
-            const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments.push(commentData);
-            localStorage.setItem('comments', JSON.stringify(savedComments));
-        }
-
-        function removeComment(name, comment, date) {
-            let savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-            savedComments = savedComments.filter(c => c.name !== name || c.comment !== comment || c.date !== date);
-            localStorage.setItem('comments', JSON.stringify(savedComments));
-        }
+        });
     </script>
 </body>
 </html>
-
