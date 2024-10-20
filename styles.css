@@ -451,3 +451,9 @@ body.dark-mode .topic-item {
 body.dark-mode #about-section {
     background-color: #2a2a2a; /* Màu nền tối cho phần giới thiệu */
 }
+.post-card img {
+    width: 100%; /* Đảm bảo hình ảnh chiếm 100% chiều rộng của card */
+    border-radius: 8px; /* Bo góc hình ảnh */
+    object-fit: cover; /* Giữ tỷ lệ hình ảnh, không bị méo */
+    height: 200px; /* Chiều cao cố định nếu cần */
+}
