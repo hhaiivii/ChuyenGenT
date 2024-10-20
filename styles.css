@@ -1,353 +1,325 @@
-/* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyện Gen T</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #FF6F61, #FFC371);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
 
-/* Định nghĩa các màu sắc */
-:root {
-    --main-bg-color: #1a1a1a;
-    --main-color: #FF6F61;
-    --secondary-color: #FFC371;
-    --text-color: #333;
-    --text-light: #FFEBCC; /* Màu chữ cam sáng trắng cho nội dung giới thiệu */
-    --hover-color: #FF6F61;
-}
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Body styles */
-body {
-    background: linear-gradient(135deg, #FF6F61, #FFC371);
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #FF6F61;
+        }
 
-body.dark-mode {
-    background-color: var(--main-bg-color);
-    color: var(--text-light);
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-/* Header styles */
-header {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
+        nav a {
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: color 0.3s, transform 0.3s;
+            border-radius: 5px;
+        }
 
-header h1 {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 2.5rem;
-    margin: 0;
-    color: var(--main-color);
-    transition: transform 0.3s, color 0.3s;
-}
+        nav a:hover {
+            color: #FF6F61;
+            transform: scale(1.1);
+            background: rgba(255, 111, 97, 0.2);
+        }
 
-header h1:hover {
-    transform: scale(1.05) rotate(-2deg);
-    color: var(--hover-color);
-}
+        button#theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #FF6F61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+        }
 
-/* Nút Quay Lại */
-a.back-button {
-    display: inline-block;
-    margin: 10px 0;
-    padding: 10px 20px;
-    color: white;
-    background: var(--main-color);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s, transform 0.3s;
-}
+        button#theme-toggle:hover {
+            background-color: #FFC371;
+        }
 
-a.back-button:hover {
-    background: var(--secondary-color);
-    transform: scale(1.05) rotate(1deg);
-}
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+        .hero {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-nav a {
-    padding: 10px 20px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 5px;
-    margin: 0 10px;
-    position: relative;
-    transition: color 0.3s, transform 0.3s;
-}
+        .hero h2 {
+            transition: color 0.3s;
+        }
 
-nav a:hover {
-    color: var(--hover-color);
-    transform: scale(1.1);
-}
+        .hero h2:hover {
+            color: #FF6F61;
+        }
 
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 80vh;
-    background: url('hero-image.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
 
-.hero h2 {
-    font-size: 3rem;
-    animation: fadeIn 2s ease-in-out;
-}
+        .post-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-/* About Section styles */
-#about-section {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-}
+        .post-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.section-title {
-    font-size: 2rem;
-    color: var(--main-color);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
+        .post-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
 
-.section-subtitle {
-    font-size: 1.5rem;
-    color: var(--main-color);
-    margin-top: 20px;
-    font-weight: 500;
-}
+        .post-card img:hover {
+            transform: scale(1.1);
+        }
 
-.section-description {
-    font-size: 1rem;
-    color: var(--text-light); /* Màu chữ đã thay đổi sang cam sáng trắng */
-    margin-bottom: 10px;
-}
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-.topic-list {
-    list-style: disc;
-    padding-left: 20px;
-}
+        #comments-section h3,
+        #comments-section h4 {
+            transition: color 0.3s;
+        }
 
-/* Join Us Section */
-.join-us {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
+        #comments-section h3:hover,
+        #comments-section h4:hover {
+            color: #FF6F61;
+        }
 
-.join-us input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid var(--main-color);
-    border-radius: 5px;
-    margin-right: 10px;
-}
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.join-us button {
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
+        #comments-list li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s;
+        }
 
-.join-us button:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
-}
+        #comments-list li:hover {
+            background-color: #f9f9f9;
+        }
 
-/* Main content styles */
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
+        .comment-meta {
+            font-size: 12px;
+            color: #777;
+        }
 
-/* Blog post grid */
-.blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
 
-.post-card {
-    border-radius: 12px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #FF6F61;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+        }
 
-.post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+        input, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
 
-.post-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+        input:focus, textarea:focus {
+            border-color: #FF6F61;
+            outline: none;
+        }
 
-.post-card h3 {
-    font-size: 1.8rem;
-    margin: 15px;
-    color: var(--main-color);
-}
+        button.submit-button {
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-.post-card p {
-    padding: 0 15px 15px;
-    font-size: 1rem;
-    color: #555;
-}
+        button.submit-button:hover {
+            background-color: #FFC371;
+        }
 
-/* Sidebar styles */
-.sidebar {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    width: 250px;
-    background: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+        /* Hiệu ứng đổi màu cho phần nội dung giới thiệu */
+        #intro-text {
+            color: black;
+            transition: color 0.5s ease-in-out;
+        }
 
-.sidebar h4 {
-    font-size: 1.5rem;
-    color: var(--main-color);
-    margin-bottom: 10px;
-}
+        #intro-text:hover {
+            color: #FFC371;
+        }
 
-.sidebar a {
-    display: block;
-    padding: 8px 0;
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: color 0.3s, transform 0.3s;
-}
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+            }
+        }
 
-.sidebar a:hover {
-    color: var(--hover-color);
-    transform: translateX(5px);
-}
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 5px 0;
+                padding: 8px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Giới thiệu - Chuyện Gen T</h1>
+        <button id="theme-toggle">Chuyển đổi chế độ tối</button>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+            <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> Giới thiệu</a>
+        </nav>
+    </header>
 
-/* Footer styles */
-footer {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
+    <main>
+        <div class="hero">
+            <h2 id="intro-text">Chào mừng các bạn đến với Gen T!</h2>
+            <p>Khám phá thế giới qua lăng kính của các bạn học sinh trường T ( THPT Tùng Thiện).</p>
+        </div>
+        
+        <div class="blog-posts">
+            <article class="post-card">
+                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b653c7aa.jpg" alt="Bài viết 1">
+                <p>Để bừa</p>
+                <button class="like-button">❤️</button>
+            </article>
+            <article class="post-card">
+                <img src="https://i.ibb.co/RbnkxkQ/z5943895744990-9a93b075c3c3dcf523e959034d1aec9b.jpg" alt="Bài viết 2">
+                <p>Để bừa</p>
+                <button class="like-button">❤️</button>
+            </article>
+        </div>
 
-footer p {
-    font-size: 1rem;
-    color: #777;
-}
+        <div id="comments-section">
+            <h3>Bình luận</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Nhập bình luận của bạn" required></textarea>
+                <button type="submit" class="submit-button">Gửi bình luận</button>
+            </form>
+            <ul id="comments-list"></ul>
+        </div>
+    </main>
 
-.social-links {
-    margin-top: 10px;
-}
+    <script>
+        // Chuyển đổi chế độ tối
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
 
-.social-links a {
-    color: var(--text-color);
-    margin: 0 10px;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
+        // Xử lý bình luận
+        const commentForm = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
 
-.social-links a:hover {
-    color: var(--main-color);
-}
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
 
-/* Light/Dark mode toggle button */
-button#theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: var(--main-color);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.3s;
-}
+            const commentItem = document.createElement('li');
+            commentItem.innerHTML = `<strong>${name}</strong>: ${comment}<span class="comment-meta"> [Chưa xóa]</span><div class="comment-actions"><button class="delete-button">Xóa</button></div>`;
+            commentsList.appendChild(commentItem);
+            
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
 
-button#theme-toggle:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
-}
+            // Xóa bình luận
+            const deleteButton = commentItem.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+                commentsList.removeChild(commentItem);
+            });
+        });
+    </script>
+</body>
+</html>
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    nav a {
-        font-size: 1rem;
-        padding: 8px 16px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .sidebar {
-        width: 100%;
-        position: static;
-        margin-top: 20px;
-    }
-
-    .hero h2 {
-        font-size: 2.5rem;
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Additional interactive elements */
-a.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--main-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-a.button:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
-}
+ 
