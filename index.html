@@ -201,6 +201,16 @@
             background-color: #FFC371;
         }
 
+        /* Hiệu ứng đổi màu cho phần nội dung giới thiệu */
+        #intro-text {
+            color: black; /* Màu ban đầu */
+            transition: color 0.5s ease-in-out; /* Hiệu ứng chuyển màu */
+        }
+
+        #intro-text:hover {
+            color: #FFC371; /* Màu sáng hơn khi di chuột */
+        }
+
         @media (max-width: 768px) {
             nav a {
                 font-size: 16px;
@@ -264,6 +274,12 @@
             </form>
             <h4>Bình luận:</h4>
             <ul id="comments-list"></ul>
+        </section>
+
+        <!-- Phần giới thiệu với hiệu ứng chuyển màu -->
+        <section id="intro">
+            <h2 id="intro-text">Giới thiệu về Gen T</h2>
+            <p id="intro-text">Gen T là thế hệ trẻ đang khám phá, học hỏi và phát triển trong một thế giới đầy thử thách và cơ hội. Chúng tớ hy vọng mang lại cho các bạn một không gian để chia sẻ và kết nối.</p>
         </section>
     </main>
 
