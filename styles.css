@@ -334,126 +334,15 @@ button#theme-toggle:hover {
 a.button {
     display: inline-block;
     padding: 10px 20px;
+    background-color: var(--main-color);
     color: white;
-    background: var(--main-color);
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s, transform 0.3s;
-}
-
-a.button:hover {
-    background: var(--secondary-color);
-    transform: scale(1.05);
-}
-
-/* Bình luận phần */
-#comments-section {
-    margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid #ddd;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-#comments-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-#comments-list li {
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8);
     transition: background-color 0.3s, transform 0.3s;
 }
 
-#comments-list li:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-3px);
-}
-
-.comment-meta {
-    font-size: 12px;
-    color: #777;
-}
-
-.comment-actions {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
-
-.comment-actions button {
-    background: none;
-    border: none;
-    color: var(--main-color);
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 14px;
-    transition: color 0.3s;
-}
-
-.comment-actions button:hover {
-    color: var(--secondary-color);
-}
-
-input, textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid var(--main-color);
-    border-radius: 5px;
-}
-
-button.submit-button {
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-button.submit-button:hover {
+a.button:hover {
     background-color: var(--secondary-color);
     transform: scale(1.05);
 }
 
-/* Thêm CSS cho màu chữ trắng hơn với chút cam */
-.section-title, 
-.section-subtitle, 
-.section-description, 
-.topic-item {
-    color: #FFE4B5; /* Màu trắng hơn với một chút cam */
-    transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
-}
-
-.section-title:hover, 
-.section-subtitle:hover, 
-.section-description:hover, 
-.topic-item:hover {
-    color: #FFD700; /* Màu vàng sáng khi hover */
-}
-
-/* Đảm bảo các phần nội dung sử dụng màu phù hợp trong chế độ tối */
-body.dark-mode .section-title,
-body.dark-mode .section-subtitle,
-body.dark-mode .section-description,
-body.dark-mode .topic-item {
-    color: #FFD700; /* Màu vàng sáng khi hover trong chế độ tối */
-}
-
-body.dark-mode #about-section {
-    background-color: #2a2a2a; /* Màu nền tối cho phần giới thiệu */
-}
-.post-card img {
-     /* Đảm bảo hình ảnh chiếm 100% chiều rộng của card */
-     /* Bo góc hình ảnh */
-     /* Giữ tỷ lệ hình ảnh, không bị méo */
-    /* Chiều cao cố định nếu cần */
-}
