@@ -8,7 +8,7 @@
     --main-color: #FF6F61;
     --secondary-color: #FFC371;
     --text-color: #333;
-    --text-light: #f1f1f1;
+    --text-light: #FFEBCC; /* Màu chữ cam sáng trắng cho nội dung giới thiệu */
     --hover-color: #FF6F61;
 }
 
@@ -133,13 +133,8 @@ nav a:hover {
 
 .section-description {
     font-size: 1rem;
-    color: var(--text-color);
+    color: var(--text-light); /* Màu chữ đã thay đổi sang cam sáng trắng */
     margin-bottom: 10px;
-    transition: color 0.3s;
-}
-
-.section-description:hover {
-    color: var(--hover-color);
 }
 
 .topic-list {
@@ -429,12 +424,3 @@ button.submit-button:hover {
     transform: scale(1.05);
 }
 
-/* Đổi màu chữ của phần nội dung giới thiệu */
-#intro-text {
-    color: black; /* Màu ban đầu */
-    transition: color 0.5s ease; /* Thêm hiệu ứng chuyển màu */
-}
-
-#intro-text:hover {
-    color: var(--main-color); /* Màu chuyển sang khi hover */
-}
