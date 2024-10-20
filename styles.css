@@ -422,78 +422,21 @@ button.submit-button {
 button.submit-button:hover {
     background-color: var(--secondary-color);
     transform: scale(1.05);
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu - Chuyện Gen T</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Thêm CSS cho màu chữ trắng hơn với chút cam */
-        .section-title, 
-        .section-subtitle, 
-        .section-description, 
-        .topic-item {
-            color: #FFE4B5; /* Màu trắng hơn với một chút cam */
-            transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
-        }
+}
 
-        .section-title:hover, 
-        .section-subtitle:hover, 
-        .section-description:hover, 
-        .topic-item:hover {
-            color: #FFD700; /* Màu vàng sáng khi hover */
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
-        <a href="index.html" class="back-button">Quay lại Trang chủ</a> <!-- Nút quay lại -->
-        <nav>
-            <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
-            <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
-            <a href="about.html"><i class="fas fa-info-circle"></i> Giới thiệu</a>
-        </nav>
-    </header>
+/* Thêm CSS cho màu chữ trắng hơn với chút cam */
+.section-title, 
+.section-subtitle, 
+.section-description, 
+.topic-item {
+    color: #FFE4B5; /* Màu trắng hơn với một chút cam */
+    transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+}
 
-    <main>
-        <section id="about-section">
-            <h2 class="section-title">Giới Thiệu về Chuyện Gen T</h2>
-            <p class="section-description">Blog của chúng tôi là nơi chia sẻ những câu chuyện và trải nghiệm của thế hệ Gen Z trong thời đại 4.0.</p>
-            
-            <h3 class="section-subtitle">Mục Tiêu của Blog</h3>
-            <p class="section-description">Tạo ra một không gian để các bạn trẻ giao lưu và chia sẻ ý kiến về công nghệ, văn hóa và xã hội.</p>
-            
-            <h3 class="section-subtitle">Các Chủ Đề Nổi Bật</h3>
-            <ul class="topic-list">
-                <li class="topic-item">Công nghệ và giáo dục</li>
-                <li class="topic-item">Văn hóa Gen Z</li>
-                <li class="topic-item">Các vấn đề xã hội hiện tại</li>
-                <li class="topic-item">Trải nghiệm cá nhân</li>
-            </ul>
-            
-            <h3 class="section-subtitle">Tham Gia Cùng Chúng Tôi</h3>
-            <p class="section-description">Hãy để lại bình luận hoặc gửi ý tưởng của bạn qua email!</p>
+.section-title:hover, 
+.section-subtitle:hover, 
+.section-description:hover, 
+.topic-item:hover {
+    color: #FFD700; /* Màu vàng sáng khi hover */
+}
 
-            <div class="join-us">
-                <input type="text" placeholder="Email của bạn..." aria-label="Email" />
-                <button>Đăng ký</button>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
-        <div class="social-links">
-            <a href="#" class="fab fa-facebook-square"></a>
-            <a href="#" class="fab fa-twitter-square"></a>
-            <a href="#" class="fab fa-instagram-square"></a>
-            <a href="#" class="fab fa-youtube-square"></a>
-        </div>
-    </footer>
-</body>
-</html>
