@@ -135,6 +135,11 @@ nav a:hover {
     font-size: 1rem;
     color: var(--text-color);
     margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.section-description:hover {
+    color: var(--hover-color);
 }
 
 .topic-list {
@@ -422,4 +427,14 @@ button.submit-button {
 button.submit-button:hover {
     background-color: var(--secondary-color);
     transform: scale(1.05);
+}
+
+/* Đổi màu chữ của phần nội dung giới thiệu */
+#intro-text {
+    color: black; /* Màu ban đầu */
+    transition: color 0.5s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+#intro-text:hover {
+    color: var(--main-color); /* Màu chuyển sang khi hover */
 }
