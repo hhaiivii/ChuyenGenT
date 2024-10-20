@@ -63,6 +63,22 @@
         .back-button:hover {
             background-color: #FFC371;
         }
+        #comments-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #comments-list li {
+            margin: 5px 0;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
@@ -77,6 +93,37 @@
             <p>Chúng tớ muốn tạo ra một không gian kết nối và xây dựng cộng đồng riêng cho trường THPT Tùng Thiện. Trang web này sẽ là nơi để các bạn thể hiện bản thân, chia sẻ ý tưởng, và khám phá những điều mới mẻ trong một môi trường lành mạnh.</p>
             <p>Mong rằng các bạn sẽ tìm thấy niềm vui và sự sáng tạo tại đây!</p>
         </article>
+
+        <!-- Phần bình luận -->
+        <section id="comments-section">
+            <h3>Để lại bình luận:</h3>
+            <form id="comment-form">
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Nội dung bình luận" required></textarea>
+                <button type="submit" class="submit-button">Gửi bình luận</button>
+            </form>
+            <h4>Bình luận:</h4>
+            <ul id="comments-list"></ul>
+        </section>
     </main>
+
+    <script>
+        // Xử lý việc gửi bình luận
+        document.getElementById('comment-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn việc tải lại trang
+
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            // Tạo phần tử mới cho bình luận
+            const li = document.createElement('li');
+            li.textContent = `${name}: ${comment}`;
+            document.getElementById('comments-list').appendChild(li);
+
+            // Xóa nội dung của ô nhập
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
+        });
+    </script>
 </body>
 </html>
