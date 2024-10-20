@@ -423,4 +423,9 @@ button.submit-button:hover {
     background-color: var(--secondary-color);
     transform: scale(1.05);
 }
-
+/* Đổi màu sắc cho phần giới thiệu */
+#about-section .section-title,
+#about-section .section-subtitle,
+#about-section .section-description {
+    color: #FFCC80; /* Màu cam sáng */
+}
