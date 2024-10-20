@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Thêm màu cho nội dung */
-        .section-title,
-        .section-description,
-        .section-subtitle {
-            color: #FFCC80; /* Màu cam sáng */
+        /* Thêm CSS cho màu chữ cam trắng sáng trong phần giới thiệu */
+        #about-section .section-title, 
+        #about-section .section-subtitle, 
+        #about-section .section-description {
+            color: #FFCC99; /* Màu cam trắng sáng */
+            transition: color 0.3s;
+        }
+        
+        #about-section .section-title:hover, 
+        #about-section .section-subtitle:hover, 
+        #about-section .section-description:hover {
+            color: #FFD700; /* Màu vàng sáng khi hover */
         }
     </style>
 </head>
@@ -64,4 +71,5 @@
     </footer>
 </body>
 </html>
+
 
