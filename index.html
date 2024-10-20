@@ -84,13 +84,34 @@
             margin: 0 auto;
         }
 
-        article {
+        .hero {
+            text-align: center;
             margin-bottom: 20px;
             padding: 20px;
-            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .post-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         #comments-section {
@@ -195,12 +216,27 @@
     </header>
 
     <main>
-        <article>
+        <div class="hero">
             <h2>Chào mừng các bạn đến với Gen T!</h2>
-            <p>Chúng tớ muốn tạo ra một không gian kết nối và xây dựng cộng đồng riêng cho trường THPT Tùng Thiện. Trang web này sẽ là nơi để các bạn thể hiện bản thân, chia sẻ ý tưởng, và khám phá những điều mới mẻ trong một môi trường lành mạnh.</p>
-            <p>Mong rằng các bạn sẽ tìm thấy niềm vui và sự sáng tạo tại đây!</p>
-        </article>
+            <p>Khám phá thế giới qua lăng kính của Gen Z.</p>
+        </div>
         
+        <div class="blog-posts">
+            <article class="post-card">
+                <img src="post1.jpg" alt="Bài viết 1" style="width:100%; border-radius: 8px;">
+                <h3>Bài Viết 1</h3>
+                <p>Mô tả ngắn gọn về bài viết 1...</p>
+                <button class="like-button">❤️</button>
+            </article>
+            <article class="post-card">
+                <img src="post2.jpg" alt="Bài viết 2" style="width:100%; border-radius: 8px;">
+                <h3>Bài Viết 2</h3>
+                <p>Mô tả ngắn gọn về bài viết 2...</p>
+                <button class="like-button">❤️</button>
+            </article>
+            <!-- Các bài viết khác có thể thêm vào đây -->
+        </div>
+
         <section id="comments-section">
             <h3>Để lại bình luận:</h3>
             <form id="comment-form">
