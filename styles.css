@@ -440,3 +440,14 @@ button.submit-button:hover {
     color: #FFD700; /* Màu vàng sáng khi hover */
 }
 
+/* Đảm bảo các phần nội dung sử dụng màu phù hợp trong chế độ tối */
+body.dark-mode .section-title,
+body.dark-mode .section-subtitle,
+body.dark-mode .section-description,
+body.dark-mode .topic-item {
+    color: #FFD700; /* Màu vàng sáng khi hover trong chế độ tối */
+}
+
+body.dark-mode #about-section {
+    background-color: #2a2a2a; /* Màu nền tối cho phần giới thiệu */
+}
