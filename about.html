@@ -8,38 +8,31 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-       /* Thêm CSS cho màu chữ trắng hơn với chút cam */
-.section-title, .section-subtitle, .section-description, .topic-item {
+      /* Thêm CSS cho màu chữ trắng hơn với chút cam cho các tiêu đề và mô tả */
+.section-title, 
+.section-subtitle, 
+.section-description {
     color: #FFE4B5; /* Màu trắng hơn với một chút cam */
-    transition: color 0.3s;
+    transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
 }
 
-.section-title:hover, .section-subtitle:hover, .section-description:hover, .topic-item:hover {
+/* Đổi màu chữ khi hover */
+.section-title:hover, 
+.section-subtitle:hover, 
+.section-description:hover {
     color: #FFD700; /* Màu vàng sáng khi hover */
 }
 
-/* Các quy tắc CSS khác */
-input, textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid var(--main-color);
-    border-radius: 5px;
+/* Duy trì màu cho các mục trong danh sách */
+.topic-item {
+    color: #FFE4B5; /* Màu trắng hơn với một chút cam */
+    transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
 }
 
-button.submit-button {
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+/* Đổi màu chữ khi hover cho các mục */
+.topic-item:hover {
+    color: #FFD700; /* Màu vàng sáng khi hover */
 }
 
-button.submit-button:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
-}
 
 
