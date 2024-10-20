@@ -42,6 +42,23 @@ header h1 {
     color: var(--main-color);
 }
 
+/* Nút Quay Lại */
+a.back-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: white;
+    background: var(--main-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+a.back-button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
 /* Navigation styles */
 nav {
     display: flex;
@@ -322,4 +339,3 @@ a.button:hover {
     background: var(--secondary-color);
     transform: scale(1.05);
 }
-
