@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -28,6 +28,12 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #FF6F61;
+        }
+
         nav {
             display: flex;
             justify-content: center;
@@ -53,6 +59,22 @@
             color: #FF6F61;
             transform: scale(1.1);
             background: rgba(255, 111, 97, 0.2);
+        }
+
+        a.back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            color: white;
+            background: #FF6F61;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        a.back-button:hover {
+            background: #FFC371;
+            transform: scale(1.05);
         }
 
         button#theme-toggle {
