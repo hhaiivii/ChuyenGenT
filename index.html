@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Cơ bản cho body */
         body {
             background: linear-gradient(135deg, #FF6F61, #FFC371);
             font-family: 'Poppins', sans-serif;
@@ -20,6 +21,7 @@
             color: #f1f1f1;
         }
 
+        /* Header */
         header {
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
@@ -27,14 +29,12 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: relative;
         }
-
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             color: #FF6F61;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
-
         nav {
             display: flex;
             justify-content: center;
@@ -45,7 +45,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-
         nav a {
             padding: 10px 20px;
             color: #333;
@@ -56,7 +55,6 @@
             border-radius: 5px;
             position: relative;
         }
-
         nav a::after {
             content: '';
             display: block;
@@ -69,17 +67,16 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
         nav a:hover {
             color: #FF6F61;
             transform: scale(1.1);
             background: rgba(255, 111, 97, 0.2);
         }
-
         nav a:hover::after {
             width: 100%;
         }
 
+        /* Nút chuyển đổi chế độ tối */
         button#theme-toggle {
             position: fixed;
             top: 20px;
@@ -94,24 +91,24 @@
             font-size: 16px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-
         button#theme-toggle:hover {
             background-color: #FFC371;
             transform: scale(1.05);
         }
 
+        /* Nội dung chính */
         main {
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
             animation: fadeIn 0.5s;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
+        
+        /* Phần giới thiệu */
         .hero {
             text-align: center;
             margin-bottom: 20px;
@@ -120,139 +117,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
         .hero h2 {
             transition: color 0.3s;
         }
-
         .hero h2:hover {
             color: #FF6F61;
-        }
-
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .post-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            transition: transform 0.3s;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .post-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .post-card img {
-            max-width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .post-card img:hover {
-            transform: scale(1.1);
-        }
-
-        #comments-section {
-            margin-top: 30px;
-            padding: 15px;
-            border-top: 1px solid #ddd;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #comments-section h3,
-        #comments-section h4 {
-            transition: color 0.3s;
-        }
-
-        #comments-section h3:hover,
-        #comments-section h4:hover {
-            color: #FF6F61;
-        }
-
-        #comments-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #comments-list li {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
-            transition: background-color 0.3s;
-        }
-
-        #comments-list li:hover {
-            background-color: #f9f9f9;
-        }
-
-        .comment-meta {
-            font-size: 12px;
-            color: #777;
-        }
-
-        .comment-actions {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-        }
-
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #FF6F61;
-            cursor: pointer;
-            margin-left: 10px;
-            font-size: 14px;
-        }
-
-        input, textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #FF6F61;
-            outline: none;
-        }
-
-        button.submit-button {
-            background-color: #FF6F61;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        button.submit-button:hover {
-            background-color: #FFC371;
-        }
-
-        /* Hiệu ứng đổi màu cho phần nội dung giới thiệu */
-        #intro-text {
-            color: black;
-            transition: color 0.5s ease-in-out;
-        }
-
-        #intro-text:hover {
-            color: #FFC371;
         }
 
         /* Tìm kiếm */
@@ -261,14 +130,12 @@
             display: flex;
             justify-content: center;
         }
-
         .search-bar input {
             width: 80%;
             padding: 10px;
             border-radius: 5px 0 0 5px;
             border: 1px solid #ddd;
         }
-
         .search-bar button {
             padding: 10px;
             border-radius: 0 5px 5px 0;
@@ -278,8 +145,109 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
         .search-bar button:hover {
+            background-color: #FFC371;
+        }
+
+        /* Các bài viết blog */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .post-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .post-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .post-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .post-card img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Phần bình luận */
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #comments-section h3,
+        #comments-section h4 {
+            transition: color 0.3s;
+        }
+        #comments-section h3:hover,
+        #comments-section h4:hover {
+            color: #FF6F61;
+        }
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #comments-list li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s;
+        }
+        #comments-list li:hover {
+            background-color: #f9f9f9;
+        }
+        .comment-meta {
+            font-size: 12px;
+            color: #777;
+        }
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #FF6F61;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        input, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #FF6F61;
+            outline: none;
+        }
+        button.submit-button {
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button.submit-button:hover {
             background-color: #FFC371;
         }
 
@@ -289,7 +257,6 @@
             justify-content: center;
             margin: 20px 0;
         }
-
         .share-buttons a {
             margin: 0 10px;
             text-decoration: none;
@@ -297,146 +264,94 @@
             color: #333;
             transition: color 0.3s;
         }
-
         .share-buttons a:hover {
             color: #FF6F61;
-        }
-
-        /* Nút quay lại trang chủ */
-        .back-home {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-
-        .back-home a {
-            padding: 10px 20px;
-            background-color: #FF6F61;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .back-home a:hover {
-            background-color: #FFC371;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-top: 1px solid #ddd;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 14px;
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Chuyện Gen T</h1>
         <nav>
             <a href="index.html">Trang Chủ</a>
             <a href="blog.html">Blog</a>
-            <a href="about.html">Giới Thiệu</a>
+            <a href="about.html">Giới thiệu</a>
         </nav>
     </header>
 
-    <button id="theme-toggle">Chế độ Tối</button>
+    <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
 
     <main>
-        <div class="hero">
-            <h2 id="intro-text">Chào mừng đến với thế giới của Gen T!</h2>
-        </div>
+        <section class="hero">
+            <h2>Chào Mừng Đến Với Chuyện Gen T</h2>
+            <p>Khám phá hành trình của chúng ta trong thời đại 4.0.</p>
+        </section>
 
         <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm...">
-            <button>Tìm Kiếm</button>
+            <input type="text" placeholder="Tìm kiếm bài viết...">
+            <button>🔍</button>
         </div>
 
-        <div class="blog-posts">
+        <section class="blog-posts">
             <div class="post-card">
-                <img src="path/to/image1.jpg" alt="Bài viết 1">
-                <h3>Bài viết 1</h3>
+                <img src="post-image-1.jpg" alt="Post Image 1">
+                <h3>Bài Viết 1</h3>
                 <p>Mô tả ngắn về bài viết 1.</p>
             </div>
             <div class="post-card">
-                <img src="path/to/image2.jpg" alt="Bài viết 2">
-                <h3>Bài viết 2</h3>
+                <img src="post-image-2.jpg" alt="Post Image 2">
+                <h3>Bài Viết 2</h3>
                 <p>Mô tả ngắn về bài viết 2.</p>
             </div>
-            <div class="post-card">
-                <img src="path/to/image3.jpg" alt="Bài viết 3">
-                <h3>Bài viết 3</h3>
-                <p>Mô tả ngắn về bài viết 3.</p>
-            </div>
-            <!-- Thêm nhiều bài viết ở đây -->
-        </div>
+            <!-- Thêm bài viết khác tại đây -->
+        </section>
 
-        <div id="comments-section">
+        <section id="comments-section">
             <h3>Bình luận</h3>
-            <div id="comments-list">
-                <ul>
-                    <li>
-                        <strong>Người dùng 1</strong>
-                        <div class="comment-meta">Ngày: 20/10/2024</div>
-                        <p>Nội dung bình luận của người dùng 1.</p>
-                        <div class="comment-actions">
-                            <button>Xóa</button>
-                            <button>Trả lời</button>
-                        </div>
-                    </li>
-                    <li>
-                        <strong>Người dùng 2</strong>
-                        <div class="comment-meta">Ngày: 20/10/2024</div>
-                        <p>Nội dung bình luận của người dùng 2.</p>
-                        <div class="comment-actions">
-                            <button>Xóa</button>
-                            <button>Trả lời</button>
-                        </div>
-                    </li>
-                    <!-- Thêm bình luận khác ở đây -->
-                </ul>
+            <div>
+                <input type="text" placeholder="Tên của bạn">
+                <textarea placeholder="Nội dung bình luận"></textarea>
+                <button class="submit-button">Gửi Bình Luận</button>
             </div>
-
-            <h4>Để lại bình luận của bạn</h4>
-            <input type="text" placeholder="Tên của bạn" required>
-            <textarea rows="4" placeholder="Nội dung bình luận" required></textarea>
-            <button class="submit-button">Gửi bình luận</button>
-        </div>
-
-        <div class="back-home">
-            <a href="index.html">Quay lại Trang Chủ</a>
-        </div>
+            <ul id="comments-list">
+                <!-- Các bình luận sẽ được thêm vào đây -->
+            </ul>
+        </section>
 
         <div class="share-buttons">
-            <h3>Chia sẻ:</h3>
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <!-- Thêm các nút chia sẻ khác -->
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <!-- Thêm nút chia sẻ khác tại đây -->
         </div>
     </main>
 
-    <footer>
-        <p>© 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
-    </footer>
-
     <script>
         const themeToggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
-
         themeToggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            themeToggleButton.textContent = body.classList.contains('dark-mode') ? 'Chế độ Sáng' : 'Chế độ Tối';
+            document.body.classList.toggle('dark-mode');
+            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
+        });
+
+        document.querySelector('.submit-button').addEventListener('click', () => {
+            const name = document.querySelector('input').value;
+            const comment = document.querySelector('textarea').value;
+            if (name && comment) {
+                const commentList = document.getElementById('comments-list');
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${name}</strong><span class="comment-meta"> vừa bình luận</span><p>${comment}</p><div class="comment-actions"><button>Xóa</button></div>`;
+                commentList.appendChild(li);
+                document.querySelector('input').value = '';
+                document.querySelector('textarea').value = '';
+            }
+        });
+
+        // Thêm sự kiện cho nút xóa bình luận
+        document.getElementById('comments-list').addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                event.target.parentElement.parentElement.remove();
+            }
         });
     </script>
 </body>
