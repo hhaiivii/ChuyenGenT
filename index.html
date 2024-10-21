@@ -287,18 +287,56 @@
         .share-buttons {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
         .share-buttons a {
             margin: 0 10px;
+            text-decoration: none;
             font-size: 24px;
-            color: #FF6F61;
+            color: #333;
             transition: color 0.3s;
         }
 
         .share-buttons a:hover {
-            color: #FFC371;
+            color: #FF6F61;
+        }
+
+        /* Nút quay lại trang chủ */
+        .back-home {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .back-home a {
+            padding: 10px 20px;
+            background-color: #FF6F61;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-home a:hover {
+            background-color: #FFC371;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid #ddd;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -306,92 +344,86 @@
     <header>
         <h1>Chuyện Gen T</h1>
         <nav>
-            <a href="#home" onclick="scrollToSection('home')">Trang Chủ</a>
-            <a href="#about" onclick="scrollToSection('about')">Giới Thiệu</a>
-            <a href="#blog" onclick="scrollToSection('blog')">Blog</a>
+            <a href="index.html">Trang Chủ</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Giới Thiệu</a>
         </nav>
-        <button id="theme-toggle">Chế Độ Tối</button>
     </header>
 
+    <button id="theme-toggle">Chế độ Tối</button>
+
     <main>
-        <div class="hero" id="home">
-            <h2 id="intro-text">Chào mừng đến với Chuyện Gen T!</h2>
-            <p>Chúng tớ là nơi giao lưu, chia sẻ và kết nối các bạn học sinh THPT Tùng Thiện. Cùng khám phá những điều thú vị nhé!</p>
+        <div class="hero">
+            <h2 id="intro-text">Chào mừng đến với thế giới của Gen T!</h2>
         </div>
 
         <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm bài viết...">
-            <button>Tìm kiếm</button>
+            <input type="text" placeholder="Tìm kiếm...">
+            <button>Tìm Kiếm</button>
         </div>
 
-        <div class="blog-posts" id="blog">
-            <h2>Bài Viết Mới Nhất</h2>
+        <div class="blog-posts">
             <div class="post-card">
-                <img src="blog-post-1.jpg" alt="Blog Post 1">
-                <h3>Tiêu đề bài viết 1</h3>
-                <p>Mô tả ngắn về bài viết 1...</p>
-                <a href="blog-detail-1.html">Đọc thêm</a>
+                <img src="path/to/image1.jpg" alt="Bài viết 1">
+                <h3>Bài viết 1</h3>
+                <p>Mô tả ngắn về bài viết 1.</p>
             </div>
             <div class="post-card">
-                <img src="blog-post-2.jpg" alt="Blog Post 2">
-                <h3>Tiêu đề bài viết 2</h3>
-                <p>Mô tả ngắn về bài viết 2...</p>
-                <a href="blog-detail-2.html">Đọc thêm</a>
+                <img src="path/to/image2.jpg" alt="Bài viết 2">
+                <h3>Bài viết 2</h3>
+                <p>Mô tả ngắn về bài viết 2.</p>
             </div>
-            <!-- Thêm nhiều bài viết khác ở đây -->
+            <div class="post-card">
+                <img src="path/to/image3.jpg" alt="Bài viết 3">
+                <h3>Bài viết 3</h3>
+                <p>Mô tả ngắn về bài viết 3.</p>
+            </div>
+            <!-- Thêm nhiều bài viết ở đây -->
         </div>
 
         <div id="comments-section">
             <h3>Bình luận</h3>
-            <form id="comment-form">
-                <input type="text" placeholder="Tên của bạn" required>
-                <textarea placeholder="Nhập bình luận của bạn..." required></textarea>
-                <button class="submit-button" type="submit">Gửi</button>
-            </form>
-            <ul id="comments-list">
-                <li>
-                    <strong>Người Dùng 1</strong>
-                    <p>Bình luận của người dùng 1...</p>
-                    <span class="comment-meta">Ngày: 20/10/2024</span>
-                    <div class="comment-actions">
-                        <button>Chỉnh sửa</button>
-                        <button>Xóa</button>
-                    </div>
-                </li>
-                <li>
-                    <strong>Người Dùng 2</strong>
-                    <p>Bình luận của người dùng 2...</p>
-                    <span class="comment-meta">Ngày: 21/10/2024</span>
-                    <div class="comment-actions">
-                        <button>Chỉnh sửa</button>
-                        <button>Xóa</button>
-                    </div>
-                </li>
-                <!-- Thêm nhiều bình luận khác ở đây -->
-            </ul>
+            <div id="comments-list">
+                <ul>
+                    <li>
+                        <strong>Người dùng 1</strong>
+                        <div class="comment-meta">Ngày: 20/10/2024</div>
+                        <p>Nội dung bình luận của người dùng 1.</p>
+                        <div class="comment-actions">
+                            <button>Xóa</button>
+                            <button>Trả lời</button>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Người dùng 2</strong>
+                        <div class="comment-meta">Ngày: 20/10/2024</div>
+                        <p>Nội dung bình luận của người dùng 2.</p>
+                        <div class="comment-actions">
+                            <button>Xóa</button>
+                            <button>Trả lời</button>
+                        </div>
+                    </li>
+                    <!-- Thêm bình luận khác ở đây -->
+                </ul>
+            </div>
+
+            <h4>Để lại bình luận của bạn</h4>
+            <input type="text" placeholder="Tên của bạn" required>
+            <textarea rows="4" placeholder="Nội dung bình luận" required></textarea>
+            <button class="submit-button">Gửi bình luận</button>
+        </div>
+
+        <div class="back-home">
+            <a href="index.html">Quay lại Trang Chủ</a>
+        </div>
+
+        <div class="share-buttons">
+            <h3>Chia sẻ:</h3>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <!-- Thêm các nút chia sẻ khác -->
         </div>
     </main>
 
-    <footer>
-        <div class="share-buttons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p>&copy; 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
-    </footer>
-
-    <script>
-        // Chuyển đổi chế độ sáng/tối
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        // Cuộn đến phần
-        function scrollToSection(section) {
-            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+   
