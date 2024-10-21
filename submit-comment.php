@@ -1,16 +1,31 @@
 <?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $comment = htmlspecialchars($_POST['comment']); // Lấy bình luận và bảo mật
+    // Kiểm tra nếu 'comment' có tồn tại trong yêu cầu POST
+    if (isset($_POST['comment']) && !empty(trim($_POST['comment']))) {
+        // Lấy bình luận và bảo mật
+        $comment = htmlspecialchars(trim($_POST['comment']));
 
-    // Mở file để ghi bình luận
-    $file = fopen("comments.txt", "a");
-    fwrite($file, $comment . "\n");
-    fclose($file);
+        // Đường dẫn tới file lưu bình luận
+        $filePath = 'cmt.txt';
 
-    // Chuyển hướng về lại trang chủ sau khi gửi bình luận
-    header("Location: index.html");
-    exit();
+        // Mở file để ghi bình luận
+        if (file_put_contents($filePath, $comment . PHP_EOL, FILE_APPEND | LOCK_EX) !== false) {
+            // Trả về phản hồi thành công
+            http_response_code(200);
+            echo "Bình luận đã được gửi thành công.";
+        } else {
+            // Trả về lỗi nếu không ghi được file
+            http_response_code(500);
+            echo "Không thể ghi bình luận. Vui lòng thử lại sau.";
+        }
+    } else {
+        // Nếu bình luận rỗng hoặc không hợp lệ
+        http_response_code(400);
+        echo "Bình luận không được để trống.";
+    }
 } else {
+    // Chỉ chấp nhận phương thức POST
+    http_response_code(405);
     echo "Chỉ chấp nhận phương thức POST.";
 }
 ?>
