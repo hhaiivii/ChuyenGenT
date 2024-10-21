@@ -330,3 +330,9 @@ footer p {
         opacity: 1;
     }
 }
+@media (max-width: 768px) {
+    /* Các quy tắc CSS cho thiết bị di động */
+    body {
+        font-size: 14px;
+    }
+}
