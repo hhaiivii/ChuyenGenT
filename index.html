@@ -287,109 +287,111 @@
         .share-buttons {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
         .share-buttons a {
             margin: 0 10px;
-            text-decoration: none;
             font-size: 24px;
-            color: #333;
-            transition: transform 0.3s;
+            color: #FF6F61;
+            transition: color 0.3s;
         }
 
         .share-buttons a:hover {
-            transform: scale(1.2);
+            color: #FFC371;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Chuyện Gen T</h1>
+        <nav>
+            <a href="#home" onclick="scrollToSection('home')">Trang Chủ</a>
+            <a href="#about" onclick="scrollToSection('about')">Giới Thiệu</a>
+            <a href="#blog" onclick="scrollToSection('blog')">Blog</a>
+        </nav>
+        <button id="theme-toggle">Chế Độ Tối</button>
+    </header>
 
-<header>
-    <h1>Chuyện Gen T</h1>
-    <nav>
-        <a href="#home"><i class="fas fa-home"></i> Trang chủ</a>
-        <a href="#about"><i class="fas fa-info-circle"></i> Giới thiệu</a>
-        <a href="#blog"><i class="fas fa-pencil-alt"></i> Blog</a>
-        <a href="#contact"><i class="fas fa-envelope"></i> Liên hệ</a>
-    </nav>
-</header>
-
-<button id="theme-toggle">Đổi Chủ Đề</button>
-
-<main>
-    <div class="hero">
-        <h2 id="intro-text">Chào mừng đến với Chuyện Gen T - Nơi chia sẻ những câu chuyện thú vị và hữu ích!</h2>
-    </div>
-
-    <div id="about" style="margin-top: 50px;">
-        <h2>Giới thiệu</h2>
-        <p>Chuyện Gen T là một nền tảng cho Gen Z thể hiện bản thân, chia sẻ và kết nối với nhau qua các câu chuyện, ý tưởng, và sáng tạo. Chúng tôi tin rằng mọi người đều có một câu chuyện để kể và chúng tôi muốn lắng nghe câu chuyện của bạn!</p>
-        <p>Hãy tham gia cùng chúng tôi trong hành trình khám phá và tạo ra những điều tuyệt vời!</p>
-    </div>
-
-    <div id="blog" style="margin-top: 50px;">
-        <h2>Blog</h2>
-        <div class="blog-posts">
-            <div class="post-card">
-                <h3>Bài viết 1</h3>
-                <p>Nội dung tóm tắt của bài viết 1. Tìm hiểu thêm về nội dung thú vị và độc đáo!</p>
-                <button>Đọc thêm</button>
-            </div>
-            <div class="post-card">
-                <h3>Bài viết 2</h3>
-                <p>Nội dung tóm tắt của bài viết 2. Khám phá những ý tưởng sáng tạo và độc đáo!</p>
-                <button>Đọc thêm</button>
-            </div>
-            <div class="post-card">
-                <h3>Bài viết 3</h3>
-                <p>Nội dung tóm tắt của bài viết 3. Tham gia vào các câu chuyện thú vị và phong phú!</p>
-                <button>Đọc thêm</button>
-            </div>
+    <main>
+        <div class="hero" id="home">
+            <h2 id="intro-text">Chào mừng đến với Chuyện Gen T!</h2>
+            <p>Chúng tớ là nơi giao lưu, chia sẻ và kết nối các bạn học sinh THPT Tùng Thiện. Cùng khám phá những điều thú vị nhé!</p>
         </div>
-    </div>
 
-    <div id="comments-section">
-        <h3>Bình luận</h3>
-        <form id="comment-form">
-            <input type="text" id="name" placeholder="Tên của bạn" required>
-            <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
-            <button type="submit" class="submit-button">Gửi bình luận</button>
-        </form>
-        <ul id="comments-list">
-            <!-- Bình luận sẽ được thêm vào đây -->
-        </ul>
-    </div>
-</main>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm bài viết...">
+            <button>Tìm kiếm</button>
+        </div>
 
-<script>
-    const themeToggleButton = document.getElementById('theme-toggle');
-    const body = document.body;
+        <div class="blog-posts" id="blog">
+            <h2>Bài Viết Mới Nhất</h2>
+            <div class="post-card">
+                <img src="blog-post-1.jpg" alt="Blog Post 1">
+                <h3>Tiêu đề bài viết 1</h3>
+                <p>Mô tả ngắn về bài viết 1...</p>
+                <a href="blog-detail-1.html">Đọc thêm</a>
+            </div>
+            <div class="post-card">
+                <img src="blog-post-2.jpg" alt="Blog Post 2">
+                <h3>Tiêu đề bài viết 2</h3>
+                <p>Mô tả ngắn về bài viết 2...</p>
+                <a href="blog-detail-2.html">Đọc thêm</a>
+            </div>
+            <!-- Thêm nhiều bài viết khác ở đây -->
+        </div>
 
-    themeToggleButton.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-    });
+        <div id="comments-section">
+            <h3>Bình luận</h3>
+            <form id="comment-form">
+                <input type="text" placeholder="Tên của bạn" required>
+                <textarea placeholder="Nhập bình luận của bạn..." required></textarea>
+                <button class="submit-button" type="submit">Gửi</button>
+            </form>
+            <ul id="comments-list">
+                <li>
+                    <strong>Người Dùng 1</strong>
+                    <p>Bình luận của người dùng 1...</p>
+                    <span class="comment-meta">Ngày: 20/10/2024</span>
+                    <div class="comment-actions">
+                        <button>Chỉnh sửa</button>
+                        <button>Xóa</button>
+                    </div>
+                </li>
+                <li>
+                    <strong>Người Dùng 2</strong>
+                    <p>Bình luận của người dùng 2...</p>
+                    <span class="comment-meta">Ngày: 21/10/2024</span>
+                    <div class="comment-actions">
+                        <button>Chỉnh sửa</button>
+                        <button>Xóa</button>
+                    </div>
+                </li>
+                <!-- Thêm nhiều bình luận khác ở đây -->
+            </ul>
+        </div>
+    </main>
 
-    // Bình luận
-    const commentForm = document.getElementById('comment-form');
-    const commentsList = document.getElementById('comments-list');
+    <footer>
+        <div class="share-buttons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
+    </footer>
 
-    commentForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const comment = document.getElementById('comment').value;
+    <script>
+        // Chuyển đổi chế độ sáng/tối
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
 
-        if (name && comment) {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${name}</strong>: ${comment} <div class="comment-meta">Vừa rồi</div>`;
-            commentsList.appendChild(li);
-
-            // Reset form
-            commentForm.reset();
+        // Cuộn đến phần
+        function scrollToSection(section) {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
         }
-    });
-</script>
-
+    </script>
 </body>
 </html>
-
