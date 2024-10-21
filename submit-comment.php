@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Kiểm tra nếu 'comment' có tồn tại trong yêu cầu POST
     if (isset($_POST['comment']) && !empty(trim($_POST['comment']))) {
@@ -12,20 +12,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (file_put_contents($filePath, $comment . PHP_EOL, FILE_APPEND | LOCK_EX) !== false) {
             // Trả về phản hồi thành công
             http_response_code(200);
-            echo "Bình luận đã được gửi thành công.";
+            echo json_encode(["message" => "Bình luận đã được gửi thành công."]);
         } else {
             // Trả về lỗi nếu không ghi được file
             http_response_code(500);
-            echo "Không thể ghi bình luận. Vui lòng thử lại sau.";
+            echo json_encode(["error" => "Không thể ghi bình luận. Vui lòng thử lại sau."]);
         }
     } else {
         // Nếu bình luận rỗng hoặc không hợp lệ
         http_response_code(400);
-        echo "Bình luận không được để trống.";
+        echo json_encode(["error" => "Bình luận không được để trống."]);
     }
 } else {
     // Chỉ chấp nhận phương thức POST
     http_response_code(405);
-    echo "Chỉ chấp nhận phương thức POST.";
+    echo json_encode(["error" => "Chỉ chấp nhận phương thức POST."]);
 }
 ?>
