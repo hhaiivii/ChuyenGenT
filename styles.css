@@ -142,6 +142,7 @@ nav a:hover {
     padding-left: 20px;
 }
 
+/* Join Us Section */
 .join-us {
     display: flex;
     align-items: center;
@@ -247,6 +248,20 @@ main {
     transform: translateX(5px);
 }
 
+/* Comments section styles */
+#comments-section {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+#comments-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 /* Footer styles */
 footer {
     background: rgba(255, 255, 255, 0.8);
@@ -342,6 +357,23 @@ a.button {
 }
 
 a.button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Comment submission button */
+.comment-submit {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.comment-submit:hover {
     background-color: var(--secondary-color);
     transform: scale(1.05);
 }
