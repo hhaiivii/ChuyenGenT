@@ -313,38 +313,20 @@ footer p {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #dark-mode-toggle:hover {
     background-color: var(--secondary-color);
+    transform: scale(1.05);
 }
 
-/* Animation */
+/* Animations */
 @keyframes fadeIn {
-    from {
+    0% {
         opacity: 0;
     }
-    to {
+    100% {
         opacity: 1;
-    }
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    nav {
-        flex-direction: column;
-    }
-
-    .blog-posts {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        display: none; /* Ẩn sidebar trên màn hình nhỏ */
     }
 }
