@@ -6,9 +6,7 @@
     <title>Chuyện Gen T - Hành Trình 4.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
     <style>
-        /* Các kiểu CSS đã có ở đây... */
         body {
             background: linear-gradient(135deg, #FF6F61, #FFC371);
             font-family: 'Poppins', sans-serif;
@@ -27,12 +25,14 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             color: #FF6F61;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         nav {
@@ -54,12 +54,30 @@
             margin: 0 10px;
             transition: color 0.3s, transform 0.3s;
             border-radius: 5px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF6F61;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         nav a:hover {
             color: #FF6F61;
             transform: scale(1.1);
             background: rgba(255, 111, 97, 0.2);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         button#theme-toggle {
@@ -73,16 +91,25 @@
             cursor: pointer;
             color: white;
             transition: background-color 0.3s;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         button#theme-toggle:hover {
             background-color: #FFC371;
+            transform: scale(1.05);
         }
 
         main {
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .hero {
@@ -228,115 +255,147 @@
             color: #FFC371;
         }
 
-        @media (max-width: 768px) {
-            nav a {
-                font-size: 16px;
-            }
+        /* Tìm kiếm */
+        #search {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
 
-        @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 5px 0;
-                padding: 8px;
-            }
-            button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
+        #search input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #search button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF6F61;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #search button:hover {
+            background-color: #FFC371;
+        }
+
+        /* Chia sẻ mạng xã hội */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .share-buttons a {
+            margin: 0 10px;
+            font-size: 24px;
+            color: #FF6F61;
+            transition: transform 0.3s;
+        }
+
+        .share-buttons a:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
-        <button id="theme-toggle">Chuyển đổi chế độ tối</button>
+        <h1>Chuyện Gen T</h1>
         <nav>
-            <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
-            <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
-            <a href="about.html"><i class="fas fa-info-circle"></i> Giới thiệu</a>
-            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
-            <a href="register.html"><i class="fas fa-user-plus"></i> Đăng Ký</a>
+            <a href="#home">Trang chủ</a>
+            <a href="#blog">Blog</a>
+            <a href="#about">Giới thiệu</a>
         </nav>
+        <button id="theme-toggle">Đổi chủ đề</button>
     </header>
 
     <main>
-        <div class="hero">
-            <h2 id="intro-text">Chào mừng các bạn đến với Gen T!</h2>
-            <p>Khám phá thế giới qua lăng kính của các bạn học sinh trường T (THPT Tùng Thiện).</p>
-        </div>
-        
-        <div class="blog-posts">
-            <article class="post-card">
-                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b4d153c1.jpg" alt="Hình ảnh bài viết">
-                <h3><a href="post1.html">Bài viết 1</a></h3>
-                <p>Đây là nội dung tóm tắt của bài viết 1.</p>
-            </article>
-            <article class="post-card">
-                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b4d153c1.jpg" alt="Hình ảnh bài viết">
-                <h3><a href="post2.html">Bài viết 2</a></h3>
-                <p>Đây là nội dung tóm tắt của bài viết 2.</p>
-            </article>
-            <!-- Thêm bài viết khác tại đây -->
-        </div>
+        <section class="hero">
+            <h2 id="intro-text">Chào mừng các bạn đến với Chuyện Gen T!</h2>
+            <p>Chúng tớ tạo ra không gian này để chia sẻ và kết nối.</p>
+        </section>
 
-        <div id="comments-section">
+        <section id="search">
+            <input type="text" placeholder="Tìm kiếm bài viết..." id="search-input">
+            <button id="search-button">Tìm kiếm</button>
+        </section>
+
+        <section class="blog-posts">
+            <article class="post-card">
+                <h3>Bài viết 1</h3>
+                <img src="https://via.placeholder.com/300" alt="Bài viết 1">
+                <p>Mô tả ngắn về bài viết 1. Những điều thú vị đang chờ bạn khám phá.</p>
+                <a href="#post1">Đọc thêm</a>
+            </article>
+            <article class="post-card">
+                <h3>Bài viết 2</h3>
+                <img src="https://via.placeholder.com/300" alt="Bài viết 2">
+                <p>Mô tả ngắn về bài viết 2. Những điều thú vị đang chờ bạn khám phá.</p>
+                <a href="#post2">Đọc thêm</a>
+            </article>
+            <!-- Thêm nhiều bài viết khác ở đây -->
+        </section>
+
+        <section id="comments-section">
             <h3>Bình luận</h3>
-            <form id="comment-form">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
-                <textarea id="comment" placeholder="Bình luận của bạn" rows="4" required></textarea>
-                <button type="submit" class="submit-button">Gửi bình luận</button>
-            </form>
+            <div>
+                <input type="text" id="name" placeholder="Tên của bạn">
+                <textarea id="comment" placeholder="Bình luận của bạn..."></textarea>
+                <button class="submit-button" id="submit-comment">Gửi</button>
+            </div>
             <ul id="comments-list">
-                <!-- Các bình luận sẽ được tải vào đây -->
+                <!-- Bình luận sẽ được tải vào đây -->
             </ul>
+        </section>
+
+        <div class="share-buttons">
+            <h4>Chia sẻ bài viết:</h4>
+            <a href="#" title="Chia sẻ trên Facebook"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" title="Chia sẻ trên Twitter"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" title="Chia sẻ trên Instagram"><i class="fab fa-instagram-square"></i></a>
         </div>
     </main>
 
     <script>
-        // Thay đổi chế độ tối
+        // Đổi chủ đề tối/sáng
         const themeToggle = document.getElementById('theme-toggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển đổi chế độ sáng' : 'Chuyển đổi chế độ tối';
         });
 
-        // Tải bình luận từ server
-        async function loadComments() {
-            const response = await fetch('load-comments.php');
-            const comments = await response.json();
-            const commentsList = document.getElementById('comments-list');
-            commentsList.innerHTML = ''; // Xóa nội dung cũ
-            comments.forEach(comment => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${comment.name}</strong> <span class="comment-meta">${comment.date}</span><br>${comment.text}<div class="comment-actions"><button class="reply">Trả lời</button></div>`;
-                commentsList.appendChild(li);
-            });
-        }
-
-        // Gửi bình luận
-        document.getElementById('comment-form').addEventListener('submit', async (event) => {
-            event.preventDefault();
+        // Xử lý gửi bình luận
+        const submitComment = document.getElementById('submit-comment');
+        submitComment.addEventListener('click', () => {
             const name = document.getElementById('name').value;
             const comment = document.getElementById('comment').value;
-            const response = await fetch('submit-comment.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, text: comment })
-            });
-            if (response.ok) {
+            if (name && comment) {
+                const commentItem = document.createElement('li');
+                commentItem.innerHTML = `<strong>${name}</strong>: ${comment} <span class="comment-meta">${new Date().toLocaleString()}</span>`;
+                document.getElementById('comments-list').appendChild(commentItem);
                 document.getElementById('name').value = '';
                 document.getElementById('comment').value = '';
-                loadComments(); // Tải lại bình luận
             }
         });
 
-        // Tải bình luận khi trang được tải
-        window.onload = loadComments;
+        // Xử lý tìm kiếm bài viết
+        const searchButton = document.getElementById('search-button');
+        searchButton.addEventListener('click', () => {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const posts = document.querySelectorAll('.post-card');
+            posts.forEach(post => {
+                const title = post.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>
