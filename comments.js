@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const commentForm = document.getElementById('comment-form');
-    const commentText = document.getElementById('comment-text');
+    const commentText = document.getElementById('comment');
     const commentsSection = document.getElementById('comments-section');
 
-    // Load comments from cmt.txt
+    // Load comments from PHP
     loadComments();
 
     // Handle comment submission
@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function loadComments() {
-        fetch('cmt.txt')
+        commentsSection.innerHTML = ''; // Xóa các bình luận cũ
+        fetch('load-comments.php')
             .then(response => response.text())
             .then(data => {
                 const comments = data.split('\n');
@@ -34,9 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function submitComment(comment) {
         // Gửi yêu cầu đến server để thêm bình luận vào cmt.txt
-        fetch('summit cmt', {
+        fetch('submit-comment.php', {
             method: 'POST',
-            body: comment
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `comment=${encodeURIComponent(comment)}`
         })
         .then(response => {
             if (response.ok) {
