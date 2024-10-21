@@ -304,98 +304,91 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Chuyện Gen T</h1>
-        <nav>
-            <a href="#home">Trang chủ</a>
-            <a href="#blog">Blog</a>
-            <a href="#about">Giới thiệu</a>
-        </nav>
-        <button id="theme-toggle">Đổi chủ đề</button>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h2 id="intro-text">Chào mừng các bạn đến với Chuyện Gen T!</h2>
-            <p>Chúng tớ tạo ra không gian này để chia sẻ và kết nối.</p>
-        </section>
+<header>
+    <h1>Chuyện Gen T</h1>
+    <nav>
+        <a href="#home">Trang chủ</a>
+        <a href="#about">Giới thiệu</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Liên hệ</a>
+    </nav>
+</header>
 
-        <section id="search">
-            <input type="text" placeholder="Tìm kiếm bài viết..." id="search-input">
-            <button id="search-button">Tìm kiếm</button>
-        </section>
+<button id="theme-toggle">Đổi Chủ Đề</button>
 
-        <section class="blog-posts">
-            <article class="post-card">
+<main>
+    <div class="hero">
+        <h2 id="intro-text">Chào mừng đến với Chuyện Gen T - Nơi chia sẻ những câu chuyện thú vị và hữu ích!</h2>
+    </div>
+
+    <div id="about" style="margin-top: 50px;">
+        <h2>Giới thiệu</h2>
+        <p>Chuyện Gen T là một nền tảng cho Gen Z thể hiện bản thân, chia sẻ và kết nối với nhau qua các câu chuyện, ý tưởng, và sáng tạo. Chúng tôi tin rằng mọi người đều có một câu chuyện để kể và chúng tôi muốn lắng nghe câu chuyện của bạn!</p>
+        <p>Hãy tham gia cùng chúng tôi trong hành trình khám phá và tạo ra những điều tuyệt vời!</p>
+    </div>
+
+    <div id="blog" style="margin-top: 50px;">
+        <h2>Blog</h2>
+        <div class="blog-posts">
+            <div class="post-card">
                 <h3>Bài viết 1</h3>
-                <img src="https://via.placeholder.com/300" alt="Bài viết 1">
-                <p>Mô tả ngắn về bài viết 1. Những điều thú vị đang chờ bạn khám phá.</p>
-                <a href="#post1">Đọc thêm</a>
-            </article>
-            <article class="post-card">
-                <h3>Bài viết 2</h3>
-                <img src="https://via.placeholder.com/300" alt="Bài viết 2">
-                <p>Mô tả ngắn về bài viết 2. Những điều thú vị đang chờ bạn khám phá.</p>
-                <a href="#post2">Đọc thêm</a>
-            </article>
-            <!-- Thêm nhiều bài viết khác ở đây -->
-        </section>
-
-        <section id="comments-section">
-            <h3>Bình luận</h3>
-            <div>
-                <input type="text" id="name" placeholder="Tên của bạn">
-                <textarea id="comment" placeholder="Bình luận của bạn..."></textarea>
-                <button class="submit-button" id="submit-comment">Gửi</button>
+                <p>Nội dung tóm tắt của bài viết 1. Tìm hiểu thêm về nội dung thú vị và độc đáo!</p>
+                <button>Đọc thêm</button>
             </div>
-            <ul id="comments-list">
-                <!-- Bình luận sẽ được tải vào đây -->
-            </ul>
-        </section>
-
-        <div class="share-buttons">
-            <h4>Chia sẻ bài viết:</h4>
-            <a href="#" title="Chia sẻ trên Facebook"><i class="fab fa-facebook-square"></i></a>
-            <a href="#" title="Chia sẻ trên Twitter"><i class="fab fa-twitter-square"></i></a>
-            <a href="#" title="Chia sẻ trên Instagram"><i class="fab fa-instagram-square"></i></a>
+            <div class="post-card">
+                <h3>Bài viết 2</h3>
+                <p>Nội dung tóm tắt của bài viết 2. Khám phá những ý tưởng sáng tạo và độc đáo!</p>
+                <button>Đọc thêm</button>
+            </div>
+            <div class="post-card">
+                <h3>Bài viết 3</h3>
+                <p>Nội dung tóm tắt của bài viết 3. Tham gia vào các câu chuyện thú vị và phong phú!</p>
+                <button>Đọc thêm</button>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <script>
-        // Đổi chủ đề tối/sáng
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+    <div id="comments-section">
+        <h3>Bình luận</h3>
+        <form id="comment-form">
+            <input type="text" id="name" placeholder="Tên của bạn" required>
+            <textarea id="comment" placeholder="Bình luận của bạn" required></textarea>
+            <button type="submit" class="submit-button">Gửi bình luận</button>
+        </form>
+        <ul id="comments-list">
+            <!-- Bình luận sẽ được thêm vào đây -->
+        </ul>
+    </div>
+</main>
 
-        // Xử lý gửi bình luận
-        const submitComment = document.getElementById('submit-comment');
-        submitComment.addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const comment = document.getElementById('comment').value;
-            if (name && comment) {
-                const commentItem = document.createElement('li');
-                commentItem.innerHTML = `<strong>${name}</strong>: ${comment} <span class="comment-meta">${new Date().toLocaleString()}</span>`;
-                document.getElementById('comments-list').appendChild(commentItem);
-                document.getElementById('name').value = '';
-                document.getElementById('comment').value = '';
-            }
-        });
+<script>
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
 
-        // Xử lý tìm kiếm bài viết
-        const searchButton = document.getElementById('search-button');
-        searchButton.addEventListener('click', () => {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const posts = document.querySelectorAll('.post-card');
-            posts.forEach(post => {
-                const title = post.querySelector('h3').innerText.toLowerCase();
-                if (title.includes(searchTerm)) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        });
-    </script>
+    themeToggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+    });
+
+    // Bình luận
+    const commentForm = document.getElementById('comment-form');
+    const commentsList = document.getElementById('comments-list');
+
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const comment = document.getElementById('comment').value;
+
+        if (name && comment) {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${name}</strong>: ${comment} <div class="comment-meta">Vừa rồi</div>`;
+            commentsList.appendChild(li);
+
+            // Reset form
+            commentForm.reset();
+        }
+    });
+</script>
+
 </body>
 </html>
