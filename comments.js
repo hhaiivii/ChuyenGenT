@@ -3,38 +3,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const commentText = document.getElementById('comment');
     const commentsSection = document.getElementById('comments-section');
 
-    // Load comments from PHP
+    // Load comments when the page loads
     loadComments();
 
     // Handle comment submission
     commentForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        const comment = commentText.value;
+        const comment = commentText.value.trim(); // Trim whitespace
 
         if (comment) {
             submitComment(comment);
-            commentText.value = '';
+            commentText.value = ''; // Clear the input field after submission
+        } else {
+            alert('Bình luận không được để trống.'); // Alert if the comment is empty
         }
     });
 
     function loadComments() {
-        commentsSection.innerHTML = ''; // Xóa các bình luận cũ
+        commentsSection.innerHTML = ''; // Clear existing comments
         fetch('load-comments.php')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Không thể tải bình luận. Vui lòng thử lại sau.');
+                }
+                return response.text();
+            })
             .then(data => {
-                const comments = data.split('\n');
+                const comments = data.split('\n').filter(comment => comment.trim() !== '');
                 comments.forEach(comment => {
-                    if (comment) {
-                        const p = document.createElement('p');
-                        p.textContent = comment;
-                        commentsSection.appendChild(p);
-                    }
+                    const p = document.createElement('p');
+                    p.textContent = comment;
+                    commentsSection.appendChild(p);
                 });
-            });
+            })
+            .catch(error => console.error('Lỗi:', error));
     }
 
     function submitComment(comment) {
-        // Gửi yêu cầu đến server để thêm bình luận vào cmt.txt
         fetch('submit-comment.php', {
             method: 'POST',
             headers: {
@@ -43,9 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
             body: `comment=${encodeURIComponent(comment)}`
         })
         .then(response => {
-            if (response.ok) {
-                loadComments(); // Reload comments after submission
+            if (!response.ok) {
+                throw new Error('Không thể gửi bình luận. Vui lòng thử lại sau.');
             }
-        });
+            return response.text();
+        })
+        .then(() => {
+            loadComments(); // Reload comments after successful submission
+        })
+        .catch(error => console.error('Lỗi:', error));
     }
 });
