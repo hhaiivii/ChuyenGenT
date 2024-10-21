@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+        /* Các kiểu CSS đã có ở đây... */
         body {
             background: linear-gradient(135deg, #FF6F61, #FFC371);
             font-family: 'Poppins', sans-serif;
@@ -256,6 +257,8 @@
             <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
             <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
             <a href="about.html"><i class="fas fa-info-circle"></i> Giới thiệu</a>
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
+            <a href="register.html"><i class="fas fa-user-plus"></i> Đăng Ký</a>
         </nav>
     </header>
 
@@ -267,76 +270,73 @@
         
         <div class="blog-posts">
             <article class="post-card">
-                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b653c7aa.jpg" alt="Bài viết 1">
-                <p>Để bừa</p>
-                <button class="like-button">❤️</button>
+                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b4d153c1.jpg" alt="Hình ảnh bài viết">
+                <h3><a href="post1.html">Bài viết 1</a></h3>
+                <p>Đây là nội dung tóm tắt của bài viết 1.</p>
             </article>
             <article class="post-card">
-                <img src="https://i.ibb.co/RbnkxkQ/z5943895744990-9a93b0756a49f68904b83205b244e6b0.jpg" alt="Bài viết 2">
-                <p>Rong chơi!</p>
-                <button class="like-button">❤️</button>
+                <img src="https://i.ibb.co/R7hx6rJ/z5943895724036-c507a1caf39fcad6624d9f15b4d153c1.jpg" alt="Hình ảnh bài viết">
+                <h3><a href="post2.html">Bài viết 2</a></h3>
+                <p>Đây là nội dung tóm tắt của bài viết 2.</p>
             </article>
-            <article class="post-card">
-                <img src="https://i.ibb.co/HpL9ZPj/z5943895724022-4783f95f06367aa515c9cfb7713cdb9b.jpg" alt="Bài viết 3">
-                <p>Tìm kiếm điều gì đó</p>
-                <button class="like-button">❤️</button>
-            </article>
+            <!-- Thêm bài viết khác tại đây -->
         </div>
 
         <div id="comments-section">
             <h3>Bình luận</h3>
             <form id="comment-form">
-                <input type="text" id="username" placeholder="Tên của bạn" required>
-                <textarea id="comment" rows="4" placeholder="Bình luận của bạn" required></textarea>
+                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <textarea id="comment" placeholder="Bình luận của bạn" rows="4" required></textarea>
                 <button type="submit" class="submit-button">Gửi bình luận</button>
             </form>
-
-            <ul id="comments-list"></ul>
+            <ul id="comments-list">
+                <!-- Các bình luận sẽ được tải vào đây -->
+            </ul>
         </div>
     </main>
 
     <script>
-        // Chức năng chuyển đổi chế độ tối
-        const themeToggleButton = document.getElementById('theme-toggle');
-        themeToggleButton.addEventListener('click', function() {
+        // Thay đổi chế độ tối
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển đổi chế độ sáng' : 'Chuyển đổi chế độ tối';
         });
 
-        // Chức năng bình luận
-        const commentForm = document.getElementById('comment-form');
-        const commentsList = document.getElementById('comments-list');
-
-        commentForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const comment = document.getElementById('comment').value;
-            addComment(username, comment);
-            commentForm.reset();
-        });
-
-        function addComment(username, comment) {
-            const li = document.createElement('li');
-            li.innerHTML = <strong>${username}</strong>: ${comment} <div class="comment-meta">${new Date().toLocaleString()}</div>
-            <div class="comment-actions">
-                <button class="edit-button">Chỉnh sửa</button>
-                <button class="delete-button">Xóa</button>
-            </div>;
-            commentsList.appendChild(li);
-
-            // Chức năng xóa bình luận
-            li.querySelector('.delete-button').addEventListener('click', function() {
-                li.remove();
-            });
-
-            // Chức năng chỉnh sửa bình luận
-            li.querySelector('.edit-button').addEventListener('click', function() {
-                const newComment = prompt('Chỉnh sửa bình luận:', comment);
-                if (newComment) {
-                    comment = newComment;
-                    li.childNodes[0].textContent = username + ": " + comment;
-                }
+        // Tải bình luận từ server
+        async function loadComments() {
+            const response = await fetch('load-comments.php');
+            const comments = await response.json();
+            const commentsList = document.getElementById('comments-list');
+            commentsList.innerHTML = ''; // Xóa nội dung cũ
+            comments.forEach(comment => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${comment.name}</strong> <span class="comment-meta">${comment.date}</span><br>${comment.text}<div class="comment-actions"><button class="reply">Trả lời</button></div>`;
+                commentsList.appendChild(li);
             });
         }
+
+        // Gửi bình luận
+        document.getElementById('comment-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            const response = await fetch('submit-comment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, text: comment })
+            });
+            if (response.ok) {
+                document.getElementById('name').value = '';
+                document.getElementById('comment').value = '';
+                loadComments(); // Tải lại bình luận
+            }
+        });
+
+        // Tải bình luận khi trang được tải
+        window.onload = loadComments;
     </script>
 </body>
 </html>
