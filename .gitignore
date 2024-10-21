@@ -1,18 +1,24 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+# Thư mục và tệp không cần thiết cho dự án
+node_modules/        # Thư mục chứa các gói npm
+dist/                # Thư mục chứa tệp biên dịch hoặc xuất
+build/               # Thư mục chứa tệp xây dựng
+.DS_Store            # Tệp ẩn của macOS
+Thumbs.db           # Tệp ẩn của Windows
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
+# Thư mục và tệp liên quan đến môi trường phát triển
+.env                 # Tệp môi trường chứa thông tin nhạy cảm
+*.log                # Tệp nhật ký
+*.tmp                # Tệp tạm thời
+
+# Tệp và thư mục liên quan đến hệ thống
+.idea/               # Thư mục cấu hình của IDE JetBrains
+.vscode/             # Thư mục cấu hình của Visual Studio Code
+
+# Thư mục và tệp liên quan đến Jekyll (nếu bạn sử dụng)
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
-
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem 
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
+# Bỏ qua tệp Gemfile.lock nếu bạn sử dụng GitHub Pages
 Gemfile.lock
