@@ -267,6 +267,11 @@ main {
     border-top: 1px solid #ddd;
 }
 
+#comments-section h3 {
+    font-size: 1.8rem;
+    color: var(--main-color);
+}
+
 #comments-list li {
     margin: 10px 0;
     padding: 10px;
@@ -293,35 +298,29 @@ footer p {
 }
 
 .social-links a {
-    color: var(--text-color);
-    margin: 0 10px;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
     color: var(--main-color);
+    margin: 0 10px;
 }
 
-/* Light/Dark mode toggle button */
-.toggle-button {
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
-    padding: 10px 15px;
-    background: var(--main-color);
-    color: white;
+    background-color: var(--main-color);
     border: none;
+    color: white;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
-.toggle-button:hover {
-    background: var(--secondary-color);
+#dark-mode-toggle:hover {
+    background-color: var(--secondary-color);
 }
 
-/* Animations */
+/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -331,9 +330,26 @@ footer p {
     }
 }
 
-/* Media Queries */
-@media (max-width: 600px) {
+/* Responsive styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 90%;
+        right: 5%;
+    }
+
     .blog-posts {
-        grid-template-columns: 1fr; /* Chỉ 1 cột trên màn hình nhỏ */
+        grid-template-columns: 1fr;
     }
 }
