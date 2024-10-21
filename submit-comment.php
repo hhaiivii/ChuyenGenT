@@ -1,4 +1,4 @@
-<?php
+<?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comment = htmlspecialchars($_POST['comment']); // Lấy bình luận và bảo mật
 
