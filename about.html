@@ -8,19 +8,132 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Thêm CSS cho màu chữ trắng hơn với chút cam */
-        .section-title, 
-        .section-subtitle, 
-        .section-description, 
-        .topic-item {
-            color: #FFE4B5; /* Màu trắng hơn với một chút cam */
-            transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9; /* Nền sáng cho sự tươi mới */
+            margin: 0;
+            padding: 0;
+            color: #333;
         }
 
-        .section-title:hover, 
-        .section-subtitle:hover, 
-        .section-description:hover, 
+        header {
+            background-color: #FF6F61; /* Màu nền header nổi bật */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header nav {
+            margin-top: 10px;
+        }
+
+        header nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #FFD700; /* Màu vàng sáng khi hover */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #about-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #FF6F61; /* Màu nổi bật cho tiêu đề */
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            margin: 15px 0 5px;
+        }
+
+        .section-description {
+            margin-bottom: 15px;
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topic-item {
+            background-color: #FFE4B5;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
         .topic-item:hover {
+            background-color: #FFD700; /* Màu vàng sáng khi hover */
+        }
+
+        .join-us {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .join-us input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .join-us button {
+            padding: 10px 20px;
+            background-color: #FF6F61; /* Nút màu nổi bật */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .join-us button:hover {
+            background-color: #FFD700; /* Màu vàng sáng khi hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #FF6F61; /* Nền footer nổi bật */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
             color: #FFD700; /* Màu vàng sáng khi hover */
         }
     </style>
@@ -73,6 +186,3 @@
     </footer>
 </body>
 </html>
-
-
-
