@@ -272,71 +272,69 @@
                 <button class="like-button">❤️</button>
             </article>
             <article class="post-card">
-                <img src="https://i.ibb.co/RbnkxkQ/z5943895744990-9a93b0756a49f68904b83205b244e6b0.jpg" alt="Bài viết 2">
-                <p>Rong chơi!</p>
-                <button class="like-button">❤️</button>
-            </article>
-            <article class="post-card">
-                <img src="https://i.ibb.co/HpL9ZPj/z5943895724022-4783f95f06367aa515c9cfb7713cdb9b.jpg" alt="Bài viết 3">
-                <p>Tìm kiếm điều gì đó</p>
+                <img src="https://i.ibb.co/RbnkxkQ/z5943895744990-9a93b678ddc5f3b42bbd2c09cb68ff2a.jpg" alt="Bài viết 2">
+                <p>Bước vào thế giới của Gen T!</p>
                 <button class="like-button">❤️</button>
             </article>
         </div>
 
         <div id="comments-section">
             <h3>Bình luận</h3>
-            <form id="comment-form">
-                <input type="text" id="username" placeholder="Tên của bạn" required>
-                <textarea id="comment" rows="4" placeholder="Bình luận của bạn" required></textarea>
-                <button type="submit" class="submit-button">Gửi bình luận</button>
-            </form>
-
             <ul id="comments-list"></ul>
+            <input type="text" id="name" placeholder="Tên của bạn" required>
+            <textarea id="comment" rows="4" placeholder="Bình luận của bạn" required></textarea>
+            <button class="submit-button" id="submit-comment">Gửi</button>
         </div>
     </main>
 
     <script>
-        // Chức năng chuyển đổi chế độ tối
-        const themeToggleButton = document.getElementById('theme-toggle');
-        themeToggleButton.addEventListener('click', function() {
+        // Chuyển đổi giữa chế độ sáng và tối
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
+            themeToggle.innerText = document.body.classList.contains('dark-mode') ? 'Chuyển sang chế độ sáng' : 'Chuyển sang chế độ tối';
         });
 
-        // Chức năng bình luận
-        const commentForm = document.getElementById('comment-form');
+        // Chức năng cho phần bình luận
+        const submitCommentButton = document.getElementById('submit-comment');
         const commentsList = document.getElementById('comments-list');
 
-        commentForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const comment = document.getElementById('comment').value;
-            addComment(username, comment);
-            commentForm.reset();
+        submitCommentButton.addEventListener('click', () => {
+            const nameInput = document.getElementById('name');
+            const commentInput = document.getElementById('comment');
+            const name = nameInput.value.trim();
+            const comment = commentInput.value.trim();
+
+            if (name && comment) {
+                const commentItem = document.createElement('li');
+                commentItem.innerHTML = `<strong>${name}</strong>: ${comment}<br><span class="comment-meta">${new Date().toLocaleString()}</span>
+                <div class="comment-actions">
+                    <button class="edit-comment">Sửa</button>
+                    <button class="delete-comment">Xóa</button>
+                </div>`;
+                commentsList.appendChild(commentItem);
+
+                // Xóa trường nhập liệu
+                nameInput.value = '';
+                commentInput.value = '';
+
+                // Thêm sự kiện cho các nút sửa và xóa
+                const editButton = commentItem.querySelector('.edit-comment');
+                const deleteButton = commentItem.querySelector('.delete-comment');
+
+                editButton.addEventListener('click', () => {
+                    nameInput.value = name;
+                    commentInput.value = comment;
+                    commentsList.removeChild(commentItem);
+                });
+
+                deleteButton.addEventListener('click', () => {
+                    commentsList.removeChild(commentItem);
+                });
+            } else {
+                alert('Vui lòng điền đầy đủ thông tin!');
+            }
         });
-
-        function addComment(username, comment) {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${username}</strong>: ${comment} <div class="comment-meta">${new Date().toLocaleString()}</div>
-            <div class="comment-actions">
-                <button class="edit-button">Chỉnh sửa</button>
-                <button class="delete-button">Xóa</button>
-            </div>`;
-            commentsList.appendChild(li);
-
-            // Chức năng xóa bình luận
-            li.querySelector('.delete-button').addEventListener('click', function() {
-                li.remove();
-            });
-
-            // Chức năng chỉnh sửa bình luận
-            li.querySelector('.edit-button').addEventListener('click', function() {
-                const newComment = prompt('Chỉnh sửa bình luận:', comment);
-                if (newComment) {
-                    comment = newComment;
-                    li.childNodes[0].textContent = username + ": " + comment;
-                }
-            });
-        }
     </script>
 </body>
 </html>
