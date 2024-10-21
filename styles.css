@@ -336,20 +336,15 @@ footer p {
         font-size: 2rem;
     }
 
-    .hero h2 {
-        font-size: 2rem;
-    }
-
     nav {
         flex-direction: column;
     }
 
-    .sidebar {
-        width: 90%;
-        right: 5%;
-    }
-
     .blog-posts {
         grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none; /* Ẩn sidebar trên màn hình nhỏ */
     }
 }
