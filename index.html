@@ -256,31 +256,30 @@
         }
 
         /* Tìm kiếm */
-        #search {
-            margin-bottom: 20px;
+        .search-bar {
+            margin: 20px 0;
             display: flex;
             justify-content: center;
         }
 
-        #search input {
+        .search-bar input {
             width: 80%;
             padding: 10px;
+            border-radius: 5px 0 0 5px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-right: 10px;
         }
 
-        #search button {
-            padding: 10px 20px;
+        .search-bar button {
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
             border: none;
-            border-radius: 5px;
             background-color: #FF6F61;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        #search button:hover {
+        .search-bar button:hover {
             background-color: #FFC371;
         }
 
@@ -293,7 +292,9 @@
 
         .share-buttons a {
             margin: 0 10px;
-            font-size: 20px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #333;
             transition: transform 0.3s;
         }
 
@@ -307,10 +308,10 @@
 <header>
     <h1>Chuyện Gen T</h1>
     <nav>
-        <a href="#home">Trang chủ</a>
-        <a href="#about">Giới thiệu</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Liên hệ</a>
+        <a href="#home"><i class="fas fa-home"></i> Trang chủ</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> Giới thiệu</a>
+        <a href="#blog"><i class="fas fa-pencil-alt"></i> Blog</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Liên hệ</a>
     </nav>
 </header>
 
@@ -391,3 +392,4 @@
 
 </body>
 </html>
+
