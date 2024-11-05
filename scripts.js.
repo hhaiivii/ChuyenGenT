@@ -15,3 +15,21 @@ function toggleSidebar() {
         sidebar.style.width = "250px"; // Mở sidebar
     }
 }
+<script>
+    const sidebar = document.querySelector('.sidebar');
+    const toggleSidebarButton = document.createElement('button');
+    toggleSidebarButton.textContent = '☰';
+    toggleSidebarButton.style.position = 'fixed';
+    toggleSidebarButton.style.top = '20px';
+    toggleSidebarButton.style.left = '20px';
+    toggleSidebarButton.style.backgroundColor = '#FF6F61';
+    toggleSidebarButton.style.color = 'white';
+    toggleSidebarButton.style.border = 'none';
+    toggleSidebarButton.style.padding = '10px';
+    toggleSidebarButton.style.borderRadius = '5px';
+    document.body.appendChild(toggleSidebarButton);
+
+    toggleSidebarButton.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+</script>
