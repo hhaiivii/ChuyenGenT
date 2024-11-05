@@ -284,3 +284,10 @@ footer p {
 .sidebar.open {
     display: block; /* Hiển thị sidebar khi mở */
 }
+.sidebar {
+    display: none; /* Ẩn sidebar mặc định */
+}
+
+.sidebar.open {
+    display: block; /* Hiển thị sidebar khi mở */
+}
