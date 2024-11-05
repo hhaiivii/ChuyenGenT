@@ -24,6 +24,49 @@
             background-color: #1a1a1a;
             color: #f1f1f1;
         }
+/* Sidebar */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s;
+            padding-top: 20px;
+        }
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #FF6F61;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+        #sidebar a:hover {
+            background-color: rgba(255, 111, 97, 0.2);
+        }
+
+        /* Nút mở sidebar */
+        #menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #FF6F61;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #menu-toggle:hover {
+            background-color: #FFC371;
+        }
+
+        /* Các bài viết blog và phần còn lại giữ nguyên */
+        /* (Phần CSS cho body, header, v.v. giữ nguyên như cũ) */
 
         /* Header */
         header {
@@ -274,6 +317,26 @@
     </style>
 </head>
 <body>
+ <!-- Sidebar -->
+    <div id="sidebar">
+        <a href="index.html">Trang Chủ</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="#">Cộng Đồng</a> <!-- Thêm mục Cộng Đồng -->
+        <a href="#">Cập nhật Thông tin</a> <!-- Thêm mục Cập nhật Thông tin -->
+    </div>
+
+    <!-- Nút mở sidebar -->
+    <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+    <header>
+        <h1>Chuyện Gen T</h1>
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Giới thiệu</a>
+        </nav>
+    </header>
 
     <header>
         <h1>Chuyện Gen T</h1>
@@ -285,19 +348,6 @@
     </header>
 
     <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
-     <script src="scripts.js"></script>
-
-         <aside class="sidebar">
-        <h3>Danh Mục</h3>
-        <ul>
-            <li><a href="category1.html">Danh Mục 1</a></li>
-            <li><a href="category2.html">Danh Mục 2</a></li>
-            <li><a href="category3.html">Danh Mục 3</a></li>
-            <li><a href="category4.html">Danh Mục 4</a></li>
-            <li><a href="category5.html">Danh Mục 5</a></li>
-        </ul>
-    </aside>
-<script src="scripts.js"></script>
 
     <main>
         <section class="hero">
@@ -344,33 +394,23 @@
         </div>
     </main>
 
-    <script>
-const themeToggleButton = document.getElementById('theme-toggle');
-themeToggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
-});
+   <script>
+        const themeToggleButton = document.getElementById('theme-toggle');
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
+        });
 
-document.querySelector('.submit-button').addEventListener('click', () => {
-    const name = document.querySelector('input').value;
-    const comment = document.querySelector('textarea').value;
-    if (name && comment) {
-        const commentList = document.getElementById('comments-list');
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${name}</strong><span class="comment-meta"> vừa bình luận</span><p>${comment}</p><div class="comment-actions"><button>Xóa</button></div>`;
-        commentList.appendChild(li);
-        document.querySelector('input').value = '';
-        document.querySelector('textarea').value = '';
-    }
-});
-
-// Thêm sự kiện cho nút xóa bình luận
-document.getElementById('comments-list').addEventListener('click', (event) => {
-    if (event.target.tagName === 'BUTTON') {
-        event.target.parentElement.parentElement.remove();
-    }
-});
-
+        // Mở/Đóng Sidebar
+        const menuToggleButton = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        menuToggleButton.addEventListener('click', () => {
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';  // Đóng sidebar
+            } else {
+                sidebar.style.left = '0px';  // Mở sidebar
+            }
+        });
     </script>
 </body>
 </html>
