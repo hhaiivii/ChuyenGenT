@@ -237,6 +237,7 @@ footer p {
         transform: translateY(0);
     }
 }
+
 /* Sidebar */
 .sidebar {
     width: 250px;
@@ -277,13 +278,7 @@ footer p {
     background-color: rgba(255, 111, 97, 0.2);
     color: #FF6F61;
 }
-.sidebar {
-    display: none; /* Ẩn sidebar mặc định */
-}
 
-.sidebar.open {
-    display: block; /* Hiển thị sidebar khi mở */
-}
 .sidebar {
     display: none; /* Ẩn sidebar mặc định */
 }
