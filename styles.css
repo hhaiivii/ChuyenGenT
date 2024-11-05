@@ -187,3 +187,29 @@ footer {
         font-size: 0.9rem;
     }
 }
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 100px; /* Căn chỉnh theo khoảng cách bạn muốn từ đầu trang */
+    left: 0;
+    width: 200px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0 8px 8px 0;
+    z-index: 10; /* Đảm bảo sidebar nổi trên các thành phần khác */
+}
+.sidebar h3 {
+    font-size: 1.5rem;
+    color: #FF6F61;
+    margin-top: 0;
+}
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+.sidebar a:hover {
