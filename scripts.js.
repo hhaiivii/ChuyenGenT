@@ -1,15 +1,17 @@
 // Mở sidebar khi click vào nút mở
 document.getElementById('open-sidebar').addEventListener('click', function() {
     document.getElementById('sidebar-vertical').style.width = '250px';
+    document.body.classList.add('sidebar-open');  // Thêm class để di chuyển body khi sidebar mở
 });
 
 // Đóng sidebar khi click vào nút đóng
 document.getElementById('close-sidebar').addEventListener('click', function() {
     document.getElementById('sidebar-vertical').style.width = '0';
+    document.body.classList.remove('sidebar-open');  // Loại bỏ class khi đóng sidebar
 });
 
 // Toggle sidebar với nút ☰
-const sidebar = document.querySelector('.sidebar');
+const sidebar = document.getElementById('sidebar-vertical');
 const toggleSidebarButton = document.createElement('button');
 
 // Thêm nút ☰ vào trang
@@ -24,7 +26,24 @@ toggleSidebarButton.style.padding = '10px';
 toggleSidebarButton.style.borderRadius = '5px';
 document.body.appendChild(toggleSidebarButton);
 
-// Toggle lớp 'open' để mở/đóng sidebar
+// Toggle lớp 'open' để mở/đóng sidebar khi click vào nút ☰
 toggleSidebarButton.addEventListener('click', () => {
     sidebar.classList.toggle('open');
+    document.body.classList.toggle('sidebar-open');  // Điều khiển việc di chuyển nội dung khi mở/đóng sidebar
 });
+
+// Đảm bảo các thao tác trên nút mở và đóng sidebar cũng hiệu quả khi có thêm nút ☰
+const openSidebarBtn = document.getElementById('open-sidebar');
+const closeSidebarBtn = document.getElementById('close-sidebar');
+
+// Xử lý sự kiện cho nút mở sidebar
+openSidebarBtn.onclick = function() {
+    sidebar.classList.add('open');
+    document.body.classList.add('sidebar-open');
+};
+
+// Xử lý sự kiện cho nút đóng sidebar
+closeSidebarBtn.onclick = function() {
+    sidebar.classList.remove('open');
+    document.body.classList.remove('sidebar-open');
+};
