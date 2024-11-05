@@ -1,239 +1,372 @@
-/* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+<!DOCTYPE html>  
+<html lang="vi">
+<head>
+     <meta name="description" content="ChuyenGenT - Nơi học sinh THPT Tùng Thiện thể hiện bản thân và kết nối với cộng đồng Gen Z.">
+    <meta name="keywords" content="Gen T, ChuyenGenT, THPT Tùng Thiện, Blog, Web">
+    <meta name="author" content="Hoang Ha">
+    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Cơ bản cho body */
+        body {
+            background: linear-gradient(135deg, #FF6F61, #FFC371);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
 
-/* Định nghĩa các màu sắc */
-:root {
-    --main-bg-color: #1a1a1a;
-    --main-color: #FF6F61;
-    --secondary-color: #FFC371;
-    --text-color: #333;
-    --text-light: #FFEBCC; /* Màu chữ cam sáng trắng cho nội dung giới thiệu */
-    --hover-color: #FF6F61;
-}
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #FF6F61;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: color 0.3s, transform 0.3s;
+            border-radius: 5px;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF6F61;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        nav a:hover {
+            color: #FF6F61;
+            transform: scale(1.1);
+            background: rgba(255, 111, 97, 0.2);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
 
-/* Body styles */
-body {
-    background: linear-gradient(135deg, #FF6F61, #FFC371);
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
+        /* Nút chuyển đổi chế độ tối */
+        button#theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #FF6F61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        button#theme-toggle:hover {
+            background-color: #FFC371;
+            transform: scale(1.05);
+        }
 
-body.dark-mode {
-    background-color: var(--main-bg-color);
-    color: var(--text-light);
-}
+        /* Nội dung chính */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Phần giới thiệu */
+        .hero {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hero h2 {
+            transition: color 0.3s;
+        }
+        .hero h2:hover {
+            color: #FF6F61;
+        }
 
-/* Header styles */
-header {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        /* Tìm kiếm */
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            border: 1px solid #ddd;
+        }
+        .search-bar button {
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+            border: none;
+            background-color: #FF6F61;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #FFC371;
+        }
 
-header h1 {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 2.5rem;
-    margin: 0;
-    color: var(--main-color);
-    transition: transform 0.3s, color 0.3s;
-}
+        /* Các bài viết blog */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .post-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .post-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .post-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .post-card img:hover {
+            transform: scale(1.1);
+        }
 
-header h1:hover {
-    transform: scale(1.05) rotate(-2deg);
-    color: var(--secondary-color);
-}
+        /* Phần bình luận */
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #comments-section h3,
+        #comments-section h4 {
+            transition: color 0.3s;
+        }
+        #comments-section h3:hover,
+        #comments-section h4:hover {
+            color: #FF6F61;
+        }
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #comments-list li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s;
+        }
+        #comments-list li:hover {
+            background-color: #f9f9f9;
+        }
+        .comment-meta {
+            font-size: 12px;
+            color: #777;
+        }
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #FF6F61;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        input, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #FF6F61;
+            outline: none;
+        }
+        button.submit-button {
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button.submit-button:hover {
+            background-color: #FFC371;
+        }
 
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+        /* Chia sẻ mạng xã hội */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .share-buttons a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #333;
+            transition: color 0.3s;
+        }
+        .share-buttons a:hover {
+            color: #FF6F61;
+        }
+    </style>
+</head>
+<body>
 
-nav a {
-    padding: 10px 20px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 5px;
-    margin: 0 10px;
-    position: relative;
-    transition: color 0.3s, transform 0.3s, background-color 0.3s;
-}
+    <header>
+        <h1>Chuyện Gen T</h1>
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Giới thiệu</a>
+        </nav>
+    </header>
 
-nav a:hover {
-    color: var(--hover-color);
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-}
+    <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3>Tùy chọn</h3>
+    <a href="#congdong">Cộng đồng</a>
+    <a href="#capnhatthongtin">Cập nhật thông tin</a>
+    <a href="#lichthi">Lịch thi</a>
+    <a href="#sukien">Sự kiện</a>
+    <a href="#thaoluan">Thảo luận chung</a>
+    <a href="#guiTepTin">Gửi tệp tin</a>
+</div>
 
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 80vh;
-    background: url('hero-image.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-    border-radius: 10px; /* Thêm viền bo cho phần hero */
-}
+    <main>
+        <section class="hero">
+            <h2>Chào Mừng Đến Với Chuyện Gen T</h2>
+            <p>Khám phá hành trình của chúng ta trong thời đại 4.0.</p>
+        </section>
 
-.hero h2 {
-    font-size: 3rem;
-    animation: fadeIn 2s ease-in-out;
-}
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm bài viết...">
+            <button>🔍</button>
+        </div>
 
-/* Main content styles */
-main {
-    display: flex;
-    flex-direction: column; /* Sắp xếp theo chiều dọc */
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto; /* Giữa trang */
-}
+        <section class="blog-posts">
+            <div class="post-card">
+                <img src="post-image-1.jpg" alt="Post Image 1">
+                <h3>Bài Viết 1</h3>
+                <p>Mô tả ngắn về bài viết 1.</p>
+            </div>
+            <div class="post-card">
+                <img src="post-image-2.jpg" alt="Post Image 2">
+                <h3>Bài Viết 2</h3>
+                <p>Mô tả ngắn về bài viết 2.</p>
+            </div>
+            <!-- Thêm bài viết khác tại đây -->
+        </section>
 
-/* Search Bar styles */
-.search-bar {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
+        <section id="comments-section">
+            <h3>Bình luận</h3>
+            <div>
+                <input type="text" placeholder="Tên của bạn">
+                <textarea placeholder="Nội dung bình luận"></textarea>
+                <button class="submit-button">Gửi Bình Luận</button>
+            </div>
+            <ul id="comments-list">
+                <!-- Các bình luận sẽ được thêm vào đây -->
+            </ul>
+        </section>
 
-.search-bar input {
-    padding: 10px;
-    border: 1px solid var(--main-color);
-    border-radius: 5px;
-    margin-right: 10px;
-    flex: 1; /* Chiếm toàn bộ không gian */
-}
+        <div class="share-buttons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <!-- Thêm nút chia sẻ khác tại đây -->
+        </div>
+    </main>
 
-.search-bar button {
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle');
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
+        });
 
-.search-bar button:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
-}
+        document.querySelector('.submit-button').addEventListener('click', () => {
+            const name = document.querySelector('input').value;
+            const comment = document.querySelector('textarea').value;
+            if (name && comment) {
+                const commentList = document.getElementById('comments-list');
+                const li = document.createElement('li');
+                li.innerHTML = <strong>${name}</strong><span class="comment-meta"> vừa bình luận</span><p>${comment}</p><div class="comment-actions"><button>Xóa</button></div>;
+                commentList.appendChild(li);
+                document.querySelector('input').value = '';
+                document.querySelector('textarea').value = '';
+            }
+        });
 
-/* Blog post grid */
-.blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* Post Card */
-.post-card {
-    border-radius: 12px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.post-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.post-card h3 {
-    font-size: 1.8rem;
-    margin: 15px;
-    color: var(--main-color);
-}
-
-.post-card p {
-    padding: 0 15px 15px;
-    font-size: 1rem;
-    color: #555;
-}
-
-/* Comments section styles */
-#comments-section {
-    margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid #ddd;
-}
-
-#comments-section h3 {
-    font-size: 1.8rem;
-    color: var(--main-color);
-}
-
-#comments-list li {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* Share Buttons */
-.share-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.share-buttons a {
-    margin: 0 10px;
-    color: var(--main-color);
-    font-size: 2rem;
-    transition: color 0.3s;
-}
-
-.share-buttons a:hover {
-    color: var(--hover-color);
-}
-
-/* Footer styles */
-footer {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-footer p {
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        // Thêm sự kiện cho nút xóa bình luận
+        document.getElementById('comments-list').addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                event.target.parentElement.parentElement.remove();
+            }
+        });
+    </script>
+</body>
+</html>
