@@ -24,6 +24,57 @@
             background-color: #1a1a1a;
             color: #f1f1f1;
         }
+/* Sidebar */
+        #sidebar {
+            position: fixed;
+            left: -250px; /* Ẩn sidebar ra khỏi màn hình */
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            padding: 20px;
+            z-index: 1000; /* Để sidebar nằm trên cùng */
+        }
+        #sidebar.active {
+            left: 0; /* Hiện sidebar khi có lớp active */
+        }
+        #sidebar h2 {
+            color: #FF6F61;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            margin: 15px 0;
+        }
+        #sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        #sidebar ul li a:hover {
+            color: #FF6F61;
+        }
+
+        /* Nút hamburger */
+        #hamburger {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            cursor: pointer;
+        }
+        #hamburger div {
+            width: 30px;
+            height: 3px;
+            background: #FF6F61;
+            margin: 5px 0;
+            transition: all 0.3s;
+                     }
 
         /* Header */
         header {
@@ -275,20 +326,6 @@
 </head>
 <body>
 
-<header>
-    <h1>Chuyện Gen T</h1>
-    <nav>
-        <a href="#community">Cộng Đồng</a>
-        <a href="#updates">Cập Nhật Thông Tin</a>
-        <a href="#schedule">Lịch Thi</a>
-        <a href="#discussion">Thảo Luận Chung</a>
-        <a href="#upload">Gửi Tệp Tin</a>
-    </nav>
-</header>
-
-<!-- Nút chuyển đổi chế độ tối -->
-<button id="theme-toggle">Chuyển Đổi Chế Độ Tối</button>
-
     <header>
         <h1>Chuyện Gen T</h1>
         <nav>
@@ -336,10 +373,7 @@
                 <!-- Các bình luận sẽ được thêm vào đây -->
             </ul>
         </section>
-         <div class="search-bar">
-        <input type="text" placeholder="Tìm kiếm...">
-        <button>Tìm</button>
-    </div>
+
         <div class="share-buttons">
             <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
