@@ -289,3 +289,45 @@ footer p {
 #open-sidebar, #close-sidebar {
     cursor: pointer;
 }
+
+/* Mặc định Sidebar ẩn */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+/* Khi mở Sidebar */
+.sidebar.open {
+    width: 250px;  /* Điều chỉnh kích thước tùy ý */
+}
+
+/* Liên kết trong Sidebar */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    color: #818181;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+/* Biểu tượng đóng Sidebar */
+.icon {
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    cursor: pointer;
+}
+
+/* Khi Sidebar mở, nội dung chính bị dịch chuyển sang phải */
+body.sidebar-open {
+    margin-left: 250px;  /* Điều chỉnh theo kích thước sidebar */
+}
