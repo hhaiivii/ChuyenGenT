@@ -24,57 +24,6 @@
             background-color: #1a1a1a;
             color: #f1f1f1;
         }
-/* Sidebar */
-        #sidebar {
-            position: fixed;
-            left: -250px; /* Ẩn sidebar ra khỏi màn hình */
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
-            padding: 20px;
-            z-index: 1000; /* Để sidebar nằm trên cùng */
-        }
-        #sidebar.active {
-            left: 0; /* Hiện sidebar khi có lớp active */
-        }
-        #sidebar h2 {
-            color: #FF6F61;
-        }
-        #sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-        #sidebar ul li {
-            margin: 15px 0;
-        }
-        #sidebar ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        #sidebar ul li a:hover {
-            color: #FF6F61;
-        }
-
-        /* Nút hamburger */
-        #hamburger {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-            cursor: pointer;
-        }
-        #hamburger div {
-            width: 30px;
-            height: 3px;
-            background: #FF6F61;
-            margin: 5px 0;
-            transition: all 0.3s;
-                     }
 
         /* Header */
         header {
@@ -336,6 +285,16 @@
     </header>
 
     <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3>Tùy chọn</h3>
+    <a href="#congdong">Cộng đồng</a>
+    <a href="#capnhatthongtin">Cập nhật thông tin</a>
+    <a href="#lichthi">Lịch thi</a>
+    <a href="#sukien">Sự kiện</a>
+    <a href="#thaoluan">Thảo luận chung</a>
+    <a href="#guiTepTin">Gửi tệp tin</a>
+</div>
 
     <main>
         <section class="hero">
