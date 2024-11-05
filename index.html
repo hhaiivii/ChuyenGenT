@@ -11,6 +11,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+         /* Định dạng cho Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #FF6F61;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #FF6F61;
+    color: white;
+    border-radius: 5px;
+}
         /* Cơ bản cho body */
         body {
             background: linear-gradient(135deg, #FF6F61, #FFC371);
