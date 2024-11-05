@@ -1,17 +1,14 @@
 // Mở sidebar khi click vào nút mở
 document.getElementById('open-sidebar').addEventListener('click', function() {
-    document.getElementById('sidebar-vertical').style.width = '250px';
-    document.body.classList.add('sidebar-open');  // Thêm class để di chuyển body khi sidebar mở
+    toggleSidebar(true);  // Gọi hàm để mở sidebar
 });
 
 // Đóng sidebar khi click vào nút đóng
 document.getElementById('close-sidebar').addEventListener('click', function() {
-    document.getElementById('sidebar-vertical').style.width = '0';
-    document.body.classList.remove('sidebar-open');  // Loại bỏ class khi đóng sidebar
+    toggleSidebar(false);  // Gọi hàm để đóng sidebar
 });
 
 // Toggle sidebar với nút ☰
-const sidebar = document.getElementById('sidebar-vertical');
 const toggleSidebarButton = document.createElement('button');
 
 // Thêm nút ☰ vào trang
@@ -28,22 +25,23 @@ document.body.appendChild(toggleSidebarButton);
 
 // Toggle lớp 'open' để mở/đóng sidebar khi click vào nút ☰
 toggleSidebarButton.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
-    document.body.classList.toggle('sidebar-open');  // Điều khiển việc di chuyển nội dung khi mở/đóng sidebar
+    const sidebar = document.getElementById('sidebar-vertical');
+    const isOpen = sidebar.classList.contains('open');
+    toggleSidebar(!isOpen);  // Thực hiện mở/đóng sidebar dựa trên trạng thái hiện tại
 });
 
-// Đảm bảo các thao tác trên nút mở và đóng sidebar cũng hiệu quả khi có thêm nút ☰
-const openSidebarBtn = document.getElementById('open-sidebar');
-const closeSidebarBtn = document.getElementById('close-sidebar');
-
-// Xử lý sự kiện cho nút mở sidebar
-openSidebarBtn.onclick = function() {
-    sidebar.classList.add('open');
-    document.body.classList.add('sidebar-open');
-};
-
-// Xử lý sự kiện cho nút đóng sidebar
-closeSidebarBtn.onclick = function() {
-    sidebar.classList.remove('open');
-    document.body.classList.remove('sidebar-open');
-};
+// Hàm toggle sidebar
+function toggleSidebar(isOpen) {
+    const sidebar = document.getElementById('sidebar-vertical');
+    const body = document.body;
+    
+    if (isOpen) {
+        sidebar.style.width = '250px';
+        sidebar.classList.add('open');
+        body.classList.add('sidebar-open');
+    } else {
+        sidebar.style.width = '0';
+        sidebar.classList.remove('open');
+        body.classList.remove('sidebar-open');
+    }
+}
