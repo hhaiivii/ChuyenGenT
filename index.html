@@ -1,13 +1,252 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <meta name="description" content="ChuyenGenT - Nơi học sinh THPT Tùng Thiện thể hiện bản thân và kết nối với cộng đồng Gen Z.">
+    <meta name="keywords" content="Gen T, ChuyenGenT, THPT Tùng Thiện, Blog, Web">
+    <meta name="author" content="Hoang Ha">
+    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyện Gen T</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Chuyện Gen T - Hành Trình 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS giữ nguyên như trước */
+        /* Cơ bản cho body */
+        body {
+            background: linear-gradient(135deg, #FF6F61, #FFC371);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex; /* Đặt body sử dụng flexbox */
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
+
+        /* Sidebar dọc */
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            left: -250px; /* Bắt đầu ẩn bên trái */
+            top: 0;
+            height: 100%;
+            transition: left 0.3s;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: rgba(255, 111, 97, 0.2);
+            color: #FF6F61;
+        }
+
+        /* Nút mở sidebar */
+        .toggle-sidebar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1001; /* Đảm bảo nút nằm trên các phần tử khác */
+        }
+        .toggle-sidebar:hover {
+            background-color: #FFC371;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-left: 250px; /* Tạo khoảng cách cho sidebar dọc */
+            flex-grow: 1; /* Giúp header chiếm không gian còn lại */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #FF6F61;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: color 0.3s, transform 0.3s;
+            border-radius: 5px;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF6F61;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        nav a:hover {
+            color: #FF6F61;
+            transform: scale(1.1);
+            background: rgba(255, 111, 97, 0.2);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Nút chuyển đổi chế độ tối */
+        button#theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #FF6F61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button#theme-toggle:hover {
+            background-color: #FFC371;
+            transform: scale(1.05);
+        }
+
+        /* Nội dung chính */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s;
+            margin-left: 250px; /* Tạo khoảng cách cho sidebar dọc */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Phần giới thiệu */
+        .hero {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hero h2 {
+            transition: color 0.3s;
+        }
+        .hero h2:hover {
+            color: #FF6F61;
+        }
+
+        /* Tìm kiếm */
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            border: 1px solid #ddd;
+        }
+        .search-bar button {
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+            border: none;
+            background-color: #FF6F61;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #FFC371;
+        }
+
+        /* Các bài viết blog */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .post-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .post-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .post-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .post-card img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Phần bình luận */
+        #comments-section {
+            margin-top: 30px;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #comments-section h3 {
+            margin: 0 0 15px 0;
+        }
+        .comment {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(240, 240, 240, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -35,14 +274,11 @@
 
     <!-- Nội dung chính -->
     <main>
-        <!-- Phần Giới thiệu -->
-        <section id="about">
-            <div class="hero">
-                <h2>Chào mừng đến với Chuyện Gen T!</h2>
-                <p>Nơi học sinh THPT Tùng Thiện có thể thể hiện bản thân và chia sẻ câu chuyện.</p>
-            </div>
-        </section>
-
+        <div class="hero">
+            <h2>Chào mừng đến với Chuyện Gen T!</h2>
+            <p>Nơi học sinh THPT Tùng Thiện có thể thể hiện bản thân và chia sẻ câu chuyện.</p>
+        </div>
+        
         <!-- Thanh tìm kiếm -->
         <div class="search-bar">
             <input type="text" placeholder="Tìm kiếm bài viết...">
@@ -50,40 +286,36 @@
         </div>
 
         <!-- Các bài viết -->
-        <section id="blog">
-            <div class="blog-posts">
-                <div class="post-card">
-                    <img src="example1.jpg" alt="Bài viết 1">
-                    <h3>Bài viết 1</h3>
-                    <p>Mô tả ngắn cho bài viết 1.</p>
-                </div>
-                <div class="post-card">
-                    <img src="example2.jpg" alt="Bài viết 2">
-                    <h3>Bài viết 2</h3>
-                    <p>Mô tả ngắn cho bài viết 2.</p>
-                </div>
-                <div class="post-card">
-                    <img src="example3.jpg" alt="Bài viết 3">
-                    <h3>Bài viết 3</h3>
-                    <p>Mô tả ngắn cho bài viết 3.</p>
-                </div>
-                <!-- Thêm nhiều bài viết nếu cần -->
+        <div class="blog-posts">
+            <div class="post-card">
+                <img src="example1.jpg" alt="Bài viết 1">
+                <h3>Bài viết 1</h3>
+                <p>Mô tả ngắn cho bài viết 1.</p>
             </div>
-        </section>
+            <div class="post-card">
+                <img src="example2.jpg" alt="Bài viết 2">
+                <h3>Bài viết 2</h3>
+                <p>Mô tả ngắn cho bài viết 2.</p>
+            </div>
+            <div class="post-card">
+                <img src="example3.jpg" alt="Bài viết 3">
+                <h3>Bài viết 3</h3>
+                <p>Mô tả ngắn cho bài viết 3.</p>
+            </div>
+            <!-- Thêm nhiều bài viết nếu cần -->
+        </div>
 
         <!-- Phần bình luận -->
-        <section id="contact">
-            <div id="comments-section">
-                <h3>Bình luận</h3>
-                <div class="comment">
-                    <strong>Người dùng 1:</strong> Bài viết rất hay!
-                </div>
-                <div class="comment">
-                    <strong>Người dùng 2:</strong> Cảm ơn bạn đã chia sẻ.
-                </div>
-                <!-- Thêm nhiều bình luận nếu cần -->
+        <div id="comments-section">
+            <h3>Bình luận</h3>
+            <div class="comment">
+                <strong>Người dùng 1:</strong> Bài viết rất hay!
             </div>
-        </section>
+            <div class="comment">
+                <strong>Người dùng 2:</strong> Cảm ơn bạn đã chia sẻ.
+            </div>
+            <!-- Thêm nhiều bình luận nếu cần -->
+        </div>
     </main>
 
     <script>
