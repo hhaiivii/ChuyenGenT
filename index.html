@@ -11,41 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-         /* Định dạng cho Sidebar */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.sidebar h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #FF6F61;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 8px;
-    transition: background-color 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #FF6F61;
-    color: white;
-    border-radius: 5px;
-}
         /* Cơ bản cho body */
         body {
             background: linear-gradient(135deg, #FF6F61, #FFC371);
@@ -309,6 +274,21 @@
     </style>
 </head>
 <body>
+     <!-- Hamburger Menu (Icon 3 gạch) -->
+<div class="hamburger" onclick="toggleSidebar()">
+    &#9776; <!-- Biểu tượng ba gạch -->
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="#">Cộng Đồng</a></li>
+        <li><a href="#">Cập Nhật Thông Tin</a></li>
+        <li><a href="#">Lịch Thi</a></li>
+        <li><a href="#">Thảo Luận Chung</a></li>
+        <li><a href="#">Gửi Tệp Tin</a></li>
+    </ul>
+</div>
 
     <header>
         <h1>Chuyện Gen T</h1>
@@ -320,16 +300,6 @@
     </header>
 
     <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
-<!-- Sidebar -->
-<div class="sidebar">
-    <h3>Tùy chọn</h3>
-    <a href="#congdong">Cộng đồng</a>
-    <a href="#capnhatthongtin">Cập nhật thông tin</a>
-    <a href="#lichthi">Lịch thi</a>
-    <a href="#sukien">Sự kiện</a>
-    <a href="#thaoluan">Thảo luận chung</a>
-    <a href="#guiTepTin">Gửi tệp tin</a>
-</div>
 
     <main>
         <section class="hero">
@@ -405,3 +375,4 @@
     </script>
 </body>
 </html>
+<script src="scripts.js"></script>
