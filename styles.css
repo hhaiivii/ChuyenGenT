@@ -8,7 +8,7 @@
     --main-color: #FF6F61;
     --secondary-color: #FFC371;
     --text-color: #333;
-    --text-light: #FFEBCC; /* Màu chữ cam sáng trắng cho nội dung giới thiệu */
+    --text-light: #FFEBCC;
     --hover-color: #FF6F61;
 }
 
@@ -89,7 +89,7 @@ nav a:hover {
     text-align: center;
     color: white;
     overflow: hidden;
-    border-radius: 10px; /* Thêm viền bo cho phần hero */
+    border-radius: 10px;
 }
 
 .hero h2 {
@@ -100,10 +100,10 @@ nav a:hover {
 /* Main content styles */
 main {
     display: flex;
-    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    flex-direction: column;
     padding: 20px;
     max-width: 800px;
-    margin: 20px auto; /* Giữa trang */
+    margin: 20px auto;
 }
 
 /* Search Bar styles */
@@ -118,7 +118,7 @@ main {
     border: 1px solid var(--main-color);
     border-radius: 5px;
     margin-right: 10px;
-    flex: 1; /* Chiếm toàn bộ không gian */
+    flex: 1;
 }
 
 .search-bar button {
@@ -240,15 +240,22 @@ footer p {
 
 /* Sidebar */
 .sidebar {
+    width: 0;
+    transition: width 0.3s;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
+    padding-top: 60px;
+    display: none;
+}
+
+.sidebar.open {
     width: 250px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Sidebar cố định bên trái */
-    top: 100px; /* Khoảng cách từ đầu trang */
-    left: 20px; /* Khoảng cách từ bên trái */
-    transition: background-color 0.3s;
+    display: block; /* Hiển thị sidebar khi mở */
 }
 
 .sidebar h3 {
@@ -279,10 +286,6 @@ footer p {
     color: #FF6F61;
 }
 
-.sidebar {
-    display: none; /* Ẩn sidebar mặc định */
-}
-
-.sidebar.open {
-    display: block; /* Hiển thị sidebar khi mở */
+#open-sidebar, #close-sidebar {
+    cursor: pointer;
 }
