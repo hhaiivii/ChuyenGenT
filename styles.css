@@ -213,3 +213,7 @@ footer {
     border-radius: 5px;
 }
 .sidebar a:hover {
+/* Thêm khoảng cách cho phần chính để không bị che bởi sidebar */
+main {
+    margin-left: 220px; /* Đảm bảo main không bị che bởi sidebar */
+}
