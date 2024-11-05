@@ -1,219 +1,276 @@
-/* Global Styles */
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+/* Định nghĩa các màu sắc */
+:root {
+    --main-bg-color: #1a1a1a;
+    --main-color: #FF6F61;
+    --secondary-color: #FFC371;
+    --text-color: #333;
+    --text-light: #FFEBCC; /* Màu chữ cam sáng trắng cho nội dung giới thiệu */
+    --hover-color: #FF6F61;
+}
+
+/* Body styles */
 body {
-    font-family: 'Inter', sans-serif; /* Một font hiện đại, phù hợp với Gen Z */
-    line-height: 1.6;
+    background: linear-gradient(135deg, #FF6F61, #FFC371);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header */
+body.dark-mode {
+    background-color: var(--main-bg-color);
+    color: var(--text-light);
+}
+
+/* Header styles */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Main content area */
-main.wp-block-group {
+header h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.5rem;
     margin: 0;
-    padding-top: 10vh;
-    padding-bottom: 8vh;
-    background-color: #fff;
+    color: var(--main-color);
+    transition: transform 0.3s, color 0.3s;
 }
 
-/* Container to hold main content and sidebar */
-.container {
-    display: flex; /* Sử dụng flexbox để sắp xếp */
-    margin: 0 2rem; /* Khoảng cách bên trái và bên phải */
+header h1:hover {
+    transform: scale(1.05) rotate(-2deg);
+    color: var(--secondary-color);
 }
 
-/* Main content */
-main {
-    flex-grow: 1; /* Cho phép nội dung chính chiếm không gian còn lại */
-    padding: 2rem; /* Padding cho nội dung chính */
-}
-
-/* Sidebar */
-.sidebar {
-    width: 250px; /* Chiều rộng của sidebar dọc */
-    background-color: #f9f9f9; /* Màu nền cho sidebar */
-    padding: 1.5rem; /* Padding bên trong sidebar */
-    border-left: 1px solid #ddd; /* Đường viền bên trái */
-    margin-left: 2rem; /* Khoảng cách với nội dung chính */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ cho sidebar */
-}
-
-/* Sidebar List */
-.sidebar ul {
-    list-style: none; /* Bỏ dấu chấm của danh sách */
-    padding: 0; /* Bỏ padding mặc định */
-}
-
-.sidebar ul li {
-    margin-bottom: 1rem; /* Khoảng cách giữa các liên kết */
-}
-
-.sidebar a {
-    text-decoration: none; /* Bỏ gạch chân */
-    color: #333; /* Màu chữ cho các liên kết trong sidebar */
-    transition: color 0.3s; /* Thêm hiệu ứng chuyển đổi màu sắc */
-}
-
-.sidebar a:hover {
-    color: #ff6600; /* Màu chữ khi di chuột qua */
-}
-
-/* Columns */
-.wp-block-columns {
+/* Navigation styles */
+nav {
     display: flex;
-    gap: 1rem;
-    padding-right: var(--wp--preset--spacing--40);
-    padding-left: var(--wp--preset--spacing--40);
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.wp-block-column {
-    flex: 1;
+nav a {
+    padding: 10px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 0 10px;
+    position: relative;
+    transition: color 0.3s, transform 0.3s, background-color 0.3s;
 }
 
-.wp-block-column[style*="flex-basis:70%"] {
-    flex-basis: 70%;
+nav a:hover {
+    color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
-.wp-block-column[style*="flex-basis:30%"] {
-    flex-basis: 30%;
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('hero-image.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    border-radius: 10px; /* Thêm viền bo cho phần hero */
 }
 
-/* Image */
-.wp-block-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+.hero h2 {
+    font-size: 3rem;
+    animation: fadeIn 2s ease-in-out;
 }
 
-/* Paragraph */
-.wp-block-paragraph {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+/* Main content styles */
+main {
+    display: flex;
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto; /* Giữa trang */
+}
+
+/* Search Bar styles */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 1; /* Chiếm toàn bộ không gian */
+}
+
+.search-bar button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Blog post grid */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Post Card */
+.post-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-card h3 {
+    font-size: 1.8rem;
+    margin: 15px;
+    color: var(--main-color);
+}
+
+.post-card p {
+    padding: 0 15px 15px;
+    font-size: 1rem;
     color: #555;
 }
 
-.wp-block-paragraph strong {
-    color: #222;
+/* Comments section styles */
+#comments-section {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
 }
 
-/* Headings */
-h3.wp-block-heading {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: #ff6600; /* Tạo sự nổi bật với màu cam nhẹ */
-}
-
-/* Ordered List */
-ol.wp-block-list {
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-ol.wp-block-list li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-/* Comments Section */
-.wp-block-comments-query-loop {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-}
-
-.wp-block-comments-query-loop h2 {
+#comments-section h3 {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    color: var(--main-color);
 }
 
-.wp-block-group {
-    margin-bottom: 1rem;
-}
-
-.wp-block-comment {
-    margin-bottom: 1.5rem;
-}
-
-.wp-block-comment-author-name {
-    font-weight: bold;
-    color: #ff6600;
-}
-
-.wp-block-comment-date {
-    font-size: 0.875rem;
-    color: #777;
-}
-
-.wp-block-comment-content {
-    margin-top: 0.5rem;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Đặt sidebar dưới nội dung chính trên màn hình nhỏ */
-        margin: 0; /* Bỏ margin bên ngoài */
-    }
-
-    .sidebar {
-        width: 100%; /* Đặt chiều rộng của sidebar thành 100% */
-        margin-left: 0; /* Bỏ margin bên trái */
-        margin-top: 1rem; /* Thêm khoảng cách trên cho sidebar */
-    }
-
-    main.wp-block-group {
-        padding: 5vh 2rem; /* Thay đổi padding cho nội dung chính */
-    }
-
-    footer {
-        font-size: 0.9rem;
-    }
-}
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 100px; /* Căn chỉnh theo khoảng cách bạn muốn từ đầu trang */
-    left: 0;
-    width: 200px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 0 8px 8px 0;
-    z-index: 10; /* Đảm bảo sidebar nổi trên các thành phần khác */
-}
-.sidebar h3 {
-    font-size: 1.5rem;
-    color: #FF6F61;
-    margin-top: 0;
-}
-.sidebar a {
-    display: block;
+#comments-list li {
+    margin: 10px 0;
     padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+/* Share Buttons */
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.share-buttons a {
+    margin: 0 10px;
+    color: var(--main-color);
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+.share-buttons a:hover {
+    color: var(--hover-color);
+}
+
+/* Footer styles */
+footer {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* CSS cho sidebar */
+.sidebar {
+    height: 100%; /* Chiều cao chiếm toàn bộ màn hình */
+    width: 0; /* Ban đầu ẩn sidebar */
+    position: fixed; /* Cố định bên cạnh */
+    top: 0;
+    left: 0;
+    background-color: #333; /* Màu nền sidebar */
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+    transition: 0.3s; /* Hiệu ứng trượt */
+    padding-top: 60px; /* Khoảng trống phía trên */
+}
+
+/* Các liên kết trong sidebar */
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+
 .sidebar a:hover {
-/* Thêm khoảng cách cho phần chính để không bị che bởi sidebar */
-main {
-    margin-left: 220px; /* Đảm bảo main không bị che bởi sidebar */
+    background-color: #575757;
+}
+
+/* CSS cho biểu tượng hamburger */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    color: #333;
+    z-index: 1001; /* Hiện trên cùng */
 }
