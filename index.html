@@ -14,103 +14,22 @@
     <meta property="og:title" content="Chuyện Gen T - Hành Trình 4.0">
     <meta property="og:description" content="ChuyenGenT - Nơi học sinh THPT Tùng Thiện thể hiện bản thân và kết nối với cộng đồng Gen Z.">
     <meta property="og:image" content="url_to_image.jpg"> <!-- Thay thế 'url_to_image.jpg' bằng đường dẫn tới hình ảnh đại diện -->
+   </head>
+  
     <style>
-
-/* Sidebar dọc */
-.sidebar {
-    width: 0; /* Sidebar ẩn ban đầu */
-    position: fixed;
-    top: 60px; /* Đẩy xuống dưới thanh menu ngang */
-    left: 0;
-    height: 100%;
-    background-color: #2C3E50; /* Màu nền tối - xanh than */
-    padding-top: 20px;
-    transition: width 0.3s ease-out; /* Hiệu ứng mở/đóng */
-    color: #ECF0F1; /* Màu chữ sáng */
-}
-
-/* Khi mở Sidebar */
-.sidebar.open {
-    width: 250px; /* Mở rộng Sidebar */
-}
-
-/* Các mục trong Sidebar */
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 20px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #ECF0F1; /* Màu chữ sáng */
-    padding: 12px;
-    font-size: 18px;
-    display: block;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hiệu ứng hover cho các mục */
-.sidebar ul li a:hover {
-    background-color: #FF6F61; /* Màu nền khi hover (Cam đậm) */
-    color: #fff; /* Màu chữ trắng khi hover */
-}
-
-/* Biểu tượng mở Sidebar */
-#open-sidebar {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 35px; /* Kích thước biểu tượng */
-    cursor: pointer;
-    color: #FF6F61; /* Màu biểu tượng mở Sidebar */
-    transition: transform 0.3s ease;
-}
-
-#open-sidebar:hover {
-    transform: scale(1.2); /* Phóng to biểu tượng khi hover */
-}
-
-/* Biểu tượng đóng Sidebar */
-#close-sidebar {
-    font-size: 35px;
-    cursor: pointer;
-    color: #fff;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-/* Đảm bảo nội dung không bị che khuất */
-main {
-    margin-left: 0;
-    padding: 20px;
-    transition: margin-left 0.3s ease-out;
-}
-
-/* Khi Sidebar mở, dịch chuyển nội dung chính */
-body.sidebar-open main {
-    margin-left: 250px; /* Dịch chuyển nội dung khi sidebar mở */
-}
-
-/* Cơ bản cho body */
-body {
-    background: linear-gradient(135deg, #FF6F61, #FFC371);
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f1f1f1;
-}
+        /* Cơ bản cho body */
+        body {
+            background: linear-gradient(135deg, #FF6F61, #FFC371);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+        }
 
         /* Header */
         header {
@@ -361,21 +280,34 @@ body.dark-mode {
     </style>
 </head>
 <body>
- <!-- Biểu tượng hamburger để mở sidebar -->
-    <span id="open-sidebar" class="icon">&#9776;</span>
+<!-- Nút mở sidebar -->
+    <div id="open-sidebar" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> <!-- Biểu tượng 3 gạch -->
+    </div>
 
-    <!-- Sidebar dọc -->
-    <div id="mySidebar" class="sidebar">
-    <!-- Biểu tượng đóng sidebar -->
-    <span id="close-sidebar" class="icon">&times;</span>
-    <ul>
-        <li><a href="#">Cộng đồng</a></li>
-        <li><a href="#">Cập nhật thông tin</a></li>
-        <li><a href="#">Giới thiệu</a></li>
-        <li><a href="#">Liên hệ</a></li>
-    </ul>
-</div> <!-- Thẻ đóng đây nhé -->
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div id="close-sidebar" onclick="toggleSidebar()">
+            <i class="fas fa-times"></i> <!-- Biểu tượng đóng -->
+        </div>
+        <ul>
+            <li><a href="#section1">Mục 1</a></li>
+            <li><a href="#section2">Mục 2</a></li>
+            <li><a href="#section3">Mục 3</a></li>
+            <li><a href="#section4">Mục 4</a></li>
+        </ul>
+    </div>
 
+    <main>
+        <!-- Nội dung chính ở đây -->
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('sidebar-open');
+        }
     <header>
         <h1>Chuyện Gen T</h1>
         <nav>
@@ -459,25 +391,5 @@ body.dark-mode {
             }
         });
     </script>
-     <script>
-        // Lấy các phần tử
-        const openSidebarBtn = document.getElementById('open-sidebar');
-        const closeSidebarBtn = document.getElementById('close-sidebar');
-        const sidebar = document.getElementById('mySidebar');
-        const body = document.body;
-
-        // Mở Sidebar
-        openSidebarBtn.onclick = function() {
-            sidebar.classList.add('open');  // Thêm lớp 'open' để mở Sidebar
-            body.classList.add('sidebar-open');  // Dịch chuyển nội dung chính
-        };
-
-        // Đóng Sidebar
-        closeSidebarBtn.onclick = function() {
-            sidebar.classList.remove('open');  // Loại bỏ lớp 'open' để đóng Sidebar
-            body.classList.remove('sidebar-open');  // Trở lại vị trí ban đầu cho nội dung
-        };
-    </script>
-     
 </body>
 </html>
