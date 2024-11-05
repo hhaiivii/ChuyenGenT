@@ -1,136 +1,106 @@
-/* Global Styles */
-body {
-    font-family: 'Inter', sans-serif; /* Một font hiện đại, phù hợp với Gen Z */
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyện Gen T</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* CSS giữ nguyên như trước */
+    </style>
+</head>
+<body>
 
-/* Header */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-    position: relative; /* Để đảm bảo header không bị chồng lên khi cuộn */
-    z-index: 10; /* Đưa header lên trên các phần khác */
-}
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="#about">Giới thiệu</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Liên hệ</a>
+    </div>
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    padding: 2rem 1rem;
-    transition: left 0.3s ease; /* Thêm hiệu ứng chuyển động khi mở/đóng sidebar */
-    z-index: 5; /* Đảm bảo sidebar không bị che khuất */
-}
+    <!-- Nút mở/đóng sidebar -->
+    <button class="toggle-sidebar" id="toggle-sidebar"><i class="fas fa-bars"></i></button>
 
-/* Sidebar links */
-.sidebar a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
+    <!-- Header -->
+    <header>
+        <h1>Chuyện Gen T</h1>
+        <nav>
+            <a href="#about">Giới thiệu</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+        <button id="theme-toggle">Chế độ tối</button>
+    </header>
 
-.sidebar a:hover {
-    background-color: #ff6600; /* Màu nền khi di chuột */
-    color: #fff; /* Màu chữ khi di chuột */
-}
+    <!-- Nội dung chính -->
+    <main>
+        <!-- Phần Giới thiệu -->
+        <section id="about">
+            <div class="hero">
+                <h2>Chào mừng đến với Chuyện Gen T!</h2>
+                <p>Nơi học sinh THPT Tùng Thiện có thể thể hiện bản thân và chia sẻ câu chuyện.</p>
+            </div>
+        </section>
 
-/* Main content area */
-main {
-    margin-left: 260px; /* Để tránh bị che khuất bởi sidebar */
-    padding-top: 10vh;
-    padding-bottom: 8vh;
-    background-color: #fff;
-    transition: margin-left 0.3s ease; /* Thêm hiệu ứng chuyển động cho nội dung chính */
-}
+        <!-- Thanh tìm kiếm -->
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm bài viết...">
+            <button>Tìm</button>
+        </div>
 
-/* Columns */
-.wp-block-columns {
-    display: flex;
-    gap: 1rem;
-    padding: 0 1rem; /* Đảm bảo khoảng cách bên trong */
-    align-items: flex-start;
-}
+        <!-- Các bài viết -->
+        <section id="blog">
+            <div class="blog-posts">
+                <div class="post-card">
+                    <img src="example1.jpg" alt="Bài viết 1">
+                    <h3>Bài viết 1</h3>
+                    <p>Mô tả ngắn cho bài viết 1.</p>
+                </div>
+                <div class="post-card">
+                    <img src="example2.jpg" alt="Bài viết 2">
+                    <h3>Bài viết 2</h3>
+                    <p>Mô tả ngắn cho bài viết 2.</p>
+                </div>
+                <div class="post-card">
+                    <img src="example3.jpg" alt="Bài viết 3">
+                    <h3>Bài viết 3</h3>
+                    <p>Mô tả ngắn cho bài viết 3.</p>
+                </div>
+                <!-- Thêm nhiều bài viết nếu cần -->
+            </div>
+        </section>
 
-.wp-block-column {
-    flex: 1;
-}
+        <!-- Phần bình luận -->
+        <section id="contact">
+            <div id="comments-section">
+                <h3>Bình luận</h3>
+                <div class="comment">
+                    <strong>Người dùng 1:</strong> Bài viết rất hay!
+                </div>
+                <div class="comment">
+                    <strong>Người dùng 2:</strong> Cảm ơn bạn đã chia sẻ.
+                </div>
+                <!-- Thêm nhiều bình luận nếu cần -->
+            </div>
+        </section>
+    </main>
 
-/* Image */
-.wp-block-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-}
+    <script>
+        // JavaScript cho sidebar
+        const toggleSidebarButton = document.getElementById('toggle-sidebar');
+        const sidebar = document.getElementById('sidebar');
 
-/* Paragraph */
-.wp-block-paragraph {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: #555;
-}
+        toggleSidebarButton.addEventListener('click', () => {
+            sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
+        });
 
-.wp-block-paragraph strong {
-    color: #222;
-}
-
-/* Headings */
-h3 {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: #ff6600; /* Tạo sự nổi bật với màu cam nhẹ */
-}
-
-/* Comments Section */
-.wp-block-comments-query-loop {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-}
-
-.wp-block-comment-author-name {
-    font-weight: bold;
-    color: #ff6600;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .wp-block-columns {
-        flex-direction: column;
-    }
-
-    .wp-block-column {
-        flex-basis: 100%;
-    }
-
-    main {
-        margin-left: 0; /* Đặt lại margin cho các thiết bị di động */
-        padding: 5vh 2rem;
-    }
-
-    footer {
-        font-size: 0.9rem;
-    }
-}
+        // JavaScript cho chế độ tối
+        const themeToggleButton = document.getElementById('theme-toggle');
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chế độ sáng' : 'Chế độ tối';
+        });
+    </script>
+</body>
+</html>
