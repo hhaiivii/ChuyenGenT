@@ -317,17 +317,6 @@ footer p {
     transition: 0.3s;
 }
 
-/* Biểu tượng đóng Sidebar */
-.icon {
-    font-size: 36px;
-    color: white;
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    cursor: pointer;
-}
-
-/* Khi Sidebar mở, nội dung chính bị dịch chuyển sang phải */
-body.sidebar-open {
-    margin-left: 250px;  /* Điều chỉnh theo kích thước sidebar */
+.sidebar a:hover {
+    color: #f1f1f1;
 }
