@@ -285,6 +285,8 @@
     </header>
 
     <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
+     <script src="scripts.js"></script>
+
          <aside class="sidebar">
         <h3>Danh Mục</h3>
         <ul>
@@ -295,6 +297,7 @@
             <li><a href="category5.html">Danh Mục 5</a></li>
         </ul>
     </aside>
+<script src="scripts.js"></script>
 
     <main>
         <section class="hero">
@@ -342,31 +345,32 @@
     </main>
 
     <script>
-        const themeToggleButton = document.getElementById('theme-toggle');
-        themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
-        });
+const themeToggleButton = document.getElementById('theme-toggle');
+themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
+});
 
-        document.querySelector('.submit-button').addEventListener('click', () => {
-            const name = document.querySelector('input').value;
-            const comment = document.querySelector('textarea').value;
-            if (name && comment) {
-                const commentList = document.getElementById('comments-list');
-                const li = document.createElement('li');
-                li.innerHTML = <strong>${name}</strong><span class="comment-meta"> vừa bình luận</span><p>${comment}</p><div class="comment-actions"><button>Xóa</button></div>;
-                commentList.appendChild(li);
-                document.querySelector('input').value = '';
-                document.querySelector('textarea').value = '';
-            }
-        });
+document.querySelector('.submit-button').addEventListener('click', () => {
+    const name = document.querySelector('input').value;
+    const comment = document.querySelector('textarea').value;
+    if (name && comment) {
+        const commentList = document.getElementById('comments-list');
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${name}</strong><span class="comment-meta"> vừa bình luận</span><p>${comment}</p><div class="comment-actions"><button>Xóa</button></div>`;
+        commentList.appendChild(li);
+        document.querySelector('input').value = '';
+        document.querySelector('textarea').value = '';
+    }
+});
 
-        // Thêm sự kiện cho nút xóa bình luận
-        document.getElementById('comments-list').addEventListener('click', (event) => {
-            if (event.target.tagName === 'BUTTON') {
-                event.target.parentElement.parentElement.remove();
-            }
-        });
+// Thêm sự kiện cho nút xóa bình luận
+document.getElementById('comments-list').addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        event.target.parentElement.parentElement.remove();
+    }
+});
+
     </script>
 </body>
 </html>
