@@ -7,3 +7,11 @@ document.getElementById('open-sidebar').addEventListener('click', function() {
 document.getElementById('close-sidebar').addEventListener('click', function() {
     document.getElementById('sidebar-vertical').style.width = '0';
 });
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0"; // Đóng sidebar
+    } else {
+        sidebar.style.width = "250px"; // Mở sidebar
+    }
+}
