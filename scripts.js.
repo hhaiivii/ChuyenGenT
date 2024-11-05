@@ -1,35 +1,30 @@
-// Mở sidebar
+// Mở sidebar khi click vào nút mở
 document.getElementById('open-sidebar').addEventListener('click', function() {
     document.getElementById('sidebar-vertical').style.width = '250px';
 });
 
-// Đóng sidebar
+// Đóng sidebar khi click vào nút đóng
 document.getElementById('close-sidebar').addEventListener('click', function() {
     document.getElementById('sidebar-vertical').style.width = '0';
 });
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "250px") {
-        sidebar.style.width = "0"; // Đóng sidebar
-    } else {
-        sidebar.style.width = "250px"; // Mở sidebar
-    }
-}
-<script>
-    const sidebar = document.querySelector('.sidebar');
-    const toggleSidebarButton = document.createElement('button');
-    toggleSidebarButton.textContent = '☰';
-    toggleSidebarButton.style.position = 'fixed';
-    toggleSidebarButton.style.top = '20px';
-    toggleSidebarButton.style.left = '20px';
-    toggleSidebarButton.style.backgroundColor = '#FF6F61';
-    toggleSidebarButton.style.color = 'white';
-    toggleSidebarButton.style.border = 'none';
-    toggleSidebarButton.style.padding = '10px';
-    toggleSidebarButton.style.borderRadius = '5px';
-    document.body.appendChild(toggleSidebarButton);
 
-    toggleSidebarButton.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
-</script>
+// Toggle sidebar với nút ☰
+const sidebar = document.querySelector('.sidebar');
+const toggleSidebarButton = document.createElement('button');
+
+// Thêm nút ☰ vào trang
+toggleSidebarButton.textContent = '☰';
+toggleSidebarButton.style.position = 'fixed';
+toggleSidebarButton.style.top = '20px';
+toggleSidebarButton.style.left = '20px';
+toggleSidebarButton.style.backgroundColor = '#FF6F61';
+toggleSidebarButton.style.color = 'white';
+toggleSidebarButton.style.border = 'none';
+toggleSidebarButton.style.padding = '10px';
+toggleSidebarButton.style.borderRadius = '5px';
+document.body.appendChild(toggleSidebarButton);
+
+// Toggle lớp 'open' để mở/đóng sidebar
+toggleSidebarButton.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+});
