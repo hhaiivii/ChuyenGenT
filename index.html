@@ -1,400 +1,219 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta name="description" content="ChuyenGenT - Nơi học sinh THPT Tùng Thiện thể hiện bản thân và kết nối với cộng đồng Gen Z.">
-    <meta name="keywords" content="Gen T, ChuyenGenT, THPT Tùng Thiện, Blog, Web">
-    <meta name="author" content="Hoang Ha">
-    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuyện Gen T - Hành Trình 4.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta property="og:title" content="Chuyện Gen T - Hành Trình 4.0">
-    <meta property="og:description" content="ChuyenGenT - Nơi học sinh THPT Tùng Thiện thể hiện bản thân và kết nối với cộng đồng Gen Z.">
-    <meta property="og:image" content="url_to_image.jpg"> <!-- Thay thế 'url_to_image.jpg' bằng đường dẫn tới hình ảnh đại diện -->
-   </head>
-  
+    </head>
+<body>
+    <header>
+        <h1>Giới Thiệu về Chuyện Gen T</h1>
+        <nav>
+            <a href="index.html">Quay lại Trang chủ</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about-section">
+            <h2>Về Chuyện Gen T</h2>
+            <p>Blog của chúng tôi là nơi chia sẻ những câu chuyện và trải nghiệm của thế hệ Gen học sinh trường THPT TÙNG THIỆN trong thời đại 4.0.</p>
+            <h3>Mục Tiêu</h3>
+            <p>Tạo ra một không gian để các bạn trẻ giao lưu và chia sẻ ý kiến về công nghệ, văn hóa và xã hội.</p>
+            <h3>Các Chủ Đề Nổi Bật</h3>
+            <ul>
+                <li>Công nghệ và giáo dục</li>
+                <li>Văn hóa Gen Z</li>
+                <li>Các vấn đề xã hội hiện tại</li>
+                <li>Trải nghiệm cá nhân</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>
     <style>
-        /* Cơ bản cho body */
         body {
-            background: linear-gradient(135deg, #FF6F61, #FFC371);
             font-family: 'Poppins', sans-serif;
-            color: #333;
+            background-color: #f9f9f9; /* Nền sáng cho sự tươi mới */
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #f1f1f1;
+            color: #333;
         }
 
-        /* Header */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background-color: #FF6F61; /* Màu nền header nổi bật */
+            color: white;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
+
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            color: #FF6F61;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-size: 36px;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
+
+        header nav {
             margin-top: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        nav a {
-            padding: 10px 20px;
-            color: #333;
+
+        header nav a {
+            color: white;
+            margin: 0 15px;
             text-decoration: none;
-            font-size: 18px;
-            margin: 0 10px;
-            transition: color 0.3s, transform 0.3s;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #FFD700; /* Màu vàng sáng khi hover */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #about-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #FF6F61; /* Màu nổi bật cho tiêu đề */
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            margin: 15px 0 5px;
+        }
+
+        .section-description {
+            margin-bottom: 15px;
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topic-item {
+            background-color: #FFE4B5;
+            margin: 5px 0;
+            padding: 10px;
             border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .topic-item:hover {
+            background-color: #FFD700; /* Màu vàng sáng khi hover */
+        }
+
+        .join-us {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .join-us input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .join-us button {
+            padding: 10px 20px;
+            background-color: #FF6F61; /* Nút màu nổi bật */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .join-us button:hover {
+            background-color: #FFD700; /* Màu vàng sáng khi hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #FF6F61; /* Nền footer nổi bật */
+            color: white;
             position: relative;
-        }
-        nav a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #FF6F61;
-            transition: width 0.3s;
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        nav a:hover {
-            color: #FF6F61;
-            transform: scale(1.1);
-            background: rgba(255, 111, 97, 0.2);
-        }
-        nav a:hover::after {
+            bottom: 0;
             width: 100%;
         }
 
-        /* Nút chuyển đổi chế độ tối */
-        button#theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #FF6F61;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .social-links a {
             color: white;
-            transition: background-color 0.3s;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        button#theme-toggle:hover {
-            background-color: #FFC371;
-            transform: scale(1.05);
-        }
-
-        /* Nội dung chính */
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Phần giới thiệu */
-        .hero {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .hero h2 {
-            transition: color 0.3s;
-        }
-        .hero h2:hover {
-            color: #FF6F61;
-        }
-
-        /* Tìm kiếm */
-        .search-bar {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-        }
-        .search-bar input {
-            width: 80%;
-            padding: 10px;
-            border-radius: 5px 0 0 5px;
-            border: 1px solid #ddd;
-        }
-        .search-bar button {
-            padding: 10px;
-            border-radius: 0 5px 5px 0;
-            border: none;
-            background-color: #FF6F61;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .search-bar button:hover {
-            background-color: #FFC371;
-        }
-
-        /* Các bài viết blog */
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .post-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            transition: transform 0.3s;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .post-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .post-card img {
-            max-width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-        .post-card img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Phần bình luận */
-        #comments-section {
-            margin-top: 30px;
-            padding: 15px;
-            border-top: 1px solid #ddd;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        #comments-section h3,
-        #comments-section h4 {
-            transition: color 0.3s;
-        }
-        #comments-section h3:hover,
-        #comments-section h4:hover {
-            color: #FF6F61;
-        }
-        #comments-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        #comments-list li {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
-            transition: background-color 0.3s;
-        }
-        #comments-list li:hover {
-            background-color: #f9f9f9;
-        }
-        .comment-meta {
-            font-size: 12px;
-            color: #777;
-        }
-        .comment-actions {
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-        }
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #FF6F61;
-            cursor: pointer;
-            margin-left: 10px;
-            font-size: 14px;
-        }
-        input, textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s;
-        }
-        input:focus, textarea:focus {
-            border-color: #FF6F61;
-            outline: none;
-        }
-        button.submit-button {
-            background-color: #FF6F61;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        button.submit-button:hover {
-            background-color: #FFC371;
-        }
-
-        /* Chia sẻ mạng xã hội */
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .share-buttons a {
             margin: 0 10px;
-            text-decoration: none;
             font-size: 24px;
-            color: #333;
             transition: color 0.3s;
         }
-        .share-buttons a:hover {
-            color: #FF6F61;
+
+        .social-links a:hover {
+            color: #FFD700; /* Màu vàng sáng khi hover */
         }
     </style>
 </head>
 <body>
-    
-    <!-- Thêm biểu tượng hamburger -->
-    <div id="hamburger-icon" class="hamburger">
-        <i class="fas fa-bars"></i> <!-- Biểu tượng ba gạch -->
-    </div>
-<!-- Nút mở sidebar -->
-    <div id="open-sidebar" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i> <!-- Biểu tượng 3 gạch -->
-    </div>
-
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div id="close-sidebar" onclick="toggleSidebar()">
-            <i class="fas fa-times"></i> <!-- Biểu tượng đóng -->
-        </div>
-        <ul>
-            <li><a href="#section1">Mục 1</a></li>
-            <li><a href="#section2">Mục 2</a></li>
-            <li><a href="#section3">Mục 3</a></li>
-            <li><a href="#section4">Mục 4</a></li>
-        </ul>
-    </div>
-
-    <main>
-        <!-- Nội dung chính ở đây -->
-    </main>
-
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-            document.body.classList.toggle('sidebar-open');
-        }
     <header>
-        <h1>Chuyện Gen T</h1>
+        <h1>Chuyện Gen T - Hành Trình 4.0</h1>
+        <a href="index.html" class="back-button">Quay lại Trang chủ</a> <!-- Nút quay lại -->
         <nav>
-            <a href="index.html">Trang Chủ</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">Giới thiệu</a>
+            <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+            <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> Giới thiệu</a>
         </nav>
     </header>
 
-    <button id="theme-toggle">Chuyển sang Chế độ Tối</button>
-
     <main>
-        <section class="hero">
-            <h2>Chào Mừng Đến Với Chuyện Gen T</h2>
-            <p>Khám phá hành trình của chúng ta trong thời đại 4.0.</p>
-        </section>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm bài viết...">
-            <button>🔍</button>
-        </div>
-
-        <section class="blog-posts">
-            <div class="post-card">
-                <img src="post-image-1.jpg" alt="Post Image 1">
-                <h3>Bài Viết 1</h3>
-                <p>Mô tả ngắn về bài viết 1.</p>
-            </div>
-            <div class="post-card">
-                <img src="post-image-2.jpg" alt="Post Image 2">
-                <h3>Bài Viết 2</h3>
-                <p>Mô tả ngắn về bài viết 2.</p>
-            </div>
-            <!-- Thêm bài viết khác tại đây -->
-        </section>
-
-        <section id="comments-section">
-            <h3>Bình luận</h3>
-            <div>
-                <input type="text" placeholder="Tên của bạn">
-                <textarea placeholder="Nội dung bình luận"></textarea>
-                <button class="submit-button">Gửi Bình Luận</button>
-            </div>
-            <ul id="comments-list">
-                <!-- Các bình luận sẽ được thêm vào đây -->
+        <section id="about-section">
+            <h2 class="section-title">Giới Thiệu về Chuyện Gen T</h2>
+            <p class="section-description">Blog của chúng tôi là nơi chia sẻ những câu chuyện và trải nghiệm của thế hệ Gen học sinh trường THPT TÙNG THIỆN trong thời đại 4.0.</p>
+            
+            <h3 class="section-subtitle">Mục Tiêu của Blog</h3>
+            <p class="section-description">Tạo ra một không gian để các bạn trẻ giao lưu và chia sẻ ý kiến về công nghệ, văn hóa và xã hội.</p>
+            
+            <h3 class="section-subtitle">Các Chủ Đề Nổi Bật</h3>
+            <ul class="topic-list">
+                <li class="topic-item">Công nghệ và giáo dục</li>
+                <li class="topic-item">Văn hóa Gen Z</li>
+                <li class="topic-item">Các vấn đề xã hội hiện tại</li>
+                <li class="topic-item">Trải nghiệm cá nhân</li>
             </ul>
-        </section>
+            
+            <h3 class="section-subtitle">Tham Gia Cùng Chúng Tôi</h3>
+            <p class="section-description">Hãy để lại bình luận hoặc gửi ý tưởng của bạn qua email!</p>
 
-        <div class="share-buttons">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <!-- Thêm nút chia sẻ khác tại đây -->
-        </div>
+            <div class="join-us">
+                <input type="text" placeholder="Email của bạn..." aria-label="Email" />
+                <button>Đăng ký</button>
+            </div>
+        </section>
     </main>
 
-    <script>
-        const themeToggleButton = document.getElementById('theme-toggle');
-        themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Chuyển sang Chế độ Sáng' : 'Chuyển sang Chế độ Tối';
-        });
-
-        document.querySelector('.submit-button').addEventListener('click', () => {
-            const name = document.querySelector('input').value;
-            const comment = document.querySelector('textarea').value;
-            if (name && comment) {
-                const commentList = document.getElementById('comments-list');
-                const li = document.createElement('li');
-                li.innerHTML = <strong>${name}</strong><span class="comment-meta"> vừa bình luận</span><p>${comment}</p><div class="comment-actions"><button>Xóa</button></div>;
-                commentList.appendChild(li);
-                document.querySelector('input').value = '';
-                document.querySelector('textarea').value = '';
-            }
-        });
-
-        // Thêm sự kiện cho nút xóa bình luận
-        document.getElementById('comments-list').addEventListener('click', (event) => {
-            if (event.target.tagName === 'BUTTON') {
-                event.target.parentElement.parentElement.remove();
-            }
-        });
-    </script>
+    <footer>
+        <p>&copy; 2024 Chuyện Gen T. Tất cả quyền được bảo lưu.</p>
+        <div class="social-links">
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-twitter-square"></a>
+            <a href="#" class="fab fa-instagram-square"></a>
+            <a href="#" class="fab fa-youtube-square"></a>
+        </div>
+    </footer>
 </body>
 </html>
